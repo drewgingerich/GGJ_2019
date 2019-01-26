@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class NestItem : MonoBehaviour
 {
+
+    const string mixerVolumeParameterName = "volume";
+
     [SerializeField]
     LandscapeConstants LandscapeConstants;
 
@@ -11,6 +15,9 @@ public class NestItem : MonoBehaviour
 
     [System.NonSerialized]
     public bool isHeld;
+
+    [SerializeField]
+    AudioMixerGroup mixerGroup;
 
     public static List<NestItem> ActiveItems;
 
@@ -21,16 +28,9 @@ public class NestItem : MonoBehaviour
         ActiveItems.Add(this);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        float distance = (transform.position - BirdController.activeController.transform.position).magnitude;
+        // Adjust volume based on distance.
     }
 
     public IEnumerator Fall () {

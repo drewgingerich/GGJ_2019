@@ -10,6 +10,9 @@ public class BirdController : MonoBehaviour {
 
 	float speed = 1;
 
+	[System.NonSerialized]
+	public static BirdController activeController;
+
 	[SerializeField]
 	float airSpeed = 5;
 
@@ -28,8 +31,8 @@ public class BirdController : MonoBehaviour {
 	[SerializeField]
 	float minPickupDistance = 0.2f;
 
-	void Start () {
-		
+	void Awake() {
+		activeController = this;
 	}
 
 	public void Move(Vector2 direction) {
@@ -48,7 +51,6 @@ public class BirdController : MonoBehaviour {
 		}
 
 		transform.position = newPosition;
-
 	}
 
 	//pick up
