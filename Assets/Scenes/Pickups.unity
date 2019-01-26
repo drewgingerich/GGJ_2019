@@ -112,6 +112,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &56149577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5335194612898162430, guid: b9e73bd15b0d4684e8303c382e088c87,
+    type: 3}
+  m_PrefabInstance: {fileID: 3354040876266494181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &56149578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56149577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43d43742bef04e9e94060933b569636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786565928
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +141,6 @@ GameObject:
   - component: {fileID: 786565931}
   - component: {fileID: 786565930}
   - component: {fileID: 786565929}
-  - component: {fileID: 786565932}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -195,20 +212,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &786565932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786565928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e4698f9bed9ee5489c768d179dbc17b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LandscapeConstants: {fileID: 0}
-  mixerGroup: {fileID: 0}
 --- !u!1001 &3354040876266494181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -288,11 +291,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
-      propertyPath: beak
-      value: 
-      objectReference: {fileID: 380281399941160473}
-    - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
-        type: 3}
       propertyPath: NestItemAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -340,6 +338,21 @@ PrefabInstance:
         type: 3}
       propertyPath: onNestItemAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: NestItem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581001449579211886, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581001449579211886, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581001449579211886, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e73bd15b0d4684e8303c382e088c87, type: 3}

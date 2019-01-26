@@ -6,22 +6,17 @@ using UnityEngine;
 
 public class BirdController : MonoBehaviour {
 
-	bool animating;
-	bool grounded;
+	bool animating = false;
+	bool grounded = false;
 	float speed = 1;
 	NestItem chosenBit;
 
 	// Animator parameter string keys
 	const string stoppedBool = "Stopped";
 	const string groundedBool = "Grounded";
-	const string leftTrigger = "TurnLeft";
-	const string rightTrigger = "TurnRight";
-	const string landTrigger = "Land";
-	const float landAnimationTIme = 0.5f;
-	const string takeoffTrigger = "Takeoff";
-	const float takeoffAnimationTime = 0.5f;
 	const string pickUpTrigger = "PickUp";
 	const float pickUpAnimationTime = 0.2f;
+
 
 	[System.NonSerialized]
 	public static BirdController activeController;
@@ -48,34 +43,36 @@ public class BirdController : MonoBehaviour {
 		activeController = this;
 	}
 
-	public void Move(Vector2 direction) {
+
+	public void InputMove(Vector2 direction) {
 		if (animating) {
 			return;
 		}
+		Move(direction);
+	}
 
-		if (direction == Vector2.zero) {
+	public void Move(Vector2 direction) {
+		if (direction.x == 0) {
 			anim.SetBool(stoppedBool, true);
-			return;
+			if (direction.y == 0) {
+				return;
+			}
 		} else {
 			anim.SetBool(stoppedBool, false);
 		}
 
 		Vector3 move = (Vector3)direction * Time.deltaTime;
-
 		Vector3 newPosition = transform.position + move * speed;
+
 		if (newPosition.y <= LandscapeConstants.GroundThreshhold) {
-			if (!grounded) {
-				StartCoroutine(LandRoutine());
-			}
-			grounded = true;
 			speed = groundSpeed;
+			grounded = true;
+			anim.SetBool(groundedBool, true);
 			newPosition.y = LandscapeConstants.GroundThreshhold;
 		} else {
 			speed = airSpeed;
-			if (grounded) {
-				StartCoroutine(TakeoffRoutine());
-			}
 			grounded = false;
+			anim.SetBool(groundedBool, false);
 		}
 
 		transform.position = newPosition;
@@ -105,20 +102,6 @@ public class BirdController : MonoBehaviour {
 		chosenBit.isHeld = true;
 		chosenBit.transform.SetParent(transform);
 		chosenBit.transform.localPosition = beak.localPosition;
-	}
-
-	IEnumerator LandRoutine() {
-		animating = true;
-		anim.SetTrigger(landTrigger);
-		yield return new WaitForSeconds(landAnimationTIme);
-		animating = false;
-	}
-
-	IEnumerator TakeoffRoutine() {
-		animating = true;
-		anim.SetTrigger(takeoffTrigger);
-		yield return new WaitForSeconds(takeoffAnimationTime);
-		animating = false;	
 	}
 
 	IEnumerator PickUpRoutine(NestItem cruft) {
