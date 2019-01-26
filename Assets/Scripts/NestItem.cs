@@ -49,11 +49,12 @@ public class NestItem : MonoBehaviour
         }
     }
 
-    void OnDestroy() {
-        ActiveItems.Remove(this);
     private bool IsAtNest(){
         return transform.position.y >= LandscapeConstants.NestPosition.y && Vector3.Distance(transform.position, LandscapeConstants.NestPosition) <  0.5;
+    }
 
+    void OnDestroy() {
+        ActiveItems.Remove(this);
     }
 }
 
