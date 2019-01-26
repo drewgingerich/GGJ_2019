@@ -40,4 +40,8 @@ public class NestItem : MonoBehaviour
             yield return null;
         }
     }
+
+    void OnDestroy() {
+        ActiveItems.Remove(this);
+    }
 }
