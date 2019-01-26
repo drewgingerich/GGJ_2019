@@ -208,12 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LandscapeConstants: {fileID: 0}
---- !u!4 &380281399941160473 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 380281399941160473, guid: b9e73bd15b0d4684e8303c382e088c87,
-    type: 3}
-  m_PrefabInstance: {fileID: 3354040876266494181}
-  m_PrefabAsset: {fileID: 0}
+  mixerGroup: {fileID: 0}
 --- !u!1001 &3354040876266494181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,17 +224,17 @@ PrefabInstance:
     - target: {fileID: 3354040876254377784, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2344189
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3354040876254377784, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01474862
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3354040876254377784, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.027638998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3354040876254377784, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
@@ -281,11 +276,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
-        type: 3}
-      propertyPath: beak
-      value: 
-      objectReference: {fileID: 380281399941160473}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e73bd15b0d4684e8303c382e088c87, type: 3}
 --- !u!1 &4256835723470674904 stripped

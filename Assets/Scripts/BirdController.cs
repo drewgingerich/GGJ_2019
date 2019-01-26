@@ -6,9 +6,22 @@ using UnityEngine;
 
 public class BirdController : MonoBehaviour {
 
-	private bool grounded;
-
+	bool animating;
+	bool grounded;
 	float speed = 1;
+	NestItem chosenBit;
+
+	// Animator parameter string keys
+	const string stoppedBool = "Stopped";
+	const string groundedBool = "Grounded";
+	const string leftTrigger = "TurnLeft";
+	const string rightTrigger = "TurnRight";
+	const string landTrigger = "Land";
+	const float landAnimationTIme = 0.5f;
+	const string takeoffTrigger = "Takeoff";
+	const float takeoffAnimationTime = 0.5f;
+	const string pickUpTrigger = "PickUp";
+	const float pickUpAnimationTime = 0.2f;
 
 	[System.NonSerialized]
 	public static BirdController activeController;
@@ -23,7 +36,7 @@ public class BirdController : MonoBehaviour {
 	Transform beak;
 
 	[SerializeField]
-	NestItem chosenBit;
+	Animator anim;
 
 	[SerializeField]
 	LandscapeConstants LandscapeConstants;
@@ -36,24 +49,38 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Move(Vector2 direction) {
-		Vector3 move = (Vector3)direction * Time.deltaTime;
+		if (animating) {
+			return;
+		}
 
-		//move!
+		if (direction == Vector2.zero) {
+			anim.SetBool(stoppedBool, true);
+			return;
+		} else {
+			anim.SetBool(stoppedBool, false);
+		}
+
+		Vector3 move = (Vector3)direction * Time.deltaTime;
 
 		Vector3 newPosition = transform.position + move * speed;
 		if (newPosition.y <= LandscapeConstants.GroundThreshhold) {
+			if (!grounded) {
+				StartCoroutine(LandRoutine());
+			}
 			grounded = true;
 			speed = groundSpeed;
 			newPosition.y = LandscapeConstants.GroundThreshhold;
 		} else {
 			speed = airSpeed;
+			if (grounded) {
+				StartCoroutine(TakeoffRoutine());
+			}
 			grounded = false;
 		}
 
 		transform.position = newPosition;
 	}
 
-	//pick up
 	public void Interact() {
 		if (null != chosenBit) {
 			Drop();
@@ -61,7 +88,7 @@ public class BirdController : MonoBehaviour {
 			var distance = NestItem.ActiveItems.Min(item => Math.Abs(transform.position.x - item.transform.position.x));
 			if (distance <= minPickupDistance) {
 				var cruft = NestItem.ActiveItems.FirstOrDefault(item => Math.Abs(transform.position.x - item.transform.position.x) == distance);
-				Pickup(cruft);
+				StartCoroutine(PickUpRoutine(cruft));
 			}
 		}
 	}
@@ -79,4 +106,29 @@ public class BirdController : MonoBehaviour {
 		chosenBit.transform.SetParent(transform);
 		chosenBit.transform.localPosition = beak.localPosition;
 	}
+
+	IEnumerator LandRoutine() {
+		animating = true;
+		anim.SetTrigger(landTrigger);
+		yield return new WaitForSeconds(landAnimationTIme);
+		animating = false;
+	}
+
+	IEnumerator TakeoffRoutine() {
+		animating = true;
+		anim.SetTrigger(takeoffTrigger);
+		yield return new WaitForSeconds(takeoffAnimationTime);
+		animating = false;	
+	}
+
+	IEnumerator PickUpRoutine(NestItem cruft) {
+		if (grounded) {
+			animating = true;
+			anim.SetTrigger(pickUpTrigger);
+			yield return new WaitForSeconds(pickUpAnimationTime);
+			animating = false;
+		}
+		Pickup(cruft);
+	}
+
 }
