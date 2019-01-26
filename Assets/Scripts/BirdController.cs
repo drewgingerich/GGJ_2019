@@ -7,9 +7,25 @@ using UnityEngine.Events;
 
 public class BirdController : MonoBehaviour {
 
-	private bool grounded;
-
+	bool animating;
+	bool grounded;
 	float speed = 1;
+	NestItem chosenBit;
+
+	// Animator parameter string keys
+	const string stoppedBool = "Stopped";
+	const string groundedBool = "Grounded";
+	const string leftTrigger = "TurnLeft";
+	const string rightTrigger = "TurnRight";
+	const string landTrigger = "Land";
+	const float landAnimationTIme = 0.5f;
+	const string takeoffTrigger = "Takeoff";
+	const float takeoffAnimationTime = 0.5f;
+	const string pickUpTrigger = "PickUp";
+	const float pickUpAnimationTime = 0.2f;
+
+	[System.NonSerialized]
+	public static BirdController activeController;
 
 	[SerializeField]
 	float airSpeed = 5;
@@ -21,40 +37,61 @@ public class BirdController : MonoBehaviour {
 	Transform beak;
 
 	[SerializeField]
-	NestItem chosenBit;
+	Animator anim;
 
 	[SerializeField]
 	LandscapeConstants LandscapeConstants;
 
 	[SerializeField]
 	float minPickupDistance = 0.2f;
-
 	[SerializeField]
 	UnityEvent onUseSkyCam = new UnityEvent();
 
 	[SerializeField]
 	UnityEvent onUseGroundCam = new UnityEvent();
 
+
+
+	void Awake() {
+		activeController = this;
+	}
+
+	
 	void Start () {
 		onUseGroundCam.Invoke();
-		
 	}
 
 	public void Move(Vector2 direction) {
-		Vector3 move = (Vector3)direction * Time.deltaTime;
+		if (animating) {
+			return;
+		}
 
-		//move!
+		if (direction == Vector2.zero) {
+			anim.SetBool(stoppedBool, true);
+			return;
+		} else {
+			anim.SetBool(stoppedBool, false);
+		}
+
+		Vector3 move = (Vector3)direction * Time.deltaTime;
 
 		Vector3 newPosition = transform.position + move * speed;
 		if (newPosition.y <= LandscapeConstants.GroundThreshhold) {
+			if (!grounded) {
+				StartCoroutine(LandRoutine());
+			}
 			grounded = true;
 			speed = groundSpeed;
 			newPosition.y = LandscapeConstants.GroundThreshhold;
 		} else {
 			speed = airSpeed;
+			if (grounded) {
+				StartCoroutine(TakeoffRoutine());
+			}
 			grounded = false;
 		}
-		
+
+		//switch camera and clamp positions if necessary
 		if (transform.position.y < LandscapeConstants.SkyThreshhold && newPosition.y > LandscapeConstants.SkyThreshhold) {
 			newPosition.x = LandscapeConstants.ResetXForSkyMode;
 			onUseSkyCam.Invoke();
@@ -69,10 +106,8 @@ public class BirdController : MonoBehaviour {
 		}
 
 		transform.position = newPosition;
-
 	}
 
-	//pick up
 	public void Interact() {
 		if (null != chosenBit) {
 			Drop();
@@ -98,4 +133,29 @@ public class BirdController : MonoBehaviour {
 		chosenBit.transform.SetParent(transform);
 		chosenBit.transform.localPosition = beak.localPosition;
 	}
+
+	IEnumerator LandRoutine() {
+		animating = true;
+		anim.SetTrigger(landTrigger);
+		yield return new WaitForSeconds(landAnimationTIme);
+		animating = false;
+	}
+
+	IEnumerator TakeoffRoutine() {
+		animating = true;
+		anim.SetTrigger(takeoffTrigger);
+		yield return new WaitForSeconds(takeoffAnimationTime);
+		animating = false;	
+	}
+
+	IEnumerator PickUpRoutine(NestItem cruft) {
+		if (grounded) {
+			animating = true;
+			anim.SetTrigger(pickUpTrigger);
+			yield return new WaitForSeconds(pickUpAnimationTime);
+			animating = false;
+		}
+		Pickup(cruft);
+	}
+
 }

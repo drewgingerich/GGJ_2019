@@ -17,7 +17,7 @@ MonoBehaviour:
   NestPosition: {x: 8, y: 3}
   LeftScreen: -10
   RightScreen: 10
-  LeftSky: -7
-  RightSky: 7
-  TopSky: 8
-  ResetXForSkyMode: -6
+  LeftSky: -8
+  RightSky: 4.3
+  TopSky: 10
+  ResetXForSkyMode: -3

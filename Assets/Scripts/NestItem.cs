@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 public class NestItem : MonoBehaviour
@@ -17,6 +18,9 @@ public class NestItem : MonoBehaviour
     public static List<NestItem> ActiveItems;
 
     [SerializeField]
+    AudioMixerGroup mixerGroup;
+
+    [SerializeField]
     public LandscapeConstants.NestItemCategory Category;
 
     [SerializeField]
@@ -29,18 +33,9 @@ public class NestItem : MonoBehaviour
         ActiveItems.Add(this);
     }
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        float distance = (transform.position - BirdController.activeController.transform.position).magnitude;
+        // Adjust volume based on distance.
     }
 
     public IEnumerator Fall () {
@@ -58,7 +53,10 @@ public class NestItem : MonoBehaviour
 
     private bool IsAtNest(){
         return transform.position.y >= LandscapeConstants.NestPosition.y && Vector3.Distance(transform.position, LandscapeConstants.NestPosition) <  0.5;
+    }
 
+    void OnDestroy() {
+        ActiveItems.Remove(this);
     }
 }
 
