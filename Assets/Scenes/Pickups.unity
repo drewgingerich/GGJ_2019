@@ -339,6 +339,16 @@ PrefabInstance:
       propertyPath: onNestItemAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: NestItem, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: groundSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: airSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7581001449579211886, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: m_Enabled
