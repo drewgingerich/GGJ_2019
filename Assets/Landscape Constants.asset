@@ -18,6 +18,6 @@ MonoBehaviour:
   LeftScreen: -10
   RightScreen: 10
   LeftSky: -8
-  RightSky: 4.3
-  TopSky: 10
+  RightSky: 4.6
+  TopSky: 8.5
   ResetXForSkyMode: -3
