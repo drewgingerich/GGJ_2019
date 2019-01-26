@@ -108,9 +108,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airSpeed: 5
   groundSpeed: 2
-  beak: {fileID: 0}
+  beak: {fileID: 380281399941160473}
   chosenBit: {fileID: 0}
   LandscapeConstants: {fileID: 11400000, guid: e42cc76f390580a459cf1bddda852d82, type: 2}
+  minPickupDistance: 0.2
 --- !u!1 &4256835723470674904
 GameObject:
   m_ObjectHideFlags: 0
