@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,10 +85,10 @@ public class BirdController : MonoBehaviour {
 		if (null != chosenBit) {
 			Drop();
 		} else {
-			var distance = NestItem.ActiveItems.Min(item => Math.Abs(transform.position.x - item.transform.position.x));
+			var distance = NestItem.ActiveItems.Min(item => (transform.position - item.transform.position).sqrMagnitude);
 			if (distance <= minPickupDistance) {
-				var cruft = NestItem.ActiveItems.FirstOrDefault(item => Math.Abs(transform.position.x - item.transform.position.x) == distance);
-				StartCoroutine(PickUpRoutine(cruft));
+				var cruft = NestItem.ActiveItems.FirstOrDefault(item => (transform.position - item.transform.position).sqrMagnitude == distance);
+				Pickup(cruft);
 			}
 		}
 	}
@@ -101,8 +101,8 @@ public class BirdController : MonoBehaviour {
 	}
 
 	private void Pickup(NestItem cruft) {
-		chosenBit.isHeld = true;
 		chosenBit = cruft;
+		chosenBit.isHeld = true;
 		chosenBit.transform.SetParent(transform);
 		chosenBit.transform.localPosition = beak.localPosition;
 	}
