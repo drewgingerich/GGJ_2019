@@ -7,45 +7,53 @@ public class Nest : MonoBehaviour
 {
 
     [SerializeField]
-    List<NestItem> ItemsInNest;
+    List<NestItem> neededItems;
+
+    [SerializeField]
+    List<Transform> ornamentPoints;
+    int oranmentPointIndex = 0;
 
     [SerializeField]
     HotBird hotBird;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ItemsInNest = new List<NestItem>();
-        Debug.Log("Items in Nest:" + ItemsInNest.Count);
+    void OnTriggerEnter2D(Collider2D other) {
+        NestItem item = other.GetComponent<NestItem>();
+        if (item == null) {
+            return;
+        }
+
+        BirdController.activeController.DropItem();
+		item.transform.SetParent(transform);
+        item.transform.position = ornamentPoints[oranmentPointIndex].position;
+
+        if (neededItems.Contains(item)) {
+			oranmentPointIndex++;
+            neededItems.Remove(item);
+            NestItem.ActiveItems.Remove(item);
+            if (neededItems.Count == 0) {
+                StartCoroutine(WinGameRoutine());
+            } else {
+                StartCoroutine(GoodItemRoutine());
+            }
+        } else {
+            StartCoroutine(BadItemRoutine(item));
+        }
+		item.Rest();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    IEnumerator GoodItemRoutine() {
+        yield return null;
     }
 
-    // public void OnItemAdded(NestItem item) {
-    //     ItemsInNest.Add(item);
-    //     var categoryList = ItemsInNest.Select(i => i.Category);
+    IEnumerator BadItemRoutine(NestItem item) {
+        yield return new WaitForSeconds(0.5f);
+		item.transform.SetParent(null);
+        item.Fall();
+        yield return null;
+    }
 
-    //     foreach (var c in categoryList) {
-    //         Debug.Log(c.ToString());
-    //     }
-    //     Debug.Log(categoryList.Except(hotBird.DesiredItems).Count());
-    //     Debug.Log(hotBird.DesiredItems.Except(categoryList).Count());
-
-    //     if (categoryList.Except(hotBird.DesiredItems).Count() == 0 && hotBird.DesiredItems.Except(categoryList).Count() == 0) {
-    //         WinGame();
-    //     }
-    //     else if (hotBird.DesiredItems.Contains(item.Category)) {
-    //         StartCoroutine(hotBird.Praise());
-    //     } else {
-    //         StartCoroutine(hotBird.Scoff());
-    //     }
-    // }
-
-    public void WinGame() {
-        Debug.Log("What a perfect nest! You win!");
+    IEnumerator WinGameRoutine() {
+        Debug.Log("You win!");
+        yield return null;
     }
 }

@@ -184,7 +184,7 @@ public class BirdController : MonoBehaviour {
 
 	public void Interact() {
 		if (null != chosenBit) {
-			Drop();
+			DropItem();
 		} else {
 			float distance = minPickupDistance;
 			NestItem selectedBit = null;
@@ -207,13 +207,16 @@ public class BirdController : MonoBehaviour {
 		}
 	}
 
-	private void Drop() {
+	public void DropItem() {
+		if (null == chosenBit) {
+			return;
+		}
 		chosenBit.isHeld = false;
 		if (grounded) {
 			chosenBit.transform.localPosition = Vector3.forward * 0.5f;
 		} 
 		chosenBit.transform.SetParent(null);
-		StartCoroutine(chosenBit.Fall());
+		chosenBit.Fall();
 		chosenBit = null;
 	}
 

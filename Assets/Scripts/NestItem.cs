@@ -24,6 +24,8 @@ public class NestItem : MonoBehaviour
     [System.NonSerialized]
     public bool isHeld = false;
 
+    Coroutine fallRoutine;
+
 
     void Awake(){
         sceneItems.Add(this);
@@ -45,11 +47,19 @@ public class NestItem : MonoBehaviour
         }
     }
 
-    public IEnumerator Fall () {
+    public void Fall() {
+        fallRoutine = StartCoroutine(FallRoutine());
+    }
+
+    IEnumerator FallRoutine () {
         while (transform.position.y > floor.groundLevel && !isHeld) { // && !IsAtNest()) {
             Vector3 move = Vector3.down * speed * Time.deltaTime;
             transform.position += move;
             yield return null;
         }
+    }
+
+    public void Rest() {
+        StopCoroutine(fallRoutine);
     }
 }
