@@ -44,19 +44,10 @@ public class BirdController : MonoBehaviour {
 	Animator anim;
 
 	[SerializeField]
-	LandscapeConstants LandscapeConstants;
-
-	[SerializeField]
 	ForestFloor stage;
 
 	[SerializeField]
 	float minPickupDistance = 0.2f;
-
-	// [SerializeField]
-	// UnityEvent onUseSkyCam = new UnityEvent();
-
-	// [SerializeField]
-	// UnityEvent onUseGroundCam = new UnityEvent();
 
 	[SerializeField]
 	Camera forageCam;
@@ -71,7 +62,6 @@ public class BirdController : MonoBehaviour {
 	CameraBounds nestCamBounds;
 
 	CameraBounds activeCameraBounds;
-	AudioSource song;
 
 	void Awake() {
 		activeController = this;
@@ -124,7 +114,7 @@ public class BirdController : MonoBehaviour {
 
 		ConstrainToCameraHorizontal();
 
-		if (position.y > stage.bounds.max.y) {
+		if (position.y > activeCameraBounds.GetBoundsWorldSpace().max.y) {
 			Nest();
 		}
 	}
@@ -197,7 +187,7 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
-		if (IsNearHotBird()) StartCoroutine(ListenToFullSong());
+		// if (IsNearHotBird()) StartCoroutine(ListenToFullSong());
 
 		if (null != chosenBit) {
 			Drop();
@@ -235,16 +225,17 @@ public class BirdController : MonoBehaviour {
 	}
 
 	private bool IsNearHotBird(){
-		return Vector3.Distance((Vector3)LandscapeConstants.HotBirdPosition, transform.position) < minPickupDistance;
+		return false;
+		// return Vector3.Distance((Vector3)LandscapeConstants.HotBirdPosition, transform.position) < minPickupDistance;
 	}
 
 	//HotBird will sing until player moves away
-	private IEnumerator ListenToFullSong(){
-		while (IsNearHotBird()) {
-			song.volume = 1;
-			yield return null;
-		}
-		song.volume = 0;
-	}
+	// private IEnumerator ListenToFullSong(){
+	// 	while (IsNearHotBird()) {
+	// 		song.volume = 1;
+	// 		yield return null;
+	// 	}
+	// 	song.volume = 0;
+	// }
 
 }

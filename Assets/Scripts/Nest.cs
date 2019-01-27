@@ -25,25 +25,25 @@ public class Nest : MonoBehaviour
         
     }
 
-    public void OnItemAdded(NestItem item) {
-        ItemsInNest.Add(item);
-        var categoryList = ItemsInNest.Select(i => i.Category);
+    // public void OnItemAdded(NestItem item) {
+    //     ItemsInNest.Add(item);
+    //     var categoryList = ItemsInNest.Select(i => i.Category);
 
-        foreach (var c in categoryList) {
-            Debug.Log(c.ToString());
-        }
-        Debug.Log(categoryList.Except(hotBird.DesiredItems).Count());
-        Debug.Log(hotBird.DesiredItems.Except(categoryList).Count());
+    //     foreach (var c in categoryList) {
+    //         Debug.Log(c.ToString());
+    //     }
+    //     Debug.Log(categoryList.Except(hotBird.DesiredItems).Count());
+    //     Debug.Log(hotBird.DesiredItems.Except(categoryList).Count());
 
-        if (categoryList.Except(hotBird.DesiredItems).Count() == 0 && hotBird.DesiredItems.Except(categoryList).Count() == 0) {
-            WinGame();
-        }
-        else if (hotBird.DesiredItems.Contains(item.Category)) {
-            StartCoroutine(hotBird.Praise());
-        } else {
-            StartCoroutine(hotBird.Scoff());
-        }
-    }
+    //     if (categoryList.Except(hotBird.DesiredItems).Count() == 0 && hotBird.DesiredItems.Except(categoryList).Count() == 0) {
+    //         WinGame();
+    //     }
+    //     else if (hotBird.DesiredItems.Contains(item.Category)) {
+    //         StartCoroutine(hotBird.Praise());
+    //     } else {
+    //         StartCoroutine(hotBird.Scoff());
+    //     }
+    // }
 
     public void WinGame() {
         Debug.Log("What a perfect nest! You win!");

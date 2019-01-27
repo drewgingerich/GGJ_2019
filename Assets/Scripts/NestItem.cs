@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class NestItem : MonoBehaviour
 {
     [SerializeField]
-    LandscapeConstants LandscapeConstants;
+    ForestFloor floor;
 
     [SerializeField]
     float speed = 1;
@@ -19,9 +19,6 @@ public class NestItem : MonoBehaviour
 
     [SerializeField]
     AudioMixerGroup mixerGroup;
-
-    [SerializeField]
-    public LandscapeConstants.NestItemCategory Category;
 
     [SerializeField]
     public NestEvent onNestItemAdded;
@@ -39,21 +36,21 @@ public class NestItem : MonoBehaviour
     }
 
     public IEnumerator Fall () {
-        while (transform.position.y > LandscapeConstants.GroundThreshhold && !isHeld && !IsAtNest()) {
+        while (transform.position.y > floor.groundLevel && !isHeld) { // && !IsAtNest()) {
             Vector3 move = Vector3.down * speed * Time.deltaTime;
             transform.position += move;
             yield return null;
         }
-        if (IsAtNest()) {
-            Debug.Log("added to the nest!");
-            onNestItemAdded.Invoke(this);
-            yield return null;
-        }
+        // if (IsAtNest()) {
+        //     Debug.Log("added to the nest!");
+        //     onNestItemAdded.Invoke(this);
+        //     yield return null;
+        // }
     }
 
-    private bool IsAtNest(){
-        return transform.position.y >= LandscapeConstants.NestPosition.y && Vector3.Distance(transform.position, LandscapeConstants.NestPosition) <  0.5;
-    }
+    // private bool IsAtNest(){
+        // return transform.position.y >= LandscapeConstants.NestPosition.y && Vector3.Distance(transform.position, LandscapeConstants.NestPosition) <  0.5;
+    // }
 
     void OnDestroy() {
         ActiveItems.Remove(this);

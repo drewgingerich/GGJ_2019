@@ -5,27 +5,12 @@ using UnityEngine;
 public class HotBird : MonoBehaviour
 {
 
-    [SerializeField]
-    public List<LandscapeConstants.NestItemCategory> DesiredItems = new List<LandscapeConstants.NestItemCategory>();
+    public List<NestItem> desiredItems = new List<NestItem>();
 
     [SerializeField]
 	AudioSource song;
 
     private float songLength = 5;
-
-    void Awake() {
-        DesiredItems.Add(LandscapeConstants.NestItemCategory.YARN); 
-    }
-    void Start()
-    {
-        //add desired items to nest here
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public IEnumerator Praise(){
         var elapsedTime = 0f;
