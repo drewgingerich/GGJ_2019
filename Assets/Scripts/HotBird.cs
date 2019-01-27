@@ -7,7 +7,11 @@ public class HotBird : MonoBehaviour
 
     [SerializeField]
     public List<LandscapeConstants.NestItemCategory> DesiredItems = new List<LandscapeConstants.NestItemCategory>();
-    // Start is called before the first frame update
+
+    [SerializeField]
+	AudioSource song;
+
+    private float songLength = 5;
 
     void Awake() {
         DesiredItems.Add(LandscapeConstants.NestItemCategory.YARN); 
@@ -24,13 +28,26 @@ public class HotBird : MonoBehaviour
     }
 
     public IEnumerator Praise(){
-        Debug.Log("YES YES IT'S BEAUTIFUL");
-        yield return null;
+        var elapsedTime = 0f;
+        while (elapsedTime < songLength) {
+            song.volume = 1;
+            Debug.Log("YES YES IT'S BEAUTIFUL");
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        song.volume = 0;
+
     }
 
     public IEnumerator Scoff(){
-        Debug.Log("Wow, you really thought I'd like THAT, huh. Interesting. Ok.");
-        yield return null;
+         var elapsedTime = 0f;
+        while (elapsedTime < songLength) {
+            song.volume = 1;
+            Debug.Log("Wow, you really thought I'd like THAT, huh. Interesting. Ok.");
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        song.volume = 0;
     }
 
     public void Sing(){

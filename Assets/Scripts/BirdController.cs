@@ -71,6 +71,7 @@ public class BirdController : MonoBehaviour {
 	CameraBounds nestCamBounds;
 
 	CameraBounds activeCameraBounds;
+	AudioSource song;
 
 	void Awake() {
 		activeController = this;
@@ -196,6 +197,8 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
+		if (IsNearHotBird()) StartCoroutine(ListenToFullSong());
+
 		if (null != chosenBit) {
 			Drop();
 		} else {
@@ -229,6 +232,19 @@ public class BirdController : MonoBehaviour {
 			animating = false;
 		}
 		Pickup(cruft);
+	}
+
+	private bool IsNearHotBird(){
+		return Vector3.Distance((Vector3)LandscapeConstants.HotBirdPosition, transform.position) < minPickupDistance;
+	}
+
+	//HotBird will sing until player moves away
+	private IEnumerator ListenToFullSong(){
+		while (IsNearHotBird()) {
+			song.volume = 1;
+			yield return null;
+		}
+		song.volume = 0;
 	}
 
 }

@@ -94,11 +94,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LandscapeConstants: {fileID: 11400000, guid: e42cc76f390580a459cf1bddda852d82, type: 2}
   speed: 1
+  mixerGroup: {fileID: 0}
   Category: 6
   onNestItemAdded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 704489208600875684, guid: 9733d49e075bb4e42a9ca7b6abb1249d,
+          type: 3}
         m_MethodName: OnItemAdded
         m_Mode: 0
         m_Arguments:

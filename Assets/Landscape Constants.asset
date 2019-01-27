@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundThreshhold: -0.5
   SkyThreshhold: 1
+  NestPosition: {x: 3.5, y: 6}
+  HotBirdPosition: {x: 2, y: 6}
+  LeftScreen: -10
+  RightScreen: 10
+  LeftSky: -8
+  RightSky: 4.3
+  TopSky: 8
+  ResetXForSkyMode: -6
