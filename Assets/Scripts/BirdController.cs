@@ -186,10 +186,18 @@ public class BirdController : MonoBehaviour {
 		if (null != chosenBit) {
 			Drop();
 		} else {
-			var distance = NestItem.ActiveItems.Min(item => (transform.position - item.transform.position).sqrMagnitude);
-			if (distance <= minPickupDistance) {
-				var cruft = NestItem.ActiveItems.FirstOrDefault(item => (transform.position - item.transform.position).sqrMagnitude == distance);
-				Pickup(cruft);
+			float distance = minPickupDistance;
+			NestItem selectedBit = null;
+			foreach (NestItem item in NestItem.ActiveItems) {
+				Vector2 diff = (transform.position - item.transform.position);
+				float newDistance = diff.magnitude;
+				if (newDistance <= distance) {
+					selectedBit = item;
+					distance = newDistance;
+				}
+			}
+			if (selectedBit != null) {
+				Pickup(selectedBit);
 				return;
 			}
 		}
@@ -201,6 +209,9 @@ public class BirdController : MonoBehaviour {
 
 	private void Drop() {
 		chosenBit.isHeld = false;
+		if (grounded) {
+			chosenBit.transform.localPosition = Vector3.forward * 0.5f;
+		} 
 		chosenBit.transform.SetParent(null);
 		StartCoroutine(chosenBit.Fall());
 		chosenBit = null;
@@ -235,5 +246,10 @@ public class BirdController : MonoBehaviour {
 	// 	}
 	// 	song.volume = 0;
 	// }
+
+	void OnDrawGizmosSelected() {
+		UnityEditor.Handles.color = Color.green;
+		UnityEditor.Handles.DrawWireDisc(transform.position, transform.forward, minPickupDistance);
+	}
 
 }
