@@ -45,7 +45,8 @@ public class BirdController : MonoBehaviour {
 	[SerializeField]
 	UnityEvent onUseGroundCam = new UnityEvent();
 
-
+	[SerializeField]
+	AudioSource song;
 
 	void Awake() {
 		activeController = this;
@@ -103,6 +104,8 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
+		if (IsNearHotBird()) StartCoroutine(ListenToFullSong());
+
 		if (null != chosenBit) {
 			Drop();
 		} else {
@@ -136,6 +139,19 @@ public class BirdController : MonoBehaviour {
 			animating = false;
 		}
 		Pickup(cruft);
+	}
+
+	private bool IsNearHotBird(){
+		return Vector3.Distance((Vector3)LandscapeConstants.HotBirdPosition, transform.position) < minPickupDistance;
+	}
+
+	private IEnumerator ListenToFullSong(){
+		Debug.Log("Hi here is my song");
+		while (IsNearHotBird()) {
+			song.volume = 1;
+			yield return null;
+		}
+		song.volume = 0;
 	}
 
 }
