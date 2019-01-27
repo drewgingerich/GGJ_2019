@@ -52,6 +52,7 @@ public class Nest : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 		item.transform.SetParent(null);
         item.Fall();
+        yield return new WaitForSeconds(5f);
         hotBird.anim.SetBool("isTalking", false);
         yield return null;
     }
