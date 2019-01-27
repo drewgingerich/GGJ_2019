@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630592692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 1, z: 0}
+  m_LocalPosition: {x: 0.2, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 334942307}
@@ -506,7 +506,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.34375, y: 2.03125}
@@ -1171,6 +1171,11 @@ PrefabInstance:
       propertyPath: Mute
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4169343762583454095, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3773771981342296650, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
         type: 3}
       propertyPath: m_Color.r
@@ -1192,6 +1197,11 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1983049248}
+    - target: {fileID: 3773771981342296661, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
+        type: 3}
+      propertyPath: thoughtsAnim
+      value: 
+      objectReference: {fileID: 1630592694}
     - target: {fileID: 8203650209394557046, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
         type: 3}
       propertyPath: m_Controller
