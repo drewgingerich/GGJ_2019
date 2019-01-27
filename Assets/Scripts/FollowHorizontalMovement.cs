@@ -2,23 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class FollowHorizontalMovement : MonoBehaviour
 {
-    
-    SpriteRenderer sr;
-
     float lastXPosition;
-
-    void Awake() {
-        sr = GetComponent<SpriteRenderer>();
-    }
 
     void Update() {
         if (transform.position.x - lastXPosition > 0) {
-            sr.flipX = false;
+            transform.localScale = Vector3.one;
         } else if (transform.position.x - lastXPosition < 0) {
-            sr.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
 		lastXPosition = transform.position.x;
     }

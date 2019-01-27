@@ -36,31 +36,24 @@ public class BirdController : MonoBehaviour {
 
 	[SerializeField]
 	float airSpeed = 5;
-
 	[SerializeField]
 	float groundSpeed = 2;
+	[SerializeField]
+	float minPickupDistance = 0.2f;
 
 	[SerializeField]
 	Transform beak;
-
 	[SerializeField]
 	Animator anim;
 
 	[SerializeField]
 	ForestFloor stage;
-
-	[SerializeField]
-	float minPickupDistance = 0.2f;
-
 	[SerializeField]
 	Camera forageCam;
-
 	[SerializeField]
 	CameraBounds forageCamBounds;
-
 	[SerializeField]
 	Camera nestCam;
-
 	[SerializeField]
 	CameraBounds nestCamBounds;
 
@@ -216,8 +209,8 @@ public class BirdController : MonoBehaviour {
 	private void Pickup(NestItem cruft) {
 		chosenBit = cruft;
 		chosenBit.isHeld = true;
-		chosenBit.transform.SetParent(transform);
-		chosenBit.transform.localPosition = beak.localPosition;
+		chosenBit.transform.SetParent(beak);
+		chosenBit.transform.localPosition = Vector3.back;
 	}
 
 	IEnumerator PickUpRoutine(NestItem cruft) {
