@@ -9,16 +9,16 @@ public class ForestFloor : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    float groundLevel;
-
-    [SerializeField]
-    float skyLevel;
+    public float groundLevel;
 
     public Bounds bounds { 
         get {
-            return spriteRenderer.sprite.bounds;
+            Bounds bounds = spriteRenderer.sprite.bounds;
+            bounds.center = transform.position;
+            return bounds;
         }
     }
+
     void OnDrawGizmosSelected() {
         float leftEdge = bounds.min.x + transform.position.x;
         float rightEdge = bounds.max.x + transform.position.x;

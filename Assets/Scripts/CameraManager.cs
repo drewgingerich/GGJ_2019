@@ -10,19 +10,6 @@ public class CameraManager : MonoBehaviour
     public BirdController bird;
     public LandscapeConstants LandscapeConstants;
 
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     offsetX = groundCamera.transform.position.x - bird.transform.position.x;
-    // }
-
-    // void LateUpdate() {
-    //     if (groundCamera.enabled == true) {
-    //         var newX = Mathf.Clamp(bird.transform.position.x + offsetX, LandscapeConstants.LeftScreen, LandscapeConstants.RightScreen);
-    //         groundCamera.transform.position = new Vector3(newX, groundCamera.transform.position.y, groundCamera.transform.position.z);
-    //     }
-    // }
-
     public void UseGroundCam(){
         groundCamera.enabled = true;
         nestCamera.enabled = false;

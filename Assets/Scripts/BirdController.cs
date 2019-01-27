@@ -8,9 +8,18 @@ using UnityEngine.Events;
 public class BirdController : MonoBehaviour {
 
 	bool animating;
+	bool foraging = false;
 	bool grounded;
 	float speed = 1;
 	NestItem chosenBit;
+	[SerializeField]
+	Transform forageScreenEntryPoint;
+	[SerializeField]
+	float forageEntraceTime;
+	[SerializeField]
+	float forageEntranceSpeed;
+	[SerializeField]
+	Transform nestScreenEntryPoint;
 
 	// Animator parameter string keys
 	const string stoppedBool = "Stopped";
@@ -38,29 +47,45 @@ public class BirdController : MonoBehaviour {
 	LandscapeConstants LandscapeConstants;
 
 	[SerializeField]
+	ForestFloor stage;
+
+	[SerializeField]
 	float minPickupDistance = 0.2f;
-	[SerializeField]
-	UnityEvent onUseSkyCam = new UnityEvent();
+
+	// [SerializeField]
+	// UnityEvent onUseSkyCam = new UnityEvent();
+
+	// [SerializeField]
+	// UnityEvent onUseGroundCam = new UnityEvent();
 
 	[SerializeField]
-	UnityEvent onUseGroundCam = new UnityEvent();
+	Camera forageCam;
 
+	[SerializeField]
+	CameraBounds forageCamBounds;
 
+	[SerializeField]
+	Camera nestCam;
+
+	[SerializeField]
+	CameraBounds nestCamBounds;
+
+	CameraBounds activeCameraBounds;
 
 	void Awake() {
 		activeController = this;
 	}
 
+	void Start() {
+		Fly();
+		Nest();
+	}
 
 	public void InputMove(Vector2 direction) {
 		if (animating) {
 			return;
 		}
 		Move(direction);
-	}
-
-	void Start () {
-		onUseGroundCam.Invoke();
 	}
 
 	public void Move(Vector2 direction) {
@@ -74,32 +99,100 @@ public class BirdController : MonoBehaviour {
 		Vector3 move = (Vector3)direction * Time.deltaTime;
 		Vector3 newPosition = transform.position + move * speed;
 
-		if (newPosition.y <= LandscapeConstants.GroundThreshhold) {
-			speed = groundSpeed;
-			grounded = true;
-			anim.SetBool(groundedBool, true);
-			newPosition.y = LandscapeConstants.GroundThreshhold;
-		} else {
-			speed = airSpeed;
-			grounded = false;
-			anim.SetBool(groundedBool, false);
-		}
-
-		//switch camera and clamp positions if necessary
-		if (transform.position.y < LandscapeConstants.SkyThreshhold && newPosition.y > LandscapeConstants.SkyThreshhold) {
-			newPosition.x = LandscapeConstants.ResetXForSkyMode;
-			onUseSkyCam.Invoke();
-		} else if (transform.position.y > LandscapeConstants.SkyThreshhold && newPosition.y < LandscapeConstants.SkyThreshhold) {
-			onUseGroundCam.Invoke();
-		}
-		if (newPosition.y < LandscapeConstants.SkyThreshhold) {
-			newPosition.x = Mathf.Clamp(newPosition.x, LandscapeConstants.LeftScreen, LandscapeConstants.RightScreen);
-		} else {
-			newPosition.x = Mathf.Clamp(newPosition.x, LandscapeConstants.LeftSky, LandscapeConstants.RightSky);
-			newPosition.y = Mathf.Clamp(newPosition.y, LandscapeConstants.GroundThreshhold, LandscapeConstants.TopSky);
-		}
+		Bounds currentBounds = activeCameraBounds.GetBoundsWorldSpace();
+		newPosition.x = Mathf.Clamp(newPosition.x, currentBounds.min.x, currentBounds.max.x);
 
 		transform.position = newPosition;
+
+		if (foraging) {
+			HandleForaging();
+		} else {
+			HandleNesting();
+		}
+	}
+
+	void HandleForaging() {
+		Vector3 position = transform.position;
+
+		if (position.y <= stage.groundLevel) {
+			position.y = stage.groundLevel;
+			Land();
+		} else {
+			Fly();
+		}
+
+		ConstrainToCameraHorizontal();
+
+		if (position.y > stage.bounds.max.y) {
+			Nest();
+		}
+	}
+
+	void Fly() {
+		speed = airSpeed;
+		grounded = false;
+		anim.SetBool(groundedBool, false);
+	}
+
+	void Land() {
+		speed = groundSpeed;
+		grounded = true;
+		anim.SetBool(groundedBool, true);
+	}
+
+	void ConstrainToCameraHorizontal() {
+		Bounds bounds = activeCameraBounds.GetBoundsWorldSpace();
+		if (!bounds.Contains(transform.position)) {
+			Vector3 position = bounds.ClosestPoint(transform.position);
+			position.z = 0;
+			transform.position = position;
+		}
+
+	}
+
+	void HandleNesting(){
+		Bounds bounds = activeCameraBounds.GetBoundsWorldSpace();
+		if (transform.position.y < bounds.min.y) {
+			Forage();
+			return;
+		}
+		ConstrainToCameraHorizontal();
+	}
+
+	void Forage() {
+		nestCam.gameObject.SetActive(false);
+		forageCam.gameObject.SetActive(true);
+
+		transform.position = forageScreenEntryPoint.position;
+		Vector3 forageCamPosition = forageCam.transform.position;
+		forageCamPosition.y = transform.position.y;
+
+		activeCameraBounds = forageCamBounds;
+		StartCoroutine(ForageEntranceRoutine());
+		foraging = true;
+	}
+
+	IEnumerator ForageEntranceRoutine() {
+		animating = true;
+		float timer = 0;
+		while (timer < forageEntraceTime) {
+			transform.position += Vector3.down * forageEntranceSpeed * Time.deltaTime;
+			timer += Time.deltaTime;
+			yield return null;
+		}
+		animating = false;
+	}
+
+	void Nest() {
+		forageCam.gameObject.SetActive(false);
+		nestCam.gameObject.SetActive(true);
+
+		forageScreenEntryPoint.position = transform.position;
+
+		activeCameraBounds = nestCamBounds;
+
+		transform.position = nestScreenEntryPoint.position;
+		foraging = false;
 	}
 
 	public void Interact() {
