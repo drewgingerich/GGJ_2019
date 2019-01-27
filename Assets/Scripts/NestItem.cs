@@ -45,7 +45,7 @@ public class NestItem : MonoBehaviour
             yield return null;
         }
         if (IsAtNest()) {
-            Debug.Log("invoke!");
+            Debug.Log("added to the nest!");
             onNestItemAdded.Invoke(this);
             yield return null;
         }

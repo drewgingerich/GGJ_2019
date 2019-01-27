@@ -11,7 +11,7 @@ public class HotBird : MonoBehaviour
     [SerializeField]
 	AudioSource song;
 
-    private float songLength = 3;
+    private float songLength = 5;
 
     void Awake() {
         DesiredItems.Add(LandscapeConstants.NestItemCategory.YARN); 
