@@ -245,6 +245,7 @@ public class BirdController : MonoBehaviour {
 	}
 
 	private bool IsNearHotBird(){
+		if (hotBird == null) return false;
 		return Vector3.Distance(hotBird.transform.position, transform.position) < minPickupDistance;
 	}
 
@@ -257,9 +258,11 @@ public class BirdController : MonoBehaviour {
 	// 	song.volume = 0;
 	// }
 
+#if UNITY_EDITOR
 	void OnDrawGizmosSelected() {
 		UnityEditor.Handles.color = Color.green;
 		UnityEditor.Handles.DrawWireDisc(transform.position, transform.forward, minPickupDistance);
 	}
+#endif
 
 }

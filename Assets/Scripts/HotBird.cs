@@ -10,6 +10,12 @@ public class HotBird : MonoBehaviour
     [SerializeField]
 	AudioSource song;
 
+    [SerializeField]
+    public Animator anim;
+
+    [SerializeField]
+    public Animator thoughtsAnim;
+
     private float songLength = 5;
 
     public IEnumerator Praise(){
@@ -25,7 +31,7 @@ public class HotBird : MonoBehaviour
     }
 
     public IEnumerator Scoff(){
-         var elapsedTime = 0f;
+        var elapsedTime = 0f;
         while (elapsedTime < songLength) {
             song.volume = 1;
             Debug.Log("Wow, you really thought I'd like THAT, huh. Interesting. Ok.");
