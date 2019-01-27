@@ -40,6 +40,8 @@ public class BirdController : MonoBehaviour {
 	float groundSpeed = 2;
 	[SerializeField]
 	float minPickupDistance = 0.2f;
+	[SerializeField]
+	float edgePadding = 0.7f;
 
 	[SerializeField]
 	Transform beak;
@@ -128,13 +130,18 @@ public class BirdController : MonoBehaviour {
 	}
 
 	void ConstrainToCameraHorizontal() {
+		Vector2 diff = Vector2.zero;
+
 		Bounds bounds = activeCameraBounds.GetBoundsWorldSpace();
-		if (!bounds.Contains(transform.position)) {
-			Vector3 position = bounds.ClosestPoint(transform.position);
-			position.z = 0;
-			transform.position = position;
+
+		if (transform.position.x < bounds.min.x + edgePadding) {
+			diff.x = bounds.min.x + edgePadding - transform.position.x;
+		}
+		if (transform.position.x > bounds.max.x - edgePadding) {
+			diff.x = bounds.max.x - edgePadding - transform.position.x;
 		}
 
+		transform.position += (Vector3)diff;
 	}
 
 	void HandleNesting(){
