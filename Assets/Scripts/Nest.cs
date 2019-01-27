@@ -16,6 +16,9 @@ public class Nest : MonoBehaviour
     [SerializeField]
     HotBird hotBird;
 
+    [SerializeField]
+    CutscenePlayer cutscenePlayer;
+
     void OnTriggerEnter2D(Collider2D other) {
         NestItem item = other.GetComponent<NestItem>();
         if (item == null) {
@@ -31,44 +34,13 @@ public class Nest : MonoBehaviour
             neededItems.Remove(item);
             NestItem.ActiveItems.Remove(item);
             if (neededItems.Count == 0) {
-                StartCoroutine(WinGameRoutine());
+                cutscenePlayer.PlayEndingCutscene();
             } else {
-                StartCoroutine(GoodItemRoutine());
+                cutscenePlayer.PlayGoodItemCutscene();
             }
         } else {
-            StartCoroutine(BadItemRoutine(item));
+            cutscenePlayer.PlayBadItemCutscene(item);
         }
 		item.Rest();
-    }
-
-    IEnumerator GoodItemRoutine() {
-        hotBird.anim.SetBool("isTalking", true);
-        hotBird.anim.SetTrigger("Pleased");
-        hotBird.thoughtsAnim.SetBool("Happy",true);
-        Debug.Log("yay!");
-        yield return new WaitForSeconds(5f);
-        
-        hotBird.anim.SetBool("isTalking", false);
-        hotBird.thoughtsAnim.SetBool("Happy", false);
-        yield return null;
-    }
-
-    IEnumerator BadItemRoutine(NestItem item) {
-        hotBird.anim.SetBool("isTalking", true);
-        hotBird.anim.SetTrigger("Angered");
-        hotBird.thoughtsAnim.SetBool("Angry",true);
-        Debug.Log("BOOOOO");
-        yield return new WaitForSeconds(0.5f);
-		item.transform.SetParent(null);
-        item.Fall();
-        yield return new WaitForSeconds(5f);
-        hotBird.anim.SetBool("isTalking", false);
-        hotBird.thoughtsAnim.SetBool("Angry", false);
-        yield return null;
-    }
-
-    IEnumerator WinGameRoutine() {
-        Debug.Log("You win!");
-        yield return null;
     }
 }
