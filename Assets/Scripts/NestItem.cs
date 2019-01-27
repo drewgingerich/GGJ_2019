@@ -19,6 +19,8 @@ public class NestItem : MonoBehaviour
 
     [SerializeField]
     AudioMixerGroup mixerGroup;
+
+    [SerializeField]
     public LandscapeConstants.NestItemCategory Category;
 
     [SerializeField]

@@ -19,6 +19,7 @@ public class BirdInput : MonoBehaviour {
 		move.x += Input.GetAxis("Horizontal");
 		move.y += Input.GetAxis("Vertical");
 		bird.InputMove(move.normalized);
+		bird.Move(move.normalized);
 
 		if (Input.GetButtonDown("Fire1")) {
 			bird.Interact();

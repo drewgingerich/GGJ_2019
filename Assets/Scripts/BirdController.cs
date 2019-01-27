@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BirdController : MonoBehaviour {
 
-	bool animating = false;
-	bool grounded = false;
+	bool animating;
+	bool grounded;
 	float speed = 1;
 	NestItem chosenBit;
 
@@ -38,6 +39,13 @@ public class BirdController : MonoBehaviour {
 
 	[SerializeField]
 	float minPickupDistance = 0.2f;
+	[SerializeField]
+	UnityEvent onUseSkyCam = new UnityEvent();
+
+	[SerializeField]
+	UnityEvent onUseGroundCam = new UnityEvent();
+
+
 
 	void Awake() {
 		activeController = this;
@@ -51,12 +59,14 @@ public class BirdController : MonoBehaviour {
 		Move(direction);
 	}
 
+	void Start () {
+		onUseGroundCam.Invoke();
+	}
+
 	public void Move(Vector2 direction) {
-		if (direction.x == 0) {
+		if (direction == Vector2.zero) {
 			anim.SetBool(stoppedBool, true);
-			if (direction.y == 0) {
-				return;
-			}
+			return;
 		} else {
 			anim.SetBool(stoppedBool, false);
 		}
@@ -73,6 +83,20 @@ public class BirdController : MonoBehaviour {
 			speed = airSpeed;
 			grounded = false;
 			anim.SetBool(groundedBool, false);
+		}
+
+		//switch camera and clamp positions if necessary
+		if (transform.position.y < LandscapeConstants.SkyThreshhold && newPosition.y > LandscapeConstants.SkyThreshhold) {
+			newPosition.x = LandscapeConstants.ResetXForSkyMode;
+			onUseSkyCam.Invoke();
+		} else if (transform.position.y > LandscapeConstants.SkyThreshhold && newPosition.y < LandscapeConstants.SkyThreshhold) {
+			onUseGroundCam.Invoke();
+		}
+		if (newPosition.y < LandscapeConstants.SkyThreshhold) {
+			newPosition.x = Mathf.Clamp(newPosition.x, LandscapeConstants.LeftScreen, LandscapeConstants.RightScreen);
+		} else {
+			newPosition.x = Mathf.Clamp(newPosition.x, LandscapeConstants.LeftSky, LandscapeConstants.RightSky);
+			newPosition.y = Mathf.Clamp(newPosition.y, LandscapeConstants.GroundThreshhold, LandscapeConstants.TopSky);
 		}
 
 		transform.position = newPosition;
