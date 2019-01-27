@@ -16,7 +16,7 @@ public class NestItem : MonoBehaviour
     ForestFloor floor;
 
     [SerializeField]
-    float speed = 1;
+    float acceleration = 0.2f;
 
     [SerializeField]
     Instrument instrument;
@@ -52,8 +52,11 @@ public class NestItem : MonoBehaviour
     }
 
     IEnumerator FallRoutine () {
-        while (transform.position.y > floor.groundLevel && !isHeld) { // && !IsAtNest()) {
-            Vector3 move = Vector3.down * speed * Time.deltaTime;
+        float speed = 0.1f;
+        float groundLevel = floor.groundLevel + Random.Range(-2f, 0f);
+        while (transform.position.y > groundLevel && !isHeld) { // && !IsAtNest()) {
+            speed += acceleration * Time.deltaTime;
+            Vector3 move = Vector3.down * speed;
             transform.position += move;
             yield return null;
         }
