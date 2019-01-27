@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TalkAngry
+  m_Name: ThinkAngry
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,21 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: f903dd8671fa70048bd9b56ebbb37cce, type: 3}
+      value: {fileID: 21300000, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
+    - time: 0.016666668
+      value: {fileID: 21300002, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
+    - time: 0.033333335
+      value: {fileID: 21300004, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
     - time: 0.05
-      value: {fileID: 21300002, guid: f903dd8671fa70048bd9b56ebbb37cce, type: 3}
+      value: {fileID: 21300006, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300032, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300002, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
+    - time: 0.1
+      value: {fileID: 21300004, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300006, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
     - time: 1
       value: {fileID: 21300000, guid: 16308d69d7cff4b1a8184c62fa799975, type: 3}
     attribute: m_Sprite
@@ -44,8 +56,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: f903dd8671fa70048bd9b56ebbb37cce, type: 3}
-    - {fileID: 21300002, guid: f903dd8671fa70048bd9b56ebbb37cce, type: 3}
+    - {fileID: 21300000, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
+    - {fileID: 21300002, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
+    - {fileID: 21300004, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
+    - {fileID: 21300006, guid: 39e348dd7e85dc74f8a72f5fe86ed265, type: 3}
+    - {fileID: 21300032, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
+    - {fileID: 21300002, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
+    - {fileID: 21300004, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
+    - {fileID: 21300006, guid: 63ef048bf7ccb484fa1874df9368bba6, type: 3}
     - {fileID: 21300000, guid: 16308d69d7cff4b1a8184c62fa799975, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2

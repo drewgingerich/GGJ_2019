@@ -13,6 +13,9 @@ public class HotBird : MonoBehaviour
     [SerializeField]
     public Animator anim;
 
+    [SerializeField]
+    public Animator thoughtsAnim;
+
     private float songLength = 5;
 
     public IEnumerator Praise(){
