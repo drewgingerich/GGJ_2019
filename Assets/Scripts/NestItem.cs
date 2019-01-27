@@ -6,33 +6,43 @@ using UnityEngine.Events;
 
 public class NestItem : MonoBehaviour
 {
+    public static List<NestItem> sceneItems = new List<NestItem>();
+    public static List<NestItem> ActiveItems = new List<NestItem>();
+
+    const float minFullSoundDistance = 2;
+    const float minSoundDistance = 10;
+
     [SerializeField]
     ForestFloor floor;
 
     [SerializeField]
     float speed = 1;
 
+    [SerializeField]
+    Instrument instrument;
+
     [System.NonSerialized]
     public bool isHeld = false;
 
-    public static List<NestItem> ActiveItems;
-
-    [SerializeField]
-    AudioMixerGroup mixerGroup;
-
-    [SerializeField]
-    public NestEvent onNestItemAdded;
 
     void Awake(){
-        if (ActiveItems == null) {
-            ActiveItems = new List<NestItem>();
-        }
+        sceneItems.Add(this);
         ActiveItems.Add(this);
     }
 
     void Update() {
         float distance = (transform.position - BirdController.activeController.transform.position).magnitude;
-        // Adjust volume based on distance.
+        if (distance < minFullSoundDistance) {
+            instrument.SetVolume(1);
+        } else if (distance < minSoundDistance) {
+            float adjustedDistance = (distance - minFullSoundDistance) / minSoundDistance;
+            instrument.SetVolume(1 - Mathf.Sqrt(adjustedDistance));
+            // instrument.SetVolume(1 - Mathf.Pow(adjustedDistance, 0.3f));
+            // instrument.SetVolume(1 - Mathf.Log10(adjustedDistance));
+
+        } else {
+            instrument.SetVolume(0);
+        }
     }
 
     public IEnumerator Fall () {
@@ -41,25 +51,5 @@ public class NestItem : MonoBehaviour
             transform.position += move;
             yield return null;
         }
-        // if (IsAtNest()) {
-        //     Debug.Log("added to the nest!");
-        //     onNestItemAdded.Invoke(this);
-        //     yield return null;
-        // }
     }
-
-    // private bool IsAtNest(){
-        // return transform.position.y >= LandscapeConstants.NestPosition.y && Vector3.Distance(transform.position, LandscapeConstants.NestPosition) <  0.5;
-    // }
-
-    void OnDestroy() {
-        ActiveItems.Remove(this);
-    }
-}
-
-
-
-[System.Serializable]
-public class NestEvent : UnityEvent<NestItem>{
-
 }
