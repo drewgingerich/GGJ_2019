@@ -145,8 +145,8 @@ public class BirdController : MonoBehaviour {
 		return Vector3.Distance((Vector3)LandscapeConstants.HotBirdPosition, transform.position) < minPickupDistance;
 	}
 
+	//HotBird will sing until player moves away
 	private IEnumerator ListenToFullSong(){
-		Debug.Log("Hi here is my song");
 		while (IsNearHotBird()) {
 			song.volume = 1;
 			yield return null;
