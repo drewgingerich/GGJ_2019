@@ -53,7 +53,7 @@ public class NestItem : MonoBehaviour
 
     IEnumerator FallRoutine () {
         float speed = 0.1f;
-        float groundLevel = floor.groundLevel + Random.Range(-2.5f, 0f);
+        float groundLevel = floor.groundLevel + Random.Range(-2f, 0f);
         while (transform.position.y > groundLevel && !isHeld) { // && !IsAtNest()) {
             speed += acceleration * Time.deltaTime;
             Vector3 move = Vector3.down * speed;
