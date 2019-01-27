@@ -46,9 +46,13 @@ public class Nest : MonoBehaviour
     }
 
     IEnumerator BadItemRoutine(NestItem item) {
+        hotBird.anim.SetBool("isTalking", true);
+        hotBird.anim.SetTrigger("Angered");
+        Debug.Log("BOOOOO");
         yield return new WaitForSeconds(0.5f);
 		item.transform.SetParent(null);
         item.Fall();
+        hotBird.anim.SetBool("isTalking", false);
         yield return null;
     }
 
