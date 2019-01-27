@@ -190,6 +190,7 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
+		Debug.Log("interacting!");
 		if (null != chosenBit) {
 			DropItem();
 		} else {
@@ -210,7 +211,8 @@ public class BirdController : MonoBehaviour {
 		}
 
 		if (IsNearHotBird()) {
-			hotBird.Sing();
+			Debug.Log("starting to sing");
+			StartCoroutine(hotBird.Sing(this));
 		}
 	}
 
@@ -244,19 +246,14 @@ public class BirdController : MonoBehaviour {
 		Pickup(cruft);
 	}
 
-	private bool IsNearHotBird(){
+	public bool IsNearHotBird(){
+		Debug.Log(hotBird == null);
+		Debug.Log(Vector3.Distance(hotBird.transform.position, transform.position).ToString());
 		if (hotBird == null) return false;
-		return Vector3.Distance(hotBird.transform.position, transform.position) < minPickupDistance;
+		return Vector3.Distance(hotBird.transform.position, transform.position) < 2.4;
 	}
 
-	//HotBird will sing until player moves away
-	// private IEnumerator ListenToFullSong(){
-	// 	while (IsNearHotBird()) {
-	// 		song.volume = 1;
-	// 		yield return null;
-	// 	}
-	// 	song.volume = 0;
-	// }
+	
 
 #if UNITY_EDITOR
 	void OnDrawGizmosSelected() {

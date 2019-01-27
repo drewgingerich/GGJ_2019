@@ -1057,6 +1057,11 @@ PrefabInstance:
       propertyPath: minPickupDistance
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: hotBird
+      value: 
+      objectReference: {fileID: 334942305}
     - target: {fileID: 380281399941160473, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: m_LocalPosition.x

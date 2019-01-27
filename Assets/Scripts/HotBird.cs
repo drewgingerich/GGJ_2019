@@ -41,7 +41,14 @@ public class HotBird : MonoBehaviour
         song.volume = 0;
     }
 
-    public void Sing(){
-
+	public IEnumerator Sing(BirdController bird){
+        anim.SetBool("isTalking", true);
+        anim.SetTrigger("Explain");
+        thoughtsAnim.SetBool("Singing", true);
+        song.volume = 1;
+        yield return new WaitForSeconds(13.5f);
+		song.volume = 0;
+        anim.SetBool("isTalking", false);
+        thoughtsAnim.SetBool("Singing", false);
     }
 }
