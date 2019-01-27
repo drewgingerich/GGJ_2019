@@ -7,7 +7,7 @@ public class CameraBounds : MonoBehaviour
 {
     Bounds localBounds;
 
-    void Start()
+    void OnEnable()
     {
         Camera camera = GetComponent<Camera>();
 		var vertExtent = camera.orthographicSize;
