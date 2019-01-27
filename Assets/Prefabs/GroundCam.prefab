@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8874292637703344647}
   - component: {fileID: 8874292637703344646}
   - component: {fileID: 8874292637703344645}
+  - component: {fileID: 813086995586097845}
+  - component: {fileID: 7085786255032542190}
   m_Layer: 0
   m_Name: GroundCam
   m_TagString: MainCamera
@@ -82,3 +84,30 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8874292637703344644}
   m_Enabled: 1
+--- !u!114 &813086995586097845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874292637703344644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a8f9fb3e62e4757b60ef833818b950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7085786255032542190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874292637703344644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb995ca7db52d441fbb62f2070aa58e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  speed: 3
