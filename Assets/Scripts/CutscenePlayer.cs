@@ -1,136 +1,128 @@
-﻿// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-// public class CutscenePlayer : MonoBehaviour
-// {
-//     [SerializeField]
-//     BirdController player;
+public class CutscenePlayer : MonoBehaviour
+{
+    [SerializeField]
+    BirdController player;
 
-//     [SerializeField]
-//     HotBird bird;
-//     [SerializeField]
-//     Animator birdAnimator;
+    [SerializeField]
+    HotBird bird;
+    [SerializeField]
+    Animator birdAnimator;
 
-//     [SerializeField]
-//     HotBird hotBird;
-//     [SerializeField]
-//     Animator hotBirdAnimator;
+    [SerializeField]
+    HotBird hotBird;
+    [SerializeField]
+    Animator hotBirdAnimator;
 
-//     [SerializeField]
-//     Transform branchSitPosition;
+    [SerializeField]
+    Transform branchSitPosition;
 
-//     void Start() {
-//         StartCoroutine(OpeningCutsceneRoutine());
-//     }
+	const string talkingBool = "isTalking";
 
-//     public void PlayIntermediateCutscene() {
-//         StartCoroutine(IntermediateCutsceneRoutine());
-//     }
+	const string NORMAL = "Pleased";
+	const string ANGRY = "Angered";
+	const string SINGING = "Singing";
 
-//     public void PlayEndingCutscene() {
-//         StartCoroutine(EndingCutsceneRoutine());
-//     }
+	const string LOVE = "Happy";
+	const string SCRIBBLES = "Angry";
+	const string MUSIC = "Explain";
 
-//     IEnumerator OpeningCutsceneRoutine() {
-//         yield return StartCoroutine(FlyToBranch());
+    void Start() {
+        StartCoroutine(OpeningCutsceneRoutine());
+    }
 
-//         bird.ShowBubble(BubbleContents.LOVE);
-//         yield return StartCoroutine(bird.NormalRoutine());
-//         bird.HideBubble();
+	public void PlayGoodItemCutscene() {
+		StartCoroutine(GoodItemCutsceneRoutine());
+	}
 
-//         hotBird.ShowBubble(BubbleContents.MUSIC);
-//         yield return StartCoroutine(bird.NormalRoutine());
-//         hotBird.HideBubble();
+	public void PlayBadItemCutscene(NestItem item) {
+		StartCoroutine(BadItemCutsceneRoutine(item));
+	}
 
-//         bird.ShowBubble(BubbleContents.SCRIBBLES);
-//         yield return StartCoroutine(bird.SingRoutine());
-//         bird.HideBubble();
+    public void PlayEndingCutscene() {
+        StartCoroutine(EndingCutsceneRoutine());
+    }
 
-//         hotBird.ShowBubble(BubbleContents.SCRIBBLES);
-//         yield return StartCoroutine(bird.AngerRoutine());
-//         hotBird.HideBubble();
+	IEnumerator InteractionRoutine(HotBird bird, string thoughtsStateBool, string birdStateBool) {
+		bird.anim.SetBool(talkingBool, true);
+		bird.anim.SetTrigger(NORMAL);
+		bird.thoughtsAnim.SetBool(LOVE, true);
 
-//         hotBird.ShowBubble(BubbleContents.MUSIC);
-//         yield return StartCoroutine(bird.SingRoutine());
-//         hotBird.HideBubble();
+		yield return new WaitForSeconds(2f);
 
-//         yield return null;
+		bird.anim.SetBool(talkingBool, false);
+		bird.thoughtsAnim.SetBool(LOVE, false);
 
-//         ReleasePlayer();
-//     }
+		yield return new WaitForSeconds(1f);
+	}
 
-//     IEnumerator IntermediateCutsceneRoutine() {
-// 		yield return StartCoroutine(FlyToBranch());
-	
-// 		bird.ShowBubble(BubbleContents.LOVE);
-// 		yield return StartCoroutine(bird.NormalRoutine());
-// 		bird.HideBubble();
+    IEnumerator OpeningCutsceneRoutine() {
+        yield return StartCoroutine(FlyToBranch());
 
-// 		hotBird.ShowBubble(BubbleContents.MUSIC);
-// 		yield return StartCoroutine(bird.NormalRoutine());
-// 		hotBird.HideBubble();
+		yield return StartCoroutine(InteractionRoutine(bird, NORMAL, LOVE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, SINGING, MUSIC));
+		yield return StartCoroutine(InteractionRoutine(bird, SINGING, SCRIBBLES));
+		yield return StartCoroutine(InteractionRoutine(hotBird, ANGRY, SCRIBBLES));
+		yield return StartCoroutine(InteractionRoutine(hotBird, SINGING, MUSIC));
 
-// 		bird.ShowBubble(BubbleContents.SCRIBBLES);
-// 		yield return StartCoroutine(bird.SingRoutine());
-// 		bird.HideBubble();
+        ReleasePlayer();
+    }
 
-// 		hotBird.ShowBubble(BubbleContents.SCRIBBLES);
-// 		yield return StartCoroutine(bird.AngerRoutine());
-// 		hotBird.HideBubble();
+	IEnumerator GoodItemCutsceneRoutine() {
+		yield return StartCoroutine(FlyToBranch());
 
-// 		hotBird.ShowBubble(BubbleContents.MUSIC);
-// 		yield return StartCoroutine(bird.SingRoutine());
-// 		hotBird.HideBubble();
+		yield return StartCoroutine(InteractionRoutine(bird, NORMAL, LOVE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, NORMAL, MUSIC));
 
-// 		yield return null;
+		ReleasePlayer();
+	}
 
-//         ReleasePlayer();
-//     }
+    IEnumerator BadItemCutsceneRoutine(NestItem item) {
+		yield return StartCoroutine(FlyToBranch());
 
-// 	IEnumerator EndingCutsceneRoutine() {
-// 		yield return StartCoroutine(FlyToBranch());
+		yield return StartCoroutine(InteractionRoutine(bird, NORMAL, LOVE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, ANGRY, SCRIBBLES));
+		item.transform.SetParent(null);
+		item.Fall();
+		yield return StartCoroutine(InteractionRoutine(hotBird, SINGING, SCRIBBLES));
 
-// 		bird.ShowBubble(BubbleContents.LOVE);
-// 		yield return StartCoroutine(bird.SingRoutine());
-// 		bird.HideBubble();
+        ReleasePlayer();
+    }
 
-// 		hotBird.ShowBubble(BubbleContents.LOVE);
-// 		yield return StartCoroutine(bird.SingRoutine());
-// 		hotBird.HideBubble();
+	IEnumerator EndingCutsceneRoutine() {
+		yield return StartCoroutine(FlyToBranch());
 
-// 		hotBird.ShowBubble(BubbleContents.LOVE);
-// 		bird.ShowBubble(BubbleContents.LOVE);
-// 		yield return StartCoroutine(bird.SingRoutine());
-// 		bird.HideBubble();
+		yield return StartCoroutine(InteractionRoutine(bird, NORMAL, LOVE));
+		yield return StartCoroutine(InteractionRoutine(bird, SINGING, MUSIC));
+		yield return StartCoroutine(InteractionRoutine(hotBird, NORMAL, LOVE));
+		StartCoroutine(InteractionRoutine(bird, SINGING, MUSIC));
+		yield return StartCoroutine(InteractionRoutine(hotBird, SINGING, MUSIC));
 
-// 		hotBird.ShowBubble(BubbleContents.LOVE);
-// 		bird.ShowBubble(BubbleContents.LOVE);
-// 		yield return StartCoroutine(bird.DanceRoutine());
-// 		bird.HideBubble();
+		yield return null;
 
-// 		yield return null;
+        ReleasePlayer();
+	}
 
-//         ReleasePlayer();
-// 	}
+    IEnumerator FlyToBranch() {
+        Vector3 startingPosition = player.transform.position;
+        float distance = (branchSitPosition.position - startingPosition).magnitude;
+        float travelTime = 3 * distance;
+        float timer = 0;
+        while (timer < travelTime) {
+            timer += Time.deltaTime;
+            Vector3 newPosition = Vector3.Lerp(startingPosition, branchSitPosition.position, timer / travelTime);
+            player.transform.position = newPosition;
+            yield return null;
+        }
+        player.gameObject.SetActive(false);
+        bird.gameObject.SetActive(true);
+    }
 
-//     IEnumerator FlyToBranch() {
-//         Vector3 startingPosition = player.transform.position;
-//         float distance = (branchSitPosition.position - startingPosition).magnitude;
-//         float travelTime = 3 * distance;
-//         float timer = 0;
-//         while (timer < travelTime) {
-//             timer += Time.deltaTime;
-//             Vector3 newPosition = Vector3.Lerp(startingPosition, branchSitPosition.position, timer / travelTime);
-//             player.transform.position = newPosition;
-//             yield return null;
-//         }
-//         player.gameObject.SetActive(false);
-//         bird.gameObject.SetActive(true);
-//     }
-
-//     void ReleasePlayer() {
-//         bird.gameObject.SetActive(false);
-// 		player.gameObject.SetActive(true);
-//     }
-// }
+    void ReleasePlayer() {
+        bird.gameObject.SetActive(false);
+		player.gameObject.SetActive(true);
+    }
+}
