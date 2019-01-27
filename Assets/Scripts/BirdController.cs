@@ -32,6 +32,9 @@ public class BirdController : MonoBehaviour {
 	public static BirdController activeController;
 
 	[SerializeField]
+	HotBird hotBird;
+
+	[SerializeField]
 	float airSpeed = 5;
 
 	[SerializeField]
@@ -187,8 +190,6 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
-		// if (IsNearHotBird()) StartCoroutine(ListenToFullSong());
-
 		if (null != chosenBit) {
 			Drop();
 		} else {
@@ -196,7 +197,12 @@ public class BirdController : MonoBehaviour {
 			if (distance <= minPickupDistance) {
 				var cruft = NestItem.ActiveItems.FirstOrDefault(item => (transform.position - item.transform.position).sqrMagnitude == distance);
 				Pickup(cruft);
+				return;
 			}
+		}
+
+		if (IsNearHotBird()) {
+			hotBird.Sing();
 		}
 	}
 
@@ -225,8 +231,7 @@ public class BirdController : MonoBehaviour {
 	}
 
 	private bool IsNearHotBird(){
-		return false;
-		// return Vector3.Distance((Vector3)LandscapeConstants.HotBirdPosition, transform.position) < minPickupDistance;
+		return Vector3.Distance(hotBird.transform.position, transform.position) < minPickupDistance;
 	}
 
 	//HotBird will sing until player moves away
