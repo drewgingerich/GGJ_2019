@@ -778,6 +778,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5506613744792673659, guid: 5b433c79a72b348a18448ae4f5a9b07d,
+        type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 2555137584709324446}
+    - target: {fileID: 4749100328414828193, guid: 5b433c79a72b348a18448ae4f5a9b07d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 664dac7c8628f4a69a7f163517827fc9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b433c79a72b348a18448ae4f5a9b07d, type: 3}
 --- !u!114 &1374893367 stripped
@@ -1159,6 +1169,12 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 96e784156330d44e390c0d0af366327c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5025e8e1e1fd4b1b8c35fea0ef90a4f, type: 3}
+--- !u!82 &2555137584709324446 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8781330762206695721, guid: b5025e8e1e1fd4b1b8c35fea0ef90a4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2555137584709324445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3354040876266494181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1451,6 +1467,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4169343762583454095, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
+        type: 3}
+      propertyPath: BypassListenerEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169343762583454095, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3773771981342296650, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
         type: 3}
       propertyPath: m_Color.r
@@ -1467,6 +1493,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3773771981342296661, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
+        type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 2555137584709324446}
     - target: {fileID: 6818611652431377300, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
         type: 3}
       propertyPath: m_FlipY
