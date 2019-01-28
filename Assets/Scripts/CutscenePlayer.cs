@@ -129,7 +129,7 @@ public class CutscenePlayer : MonoBehaviour
 		player.animating = true;
         Vector3 startingPosition = player.transform.position;
         float distance = (branchSitPosition.position - startingPosition).magnitude;
-        float travelTime = 0.3f * distance;
+        float travelTime = 0.2f * distance;
         float timer = 0;
         while (timer < travelTime) {
             timer += Time.deltaTime;
