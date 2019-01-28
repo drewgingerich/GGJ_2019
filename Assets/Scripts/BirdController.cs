@@ -20,6 +20,8 @@ public class BirdController : MonoBehaviour {
 	float forageEntranceSpeed;
 	[SerializeField]
 	Transform nestScreenEntryPoint;
+	[SerializeField]
+	CutscenePlayer cutscenePlayer;
 
 	// Animator parameter string keys
 	const string stoppedBool = "Stopped";
@@ -214,7 +216,7 @@ public class BirdController : MonoBehaviour {
 
 		if (IsNearHotBird()) {
 			Debug.Log("starting to sing");
-			StartCoroutine(hotBird.Sing());
+			cutscenePlayer.PlaySampleSongCutscene();
 		}
 	}
 
