@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutscenePlayer : MonoBehaviour
 {
@@ -123,6 +124,7 @@ public class CutscenePlayer : MonoBehaviour
 		yield return null;
 
         ReleasePlayer();
+		SceneManager.LoadScene("Credits");
 	}
 
     IEnumerator FlyToBranch() {
