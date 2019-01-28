@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutscenePlayer : MonoBehaviour
 {
@@ -123,9 +124,7 @@ public class CutscenePlayer : MonoBehaviour
 		StartCoroutine(InteractionRoutine(bird, SINGING, MUSIC));
 		yield return StartCoroutine(InteractionRoutine(hotBird, SINGING, MUSIC));
 
-		yield return null;
-
-        ReleasePlayer();
+		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
 
     IEnumerator FlyToBranch() {
