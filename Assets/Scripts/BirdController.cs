@@ -120,14 +120,12 @@ public class BirdController : MonoBehaviour {
 	}
 
 	void Fly() {
-		Debug.Log("flying");
 		speed = airSpeed;
 		grounded = false;
 		anim.SetBool(groundedBool, false);
 	}
 
 	void Land() {
-		Debug.Log("landed");
 		speed = groundSpeed;
 		grounded = true;
 		anim.SetBool(groundedBool, true);
@@ -159,14 +157,15 @@ public class BirdController : MonoBehaviour {
 
 	void Forage() {
 		nestCam.gameObject.SetActive(false);
-		forageCam.gameObject.SetActive(true);
 
+		Debug.Log(forageScreenEntryPoint.position);
 		transform.position = forageScreenEntryPoint.position;
 		Vector3 forageCamPosition = forageCam.transform.position;
 		forageCamPosition.y = transform.position.y;
 
+		forageCam.gameObject.SetActive(true);
 		activeCameraBounds = forageCamBounds;
-		StartCoroutine(ForageEntranceRoutine());
+		// StartCoroutine(ForageEntranceRoutine());
 		foraging = true;
 	}
 
@@ -185,7 +184,9 @@ public class BirdController : MonoBehaviour {
 		forageCam.gameObject.SetActive(false);
 		nestCam.gameObject.SetActive(true);
 
-		forageScreenEntryPoint.position = transform.position;
+		Vector3 position = forageScreenEntryPoint.position;
+		position.x = transform.position.x;
+		forageScreenEntryPoint.position = position;
 
 		activeCameraBounds = nestCamBounds;
 
@@ -215,7 +216,6 @@ public class BirdController : MonoBehaviour {
 		}
 
 		if (IsNearHotBird()) {
-			Debug.Log("starting to sing");
 			cutscenePlayer.PlaySampleSongCutscene();
 		}
 	}
