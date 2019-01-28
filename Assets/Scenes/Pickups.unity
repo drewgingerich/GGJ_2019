@@ -1444,6 +1444,11 @@ PrefabInstance:
       propertyPath: hotBird
       value: 
       objectReference: {fileID: 334942305}
+    - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: cutscenePlayer
+      value: 
+      objectReference: {fileID: 1374893367}
     - target: {fileID: 380281399941160473, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1609,6 +1614,16 @@ PrefabInstance:
         type: 3}
       propertyPath: groundLevel
       value: -5.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385457101230019350, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385457101230019350, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.9
       objectReference: {fileID: 0}
     - target: {fileID: 4385457102224289474, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
         type: 3}
