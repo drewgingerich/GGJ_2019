@@ -59,8 +59,11 @@ public class CutscenePlayer : MonoBehaviour
 		bird.anim.SetBool(talkingBool, true);
 		bird.anim.SetTrigger(birdStateTrigger);
 		bird.thoughtsAnim.SetBool(thoughtsStateBool, true);
-
-		yield return new WaitForSeconds(2f);
+		if (birdStateTrigger == SINGING) {
+			yield return new WaitForSeconds(5f);
+		} else {
+			yield return new WaitForSeconds(1.5f);
+		}
 
 		bird.anim.SetBool(talkingBool, false);
 		bird.thoughtsAnim.SetBool(thoughtsStateBool, false);
@@ -70,7 +73,7 @@ public class CutscenePlayer : MonoBehaviour
 			bird.song.volume = 0;
 		}
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 	}
 
 	IEnumerator SampleSongCutsceneRoutine() {
