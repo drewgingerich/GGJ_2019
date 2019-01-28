@@ -69,7 +69,7 @@ public class CutscenePlayer : MonoBehaviour
 		bird.thoughtsAnim.SetBool(thoughtsStateBool, false);
 
 		if (birdStateTrigger == SINGING) {
-			bird.backgroundMusic.volume = 1;
+			bird.backgroundMusic.volume = 0.2f;
 			bird.song.volume = 0;
 		}
 
