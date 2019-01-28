@@ -60,7 +60,7 @@ PrefabInstance:
     - target: {fileID: 3773771981342296660, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
         type: 3}
       propertyPath: m_Name
-      value: HotBird
+      value: MyHotBird
       objectReference: {fileID: 0}
     - target: {fileID: 3773771981342296660, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
         type: 3}
