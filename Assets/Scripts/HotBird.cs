@@ -16,6 +16,9 @@ public class HotBird : MonoBehaviour
     [SerializeField]
     public Animator thoughtsAnim;
 
+    [SerializeField]
+    public AudioSource backgroundMusic;
+
     private float songLength = 5;
 
     public IEnumerator Praise(){
@@ -41,14 +44,17 @@ public class HotBird : MonoBehaviour
         song.volume = 0;
     }
 
-	public IEnumerator Sing(BirdController bird){
+	public IEnumerator Sing(){
+        backgroundMusic.volume = 0;
         anim.SetBool("isTalking", true);
         anim.SetTrigger("Explain");
         thoughtsAnim.SetBool("Singing", true);
         song.volume = 1;
-        yield return new WaitForSeconds(13.5f);
+        yield return new WaitForSeconds(10f);
+        Debug.Log("and we're back");
 		song.volume = 0;
-        anim.SetBool("isTalking", false);
-        thoughtsAnim.SetBool("Singing", false);
+        anim.SetTrigger("Chill");
+        thoughtsAnim.SetTrigger("Chill");
+        backgroundMusic.volume = 1;
     }
 }

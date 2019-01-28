@@ -118,12 +118,14 @@ public class BirdController : MonoBehaviour {
 	}
 
 	void Fly() {
+		Debug.Log("flying");
 		speed = airSpeed;
 		grounded = false;
 		anim.SetBool(groundedBool, false);
 	}
 
 	void Land() {
+		Debug.Log("landed");
 		speed = groundSpeed;
 		grounded = true;
 		anim.SetBool(groundedBool, true);
@@ -205,14 +207,14 @@ public class BirdController : MonoBehaviour {
 				}
 			}
 			if (selectedBit != null) {
-				Pickup(selectedBit);
+				StartCoroutine(PickUpRoutine(selectedBit));
 				return;
 			}
 		}
 
 		if (IsNearHotBird()) {
 			Debug.Log("starting to sing");
-			StartCoroutine(hotBird.Sing(this));
+			StartCoroutine(hotBird.Sing());
 		}
 	}
 
@@ -237,6 +239,7 @@ public class BirdController : MonoBehaviour {
 	}
 
 	IEnumerator PickUpRoutine(NestItem cruft) {
+		Debug.Log(grounded);
 		if (grounded) {
 			animating = true;
 			anim.SetTrigger(pickUpTrigger);

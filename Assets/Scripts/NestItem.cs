@@ -63,6 +63,8 @@ public class NestItem : MonoBehaviour
     }
 
     public void Rest() {
-        StopCoroutine(fallRoutine);
+        if (fallRoutine != null) {
+            StopCoroutine(fallRoutine);
+        }
     }
 }

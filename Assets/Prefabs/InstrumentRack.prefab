@@ -340,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: TrickInstrument (1)
+      value: Lowguitar (leaf2) - trick
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -430,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument (4)
+      value: Resoblocks (ribbon)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -520,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: TrickInstrument (3)
+      value: Noodly (gummybear) - trick
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -610,7 +610,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument (5)
+      value: Resorolls (leaf)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -700,7 +700,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument (3)
+      value: Kicks (sodatab)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -790,7 +790,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument (1)
+      value: Chimey (marble)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -880,7 +880,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument (2)
+      value: Flute (feather)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -970,7 +970,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument (6)
+      value: Shamisen (twig)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -1060,7 +1060,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument
+      value: BassBrush (stick)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -1150,7 +1150,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: Instrument (7)
+      value: Vocdrums (grayfeather)
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -1240,7 +1240,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: TrickInstrument (4)
+      value: vibetocka (spork) - trick
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -1330,7 +1330,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: TrickInstrument
+      value: Guitorgan (rubberband) - trick
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
@@ -1420,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 1849873950916602658, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
       propertyPath: m_Name
-      value: TrickInstrument (2)
+      value: Snares (bottlecap) - trick
       objectReference: {fileID: 0}
     - target: {fileID: 7157514420907629531, guid: d44969294c10a442eb4b02aff42bf50c,
         type: 3}
