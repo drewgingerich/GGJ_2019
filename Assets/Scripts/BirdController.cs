@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class BirdController : MonoBehaviour {
 
-	bool animating;
+	public bool animating;
 	bool foraging = false;
 	bool grounded;
 	float speed = 1;

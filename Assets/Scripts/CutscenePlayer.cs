@@ -28,7 +28,7 @@ public class CutscenePlayer : MonoBehaviour
 
 	const string LOVE = "Happy";
 	const string SCRIBBLES = "Angry";
-	const string MUSIC = "Explain";
+	const string MUSIC = "Singing";
 
     void Start() {
         StartCoroutine(OpeningCutsceneRoutine());
@@ -46,15 +46,15 @@ public class CutscenePlayer : MonoBehaviour
         StartCoroutine(EndingCutsceneRoutine());
     }
 
-	IEnumerator InteractionRoutine(HotBird bird, string thoughtsStateBool, string birdStateBool) {
+	IEnumerator InteractionRoutine(HotBird bird, string birdStateTrigger, string thoughtsStateBool) {
 		bird.anim.SetBool(talkingBool, true);
-		bird.anim.SetTrigger(NORMAL);
-		bird.thoughtsAnim.SetBool(LOVE, true);
+		bird.anim.SetTrigger(birdStateTrigger);
+		bird.thoughtsAnim.SetBool(thoughtsStateBool, true);
 
 		yield return new WaitForSeconds(2f);
 
 		bird.anim.SetBool(talkingBool, false);
-		bird.thoughtsAnim.SetBool(LOVE, false);
+		bird.thoughtsAnim.SetBool(thoughtsStateBool, false);
 
 		yield return new WaitForSeconds(1f);
 	}
@@ -107,14 +107,15 @@ public class CutscenePlayer : MonoBehaviour
 	}
 
     IEnumerator FlyToBranch() {
+		player.animating = true;
         Vector3 startingPosition = player.transform.position;
         float distance = (branchSitPosition.position - startingPosition).magnitude;
-        float travelTime = 3 * distance;
+        float travelTime = 0.3f * distance;
         float timer = 0;
         while (timer < travelTime) {
             timer += Time.deltaTime;
             Vector3 newPosition = Vector3.Lerp(startingPosition, branchSitPosition.position, timer / travelTime);
-            player.transform.position = newPosition;
+            player.transform.position = new Vector3(newPosition.x, newPosition.y, player.transform.position.z);
             yield return null;
         }
         player.gameObject.SetActive(false);
@@ -122,6 +123,7 @@ public class CutscenePlayer : MonoBehaviour
     }
 
     void ReleasePlayer() {
+		player.animating = false;
         bird.gameObject.SetActive(false);
 		player.gameObject.SetActive(true);
     }
