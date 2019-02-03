@@ -158,8 +158,7 @@ public class BirdController : MonoBehaviour {
 	void Forage() {
 		nestCam.gameObject.SetActive(false);
 
-		Debug.Log(forageScreenEntryPoint.position);
-		transform.position = forageScreenEntryPoint.position;
+		transform.position = (Vector2)forageScreenEntryPoint.position;
 		Vector3 forageCamPosition = forageCam.transform.position;
 		forageCamPosition.y = transform.position.y;
 
@@ -190,7 +189,7 @@ public class BirdController : MonoBehaviour {
 
 		activeCameraBounds = nestCamBounds;
 
-		transform.position = nestScreenEntryPoint.position;
+		transform.position = (Vector2)nestScreenEntryPoint.position;
 		foraging = false;
 	}
 
