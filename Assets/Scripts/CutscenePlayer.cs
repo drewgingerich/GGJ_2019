@@ -26,6 +26,7 @@ public class CutscenePlayer : MonoBehaviour
 	const string BIRD_TALK_HAPPY = "Pleased";
 	const string BIRD_TALK_ANGRY = "Angered";
 	const string BIRD_SING = "Explain";
+	const string BIRD_DANCE = "Dance";
 
 	const string THOUGHT_LOVE = "Happy";
 	const string THOUGHT_SCRIBBLE = "Angry";
@@ -60,7 +61,7 @@ public class CutscenePlayer : MonoBehaviour
 		bird.anim.SetBool(talkingBool, true);
 		bird.anim.SetTrigger(birdStateTrigger);
 		bird.thoughtsAnim.SetBool(thoughtsStateBool, true);
-		if (birdStateTrigger == BIRD_SING) {
+		if (birdStateTrigger == BIRD_SING || birdStateTrigger == BIRD_DANCE) {
 			yield return new WaitForSeconds(5f);
 		} else {
 			yield return new WaitForSeconds(1.5f);
@@ -69,7 +70,7 @@ public class CutscenePlayer : MonoBehaviour
 		bird.anim.SetBool(talkingBool, false);
 		bird.thoughtsAnim.SetBool(thoughtsStateBool, false);
 
-		if (birdStateTrigger == BIRD_SING) {
+		if (birdStateTrigger == BIRD_SING || birdStateTrigger == BIRD_DANCE) {
 			bird.backgroundMusic.volume = 0.2f;
 			bird.song.volume = 0;
 		}
@@ -121,8 +122,8 @@ public class CutscenePlayer : MonoBehaviour
 		bird.song = hotBird.song;
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_SING, THOUGHT_MUSIC));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
-		StartCoroutine(InteractionRoutine(bird, BIRD_SING, THOUGHT_MUSIC));
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
+		StartCoroutine(InteractionRoutine(bird, BIRD_DANCE, THOUGHT_MUSIC));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_DANCE, THOUGHT_MUSIC));
 
 		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
