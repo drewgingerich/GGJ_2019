@@ -1818,17 +1818,17 @@ PrefabInstance:
         type: 3}
       propertyPath: ornamentPoints.Array.data[5]
       value: 
-      objectReference: {fileID: 7145045828397146969}
+      objectReference: {fileID: 7145045828397146975}
     - target: {fileID: 4082650709888540476, guid: b428dd0c1cfe24c0b95e70267928f0ca,
         type: 3}
       propertyPath: ornamentPoints.Array.data[6]
       value: 
-      objectReference: {fileID: 7145045828397146969}
+      objectReference: {fileID: 7145045828397146974}
     - target: {fileID: 4082650709888540476, guid: b428dd0c1cfe24c0b95e70267928f0ca,
         type: 3}
       propertyPath: ornamentPoints.Array.data[7]
       value: 
-      objectReference: {fileID: 7145045828397146969}
+      objectReference: {fileID: 7145045828397146973}
     - target: {fileID: 7145045829003719946, guid: b428dd0c1cfe24c0b95e70267928f0ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2018,6 +2018,24 @@ Transform:
 --- !u!4 &7145045828397146972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 180388632080887045, guid: b428dd0c1cfe24c0b95e70267928f0ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 7145045828397146967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7145045828397146973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2414021689350981472, guid: b428dd0c1cfe24c0b95e70267928f0ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 7145045828397146967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7145045828397146974 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1656300333318801834, guid: b428dd0c1cfe24c0b95e70267928f0ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 7145045828397146967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7145045828397146975 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4163501201338819115, guid: b428dd0c1cfe24c0b95e70267928f0ca,
     type: 3}
   m_PrefabInstance: {fileID: 7145045828397146967}
   m_PrefabAsset: {fileID: 0}
