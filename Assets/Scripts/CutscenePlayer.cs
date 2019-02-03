@@ -109,7 +109,7 @@ public class CutscenePlayer : MonoBehaviour
 		yield return StartCoroutine(InteractionRoutine(hotBird, ANGRY, SCRIBBLES));
 		item.transform.SetParent(null);
 		item.Fall();
-		yield return StartCoroutine(InteractionRoutine(hotBird, SINGING, SCRIBBLES));
+		yield return StartCoroutine(InteractionRoutine(hotBird, SINGING, MUSIC));
 
         ReleasePlayer();
     }
