@@ -60,7 +60,7 @@ public class CutscenePlayer : MonoBehaviour
 		bird.thoughtsAnim.SetTrigger(thoughtsStateTrigger);
 		yield return new WaitForSeconds(THOUGHT_BUBBLE_APPEARANCE_TIME);
 
-		if (birdStateTrigger == BIRD_SING) {
+		if (birdStateTrigger == BIRD_SING || birdStateTrigger == BIRD_DANCE) {
 			bird.backgroundMusic.volume = 0;
 			bird.song.volume = 1;
 		}
