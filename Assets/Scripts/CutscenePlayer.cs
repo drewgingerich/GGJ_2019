@@ -21,16 +21,19 @@ public class CutscenePlayer : MonoBehaviour
     [SerializeField]
     Transform branchSitPosition;
 
-	const string talkingBool = "isTalking";
+	const float THOUGHT_BUBBLE_APPEARANCE_TIME = 0.2f;
+
+	const string TALKING = "isTalking";
+	const string THINKING = "isThinking";
 
 	const string BIRD_TALK_HAPPY = "Pleased";
 	const string BIRD_TALK_ANGRY = "Angered";
 	const string BIRD_SING = "Explain";
 	const string BIRD_DANCE = "Dance";
 
-	const string THOUGHT_LOVE = "Happy";
-	const string THOUGHT_SCRIBBLE = "Angry";
-	const string THOUGHT_MUSIC = "Singing";
+	const string THOUGHT_LOVE = "Heart";
+	const string THOUGHT_SCRIBBLE = "Scribbles";
+	const string THOUGHT_MUSIC = "Music";
 
     void Start() {
         StartCoroutine(OpeningCutsceneRoutine());
@@ -52,23 +55,26 @@ public class CutscenePlayer : MonoBehaviour
         StartCoroutine(EndingCutsceneRoutine());
     }
 
-	IEnumerator InteractionRoutine(HotBird bird, string birdStateTrigger, string thoughtsStateBool) {
+	IEnumerator InteractionRoutine(HotBird bird, string birdStateTrigger, string thoughtsStateTrigger) {
+		bird.thoughtsAnim.SetBool(THINKING, true);
+		bird.thoughtsAnim.SetTrigger(thoughtsStateTrigger);
+		yield return new WaitForSeconds(THOUGHT_BUBBLE_APPEARANCE_TIME);
+
 		if (birdStateTrigger == BIRD_SING) {
 			bird.backgroundMusic.volume = 0;
 			bird.song.volume = 1;
 		}
 
-		bird.anim.SetBool(talkingBool, true);
+		bird.anim.SetBool(TALKING, true);
 		bird.anim.SetTrigger(birdStateTrigger);
-		bird.thoughtsAnim.SetBool(thoughtsStateBool, true);
 		if (birdStateTrigger == BIRD_SING || birdStateTrigger == BIRD_DANCE) {
 			yield return new WaitForSeconds(5f);
 		} else {
 			yield return new WaitForSeconds(1.5f);
 		}
 
-		bird.anim.SetBool(talkingBool, false);
-		bird.thoughtsAnim.SetBool(thoughtsStateBool, false);
+		bird.thoughtsAnim.SetBool(THINKING, false);
+		bird.anim.SetBool(TALKING, false);
 
 		if (birdStateTrigger == BIRD_SING || birdStateTrigger == BIRD_DANCE) {
 			bird.backgroundMusic.volume = 0.2f;
