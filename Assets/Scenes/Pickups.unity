@@ -234,12 +234,12 @@ PrefabInstance:
     - target: {fileID: 5332114463849695504, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: 9.07
       objectReference: {fileID: 0}
     - target: {fileID: 5332114463849695504, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.52
+      value: 29.29
       objectReference: {fileID: 0}
     - target: {fileID: 779610715807795618, guid: 2717af19777394831af1294181551f1b,
         type: 3}
@@ -813,6 +813,16 @@ PrefabInstance:
       propertyPath: hotBirdAnimator
       value: 
       objectReference: {fileID: 1983049248}
+    - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
+        type: 3}
+      propertyPath: skipCutscenes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
+        type: 3}
+      propertyPath: fallingLeaf
+      value: 
+      objectReference: {fileID: 779610715807795618}
     - target: {fileID: 5506613744792673637, guid: 5b433c79a72b348a18448ae4f5a9b07d,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1437,7 +1447,7 @@ PrefabInstance:
     - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: airSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}

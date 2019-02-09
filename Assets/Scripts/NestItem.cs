@@ -21,6 +21,13 @@ public class NestItem : MonoBehaviour
     [SerializeField]
     Instrument instrument;
 
+    [SerializeField]
+    bool lightFall;
+    [SerializeField]
+    float swaySpeed = 4f;
+    [SerializeField]
+    float swayAmplitude = 1.5f;
+
     [System.NonSerialized]
     public bool isHeld = false;
 
@@ -48,7 +55,11 @@ public class NestItem : MonoBehaviour
     }
 
     public void Fall() {
-        fallRoutine = StartCoroutine(FallRoutine());
+        if (lightFall) {
+            fallRoutine = StartCoroutine(LightFallRoutine());
+        } else {
+			fallRoutine = StartCoroutine(FallRoutine());
+        }
     }
 
     IEnumerator FallRoutine () {
@@ -56,8 +67,31 @@ public class NestItem : MonoBehaviour
         float groundLevel = floor.groundLevel + Random.Range(-2f, 0f);
         while (transform.position.y > groundLevel && !isHeld) { // && !IsAtNest()) {
             speed += acceleration * Time.deltaTime;
-            Vector3 move = Vector3.down * speed;
+            Vector3 move = Vector3.down * speed * Time.deltaTime;
             transform.position += move;
+            yield return null;
+        }
+    }
+
+    IEnumerator LightFallRoutine() {
+        float groundLevel = floor.groundLevel + Random.Range(-2f, 0f);
+        Vector3 truePosition = transform.position;
+        float time = 0;
+        while (transform.position.y > groundLevel && !isHeld) { // && !IsAtNest()) {
+            time += Time.deltaTime;
+            truePosition += Vector3.down * Time.deltaTime * 1;
+            Vector3 newPosition = truePosition;
+
+            float swayAdjustmentHorizontal = Mathf.Sin(time * swaySpeed) * swayAmplitude;
+            float swayAdjustmentVertical = Mathf.Abs(Mathf.Cos(time * swaySpeed) * swayAmplitude) * -1;
+
+            newPosition.x += swayAdjustmentHorizontal;
+            newPosition.y += swayAdjustmentVertical * 0.5f;
+
+            transform.position = newPosition;
+            // speed += acceleration * Time.deltaTime;
+            // Vector3 move = Vector3.down * speed * Time.deltaTime;
+            // transform.position += move;
             yield return null;
         }
     }
