@@ -136,6 +136,9 @@ public class CutscenePlayer : MonoBehaviour
 
     IEnumerator FlyToBranch() {
 		player.animating = true;
+		Animator playerAnimator = player.GetComponent<Animator>();
+		playerAnimator.SetBool("Stopped", false);
+
         Vector3 startingPosition = player.transform.position;
         float distance = (branchSitPosition.position - startingPosition).magnitude;
         float travelTime = 0.2f * distance;
@@ -151,6 +154,8 @@ public class CutscenePlayer : MonoBehaviour
     }
 
     void ReleasePlayer() {
+		Animator playerAnimator = player.GetComponent<Animator>();
+		playerAnimator.SetBool("Stopped", true);		
 		player.animating = false;
         bird.gameObject.SetActive(false);
 		player.gameObject.SetActive(true);
