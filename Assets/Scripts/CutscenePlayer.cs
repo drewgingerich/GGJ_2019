@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class CutscenePlayer : MonoBehaviour
 {
+	[SerializeField]
+	bool skipCutscenes;
+
     [SerializeField]
     BirdController player;
 
@@ -85,10 +88,17 @@ public class CutscenePlayer : MonoBehaviour
 	}
 
 	IEnumerator SampleSongCutsceneRoutine() {
+		if (skipCutscenes) {
+			yield break;
+		}
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));	
 	}
 
     IEnumerator OpeningCutsceneRoutine() {
+		if (skipCutscenes) {
+			yield break;
+		}
+
         yield return StartCoroutine(FlyToBranch());
 
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
@@ -101,6 +111,10 @@ public class CutscenePlayer : MonoBehaviour
     }
 
 	IEnumerator GoodItemCutsceneRoutine() {
+		if (skipCutscenes) {
+			yield break;
+		}
+
 		yield return StartCoroutine(FlyToBranch());
 
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
@@ -110,6 +124,10 @@ public class CutscenePlayer : MonoBehaviour
 	}
 
     IEnumerator BadItemCutsceneRoutine(NestItem item) {
+		if (skipCutscenes) {
+			yield break;
+		}
+
 		yield return StartCoroutine(FlyToBranch());
 
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
@@ -122,6 +140,10 @@ public class CutscenePlayer : MonoBehaviour
     }
 
 	IEnumerator EndingCutsceneRoutine() {
+		if (skipCutscenes) {
+			yield break;
+		}
+
 		yield return StartCoroutine(FlyToBranch());
 
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
