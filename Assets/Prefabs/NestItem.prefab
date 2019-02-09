@@ -97,6 +97,9 @@ MonoBehaviour:
   floor: {fileID: 0}
   acceleration: 10
   instrument: {fileID: 0}
+  lightFall: 0
+  swaySpeed: 4
+  swayAmplitude: 1.5
 --- !u!61 &7542584397824674536
 BoxCollider2D:
   m_ObjectHideFlags: 0
