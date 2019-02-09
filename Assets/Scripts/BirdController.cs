@@ -92,6 +92,7 @@ public class BirdController : MonoBehaviour {
 
 		Bounds currentBounds = activeCameraBounds.GetBoundsWorldSpace();
 		newPosition.x = Mathf.Clamp(newPosition.x, currentBounds.min.x, currentBounds.max.x);
+		newPosition.y = Mathf.Clamp(newPosition.y, forageCamBounds.GetBoundsWorldSpace().min.y, nestCamBounds.GetBoundsWorldSpace().max.y - 1);
 
 		transform.position = newPosition;
 
