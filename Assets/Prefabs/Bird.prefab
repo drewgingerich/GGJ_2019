@@ -60,14 +60,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9016423c01e24070a6eb82d6a55f328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animating: 0
   forageScreenEntryPoint: {fileID: 0}
   forageEntraceTime: 0
   forageEntranceSpeed: 0
   nestScreenEntryPoint: {fileID: 0}
+  cutscenePlayer: {fileID: 0}
   hotBird: {fileID: 0}
-  airSpeed: 5
-  groundSpeed: 2
+  airSpeed: 10
+  groundSpeed: 6
   minPickupDistance: 0.2
+  edgePadding: 0.7
   beak: {fileID: 380281399941160473}
   anim: {fileID: 7581001449579211886}
   stage: {fileID: 0}
