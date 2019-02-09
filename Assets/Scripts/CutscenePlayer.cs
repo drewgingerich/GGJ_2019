@@ -11,6 +11,9 @@ public class CutscenePlayer : MonoBehaviour
     [SerializeField]
     BirdController player;
 
+	[SerializeField]
+	NestItem fallingLeaf;
+
     [SerializeField]
     HotBird bird;
     [SerializeField]
@@ -105,6 +108,9 @@ public class CutscenePlayer : MonoBehaviour
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_SING, THOUGHT_SCRIBBLE));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE));
+		fallingLeaf.Fall();
+		yield return new WaitForSeconds(5f);
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 
         ReleasePlayer();
