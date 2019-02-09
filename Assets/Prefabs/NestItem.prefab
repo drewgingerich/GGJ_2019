@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 0}
-  speed: 1
+  acceleration: 10
   instrument: {fileID: 0}
 --- !u!61 &7542584397824674536
 BoxCollider2D:

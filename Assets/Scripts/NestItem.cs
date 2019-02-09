@@ -56,7 +56,7 @@ public class NestItem : MonoBehaviour
         float groundLevel = floor.groundLevel + Random.Range(-2f, 0f);
         while (transform.position.y > groundLevel && !isHeld) { // && !IsAtNest()) {
             speed += acceleration * Time.deltaTime;
-            Vector3 move = Vector3.down * speed;
+            Vector3 move = Vector3.down * speed * Time.deltaTime;
             transform.position += move;
             yield return null;
         }
