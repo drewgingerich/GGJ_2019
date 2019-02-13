@@ -13,14 +13,14 @@ public class FireflyVFXController : MonoBehaviour
     float spawnSize = 1;
 
     const string SPAWN_AREA_WIDTH = "SpawnAreaWidth";
-    const string SPAWN_AREA_HEIGHT = "SpawnAreaWidth";
+    const string SPAWN_AREA_HEIGHT = "SpawnAreaHeight";
     const string SPAWN_SIZE = "SpawnSize";
 
     void Start() {
         float spawnAreaWidth = background.sprite.bounds.max.x * 2;
         float spawnAreaHeight = background.sprite.bounds.max.y * 2;
-        effect.SetFloat(SPAWN_AREA_WIDTH, spawnAreaWidth);
-        effect.SetFloat(SPAWN_AREA_HEIGHT, spawnAreaHeight);
-        effect.SetFloat(SPAWN_SIZE, spawnSize);
+		effect.SetFloat(SPAWN_AREA_WIDTH, spawnAreaWidth);
+		effect.SetFloat(SPAWN_AREA_HEIGHT, spawnAreaHeight);
+		effect.SetFloat(SPAWN_SIZE, spawnSize);
     }
 }
