@@ -1315,7 +1315,7 @@ PrefabInstance:
     - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
         type: 3}
       propertyPath: skipCutscenes
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
         type: 3}
