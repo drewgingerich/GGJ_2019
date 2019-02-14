@@ -15,6 +15,14 @@ public class ParallaxDriver : MonoBehaviour
 
     Vector3 previousPosition;
 
+    public void AddParallaxItem(Transform item) {
+        parallaxItems.Add(item);
+    }
+
+    public void RemoveParallaxItem(Transform item) {
+        parallaxItems.Remove(item);
+    }
+
     void Update()
     {
         float referenceZDiff = zReference.position.z - transform.position.z;
@@ -40,6 +48,4 @@ public class ParallaxDriver : MonoBehaviour
 
         previousPosition = transform.position;
     }
-
-
 }
