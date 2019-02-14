@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8874292637703344645}
   - component: {fileID: 813086995586097845}
   - component: {fileID: 7085786255032542190}
+  - component: {fileID: 57192168046379225}
   m_Layer: 0
   m_Name: GroundCam
   m_TagString: MainCamera
@@ -44,7 +45,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.105882354, a: 0}
+  m_BackGroundColor: {r: 0.08009968, g: 0.2264151, b: 0.16579862, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -60,7 +61,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -111,3 +112,25 @@ MonoBehaviour:
   player: {fileID: 0}
   spriteRenderer: {fileID: 0}
   speed: 3
+--- !u!114 &57192168046379225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874292637703344644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1526d8e25e0434499b8483baa1e7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zReference: {fileID: 0}
+  horizontalParallax: 1
+  verticalParallax: 1
+  parallaxItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
