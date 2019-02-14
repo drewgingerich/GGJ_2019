@@ -112,6 +112,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &8150803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+    type: 3}
+  m_PrefabInstance: {fileID: 181231044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1526d8e25e0434499b8483baa1e7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &84760904 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 145737352478639031, guid: b5025e8e1e1fd4b1b8c35fea0ef90a4f,
@@ -211,6 +223,26 @@ PrefabInstance:
       propertyPath: instrument
       value: 
       objectReference: {fileID: 350885395}
+    - target: {fileID: 7289549283713523777, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 7289549283713523777, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 7289549283713523777, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 7289549283713523777, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 6365533146095120999, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: floor
@@ -221,6 +253,26 @@ PrefabInstance:
       propertyPath: instrument
       value: 
       objectReference: {fileID: 1448106513}
+    - target: {fileID: 6365533146095120999, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 6365533146095120999, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 6365533146095120999, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 6365533146095120999, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 2817129973366939077, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: floor
@@ -231,6 +283,26 @@ PrefabInstance:
       propertyPath: instrument
       value: 
       objectReference: {fileID: 1140920932}
+    - target: {fileID: 2817129973366939077, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 2817129973366939077, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 2817129973366939077, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 2817129973366939077, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 5332114463849695504, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -251,6 +323,26 @@ PrefabInstance:
       propertyPath: instrument
       value: 
       objectReference: {fileID: 309185137}
+    - target: {fileID: 779610715807795618, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 779610715807795618, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 779610715807795618, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 779610715807795618, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 4556096741664735379, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: floor
@@ -261,6 +353,26 @@ PrefabInstance:
       propertyPath: instrument
       value: 
       objectReference: {fileID: 84760904}
+    - target: {fileID: 4556096741664735379, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 4556096741664735379, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 4556096741664735379, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 4556096741664735379, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 673431003852203134, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: floor
@@ -271,6 +383,26 @@ PrefabInstance:
       propertyPath: instrument
       value: 
       objectReference: {fileID: 1076146859}
+    - target: {fileID: 673431003852203134, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 673431003852203134, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 673431003852203134, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 673431003852203134, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 8940845731817308193, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -336,6 +468,26 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 4385457101396476907}
+    - target: {fileID: 444813631270154346, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 444813631270154346, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 444813631270154346, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 444813631270154346, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 865514253247065596, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -356,6 +508,26 @@ PrefabInstance:
       propertyPath: instrument
       value: 
       objectReference: {fileID: 2085420716}
+    - target: {fileID: 5704986139029417294, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 5704986139029417294, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 5704986139029417294, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 5704986139029417294, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 3004590526711885082, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -406,6 +578,26 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 4385457101396476907}
+    - target: {fileID: 7682209816015433128, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 7682209816015433128, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 7682209816015433128, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 7682209816015433128, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 7722958425978654967, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: instrument
@@ -416,6 +608,26 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 4385457101396476907}
+    - target: {fileID: 7722958425978654967, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 7722958425978654967, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 7722958425978654967, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 7722958425978654967, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 2943997238578822904, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: instrument
@@ -426,6 +638,26 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 4385457101396476907}
+    - target: {fileID: 2943997238578822904, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 2943997238578822904, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 2943997238578822904, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 2943997238578822904, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     - target: {fileID: 266962504242861207, guid: 2717af19777394831af1294181551f1b,
         type: 3}
       propertyPath: instrument
@@ -436,6 +668,26 @@ PrefabInstance:
       propertyPath: floor
       value: 
       objectReference: {fileID: 4385457101396476907}
+    - target: {fileID: 266962504242861207, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestCameraBounds
+      value: 
+      objectReference: {fileID: 181231045}
+    - target: {fileID: 266962504242861207, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: nestParallaxDriver
+      value: 
+      objectReference: {fileID: 8150803}
+    - target: {fileID: 266962504242861207, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageCameraBounds
+      value: 
+      objectReference: {fileID: 849973272}
+    - target: {fileID: 266962504242861207, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: forageParallaxDriver
+      value: 
+      objectReference: {fileID: 927492462}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2717af19777394831af1294181551f1b, type: 3}
 --- !u!4 &133299211 stripped
@@ -443,6 +695,220 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4989533792686844749, guid: b428dd0c1cfe24c0b95e70267928f0ca,
     type: 3}
   m_PrefabInstance: {fileID: 7145045828397146967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &181231044
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 562717778}
+    m_Modifications:
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: zReference
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 511785612}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 1036833105}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 765300404}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[3]
+      value: 
+      objectReference: {fileID: 1177122969}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[4]
+      value: 
+      objectReference: {fileID: 454161526}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[5]
+      value: 
+      objectReference: {fileID: 508204390}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[6]
+      value: 
+      objectReference: {fileID: 1677585649}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[7]
+      value: 
+      objectReference: {fileID: 1811762524}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[8]
+      value: 
+      objectReference: {fileID: 532048331}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[9]
+      value: 
+      objectReference: {fileID: 2084633005}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[10]
+      value: 
+      objectReference: {fileID: 857683124}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[11]
+      value: 
+      objectReference: {fileID: 930688240}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[12]
+      value: 
+      objectReference: {fileID: 967338040}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[13]
+      value: 
+      objectReference: {fileID: 527551841}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[14]
+      value: 
+      objectReference: {fileID: 1604761636}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[15]
+      value: 
+      objectReference: {fileID: 1861635601}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[16]
+      value: 
+      objectReference: {fileID: 539197282}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[17]
+      value: 
+      objectReference: {fileID: 485847966}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344644, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_Name
+      value: NestCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085786255032542190, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 7085786255032542190, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 7145045828397146968}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1008a231901f44794aea6bfa6e5211da, type: 3}
+--- !u!114 &181231045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 813086995586097845, guid: 1008a231901f44794aea6bfa6e5211da,
+    type: 3}
+  m_PrefabInstance: {fileID: 181231044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a8f9fb3e62e4757b60ef833818b950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &181231046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874292637703344647, guid: 1008a231901f44794aea6bfa6e5211da,
+    type: 3}
+  m_PrefabInstance: {fileID: 181231044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &181231047 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8874292637703344646, guid: 1008a231901f44794aea6bfa6e5211da,
+    type: 3}
+  m_PrefabInstance: {fileID: 181231044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &207300726 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 636651131074403065, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &269274544 stripped
 MonoBehaviour:
@@ -522,6 +988,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4385457101396476906}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &485847966 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4655229916555154469, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &508204390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7137299275432892538, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
@@ -533,6 +1005,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4385457100998039916, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
     type: 3}
   m_PrefabInstance: {fileID: 4385457101396476906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &527551841 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 865514253247065596, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &532048331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7221159999308848503, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &539197282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7779387717985287754, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &562717777
 GameObject:
@@ -562,7 +1052,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2129112075}
-  - {fileID: 851947022}
+  - {fileID: 181231046}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -614,51 +1104,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a8f9fb3e62e4757b60ef833818b950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!20 &851947020 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 562993896416115962, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-    type: 3}
-  m_PrefabInstance: {fileID: 562993897184154358}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &851947021 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8932568789536128130, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-    type: 3}
-  m_PrefabInstance: {fileID: 562993897184154358}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929900799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a8f9fb3e62e4757b60ef833818b950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &851947022 stripped
+--- !u!4 &857683124 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
+  m_CorrespondingSourceObject: {fileID: 2740278168610316531, guid: 2717af19777394831af1294181551f1b,
     type: 3}
-  m_PrefabInstance: {fileID: 562993897184154358}
+  m_PrefabInstance: {fileID: 132366202}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &929900799 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 562993896416115965, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-    type: 3}
-  m_PrefabInstance: {fileID: 562993897184154358}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &929900800
+--- !u!114 &927492462 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+    type: 3}
+  m_PrefabInstance: {fileID: 2129112074}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929900799}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb995ca7db52d441fbb62f2070aa58e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a1526d8e25e0434499b8483baa1e7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1671483790}
-  spriteRenderer: {fileID: 7145045828397146968}
-  speed: 3
+--- !u!4 &930688240 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5365550654484669644, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &967338040 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4972688320979005656, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &989073660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385457101230019350, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
@@ -920,11 +1395,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4698f9bed9ee5489c768d179dbc17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1604761636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3004590526711885082, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1671483790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3354040876254377784, guid: b9e73bd15b0d4684e8303c382e088c87,
     type: 3}
   m_PrefabInstance: {fileID: 3354040876266494181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1677585649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8940845731817308193, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1691915869 stripped
 Transform:
@@ -932,11 +1419,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7145045828397146967}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1811762524 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5332114463849695504, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1861635601 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2883350287712866373, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1983049248 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3986585692016802939, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
     type: 3}
   m_PrefabInstance: {fileID: 3773771980429481306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2084633005 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1979376712467444437, guid: 2717af19777394831af1294181551f1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 132366202}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2085420716 stripped
 MonoBehaviour:
@@ -969,6 +1474,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 562717778}
     m_Modifications:
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.size
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: zReference
@@ -1004,10 +1514,70 @@ PrefabInstance:
       propertyPath: parallaxItems.Array.data[5]
       value: 
       objectReference: {fileID: 508204390}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[6]
+      value: 
+      objectReference: {fileID: 1677585649}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[7]
+      value: 
+      objectReference: {fileID: 1811762524}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[8]
+      value: 
+      objectReference: {fileID: 532048331}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[9]
+      value: 
+      objectReference: {fileID: 2084633005}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[10]
+      value: 
+      objectReference: {fileID: 857683124}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[11]
+      value: 
+      objectReference: {fileID: 930688240}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[12]
+      value: 
+      objectReference: {fileID: 967338040}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[13]
+      value: 
+      objectReference: {fileID: 527551841}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[14]
+      value: 
+      objectReference: {fileID: 1604761636}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[15]
+      value: 
+      objectReference: {fileID: 1861635601}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[16]
+      value: 
+      objectReference: {fileID: 539197282}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: parallaxItems.Array.data[17]
+      value: 
+      objectReference: {fileID: 485847966}
     - target: {fileID: 8874292637703344644, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: m_Name
-      value: GroundCam
+      value: ForageCamera
       objectReference: {fileID: 0}
     - target: {fileID: 7085786255032542190, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
@@ -1088,95 +1658,6 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 2129112074}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &562993897184154358
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 562717778}
-    m_Modifications:
-    - target: {fileID: 562993896416115965, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_Name
-      value: SkyCam
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115962, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115962, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.36862746
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115962, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.85490197
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115962, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.99215686
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 24.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 562993896416115960, guid: c8a368b28b29f4b15b5e56f0db2f1012,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c8a368b28b29f4b15b5e56f0db2f1012, type: 3}
 --- !u!114 &779610715807795618 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 779610715807795618, guid: 2717af19777394831af1294181551f1b,
@@ -1452,7 +1933,7 @@ PrefabInstance:
         type: 3}
       propertyPath: nestCam
       value: 
-      objectReference: {fileID: 851947020}
+      objectReference: {fileID: 181231047}
     - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: forageCamBounds
@@ -1462,7 +1943,7 @@ PrefabInstance:
         type: 3}
       propertyPath: nestCamBounds
       value: 
-      objectReference: {fileID: 851947021}
+      objectReference: {fileID: 181231045}
     - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: nestScreenEntryPoint
@@ -1503,6 +1984,11 @@ PrefabInstance:
       propertyPath: cutscenePlayer
       value: 
       objectReference: {fileID: 1374893367}
+    - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
+        type: 3}
+      propertyPath: nestItemParent
+      value: 
+      objectReference: {fileID: 207300726}
     - target: {fileID: 380281399941160473, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: m_LocalPosition.x
