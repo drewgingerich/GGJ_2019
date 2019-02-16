@@ -5,7 +5,9 @@ using UnityEngine;
 public class ParallaxDriver : MonoBehaviour
 {
     [SerializeField]
-    Transform zReference;
+    Transform zNearReference;
+    [SerializeField]
+    Transform zFarReference;
     [SerializeField]
     bool horizontalParallax = true;
     [SerializeField]
@@ -25,13 +27,13 @@ public class ParallaxDriver : MonoBehaviour
 
     void Update()
     {
-        float referenceZDiff = zReference.position.z - transform.position.z;
+        float referenceZDiff = zFarReference.position.z - zNearReference.position.z;
         float inverseReferenceZDiff = 1 / referenceZDiff;
         Vector3 referenceXYDiff = transform.position - previousPosition;
 
         Vector3 parallaxShift;
         foreach (Transform item in parallaxItems) {
-            float itemZDiff = zReference.position.z - item.position.z;
+            float itemZDiff = zFarReference.position.z - item.position.z;
             float moveRatio = 1 - itemZDiff * inverseReferenceZDiff;
             parallaxShift = referenceXYDiff * moveRatio;
 

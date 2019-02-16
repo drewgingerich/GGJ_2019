@@ -819,6 +819,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: zFarReference
+      value: 
+      objectReference: {fileID: 508204390}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: zNearReference
+      value: 
+      objectReference: {fileID: 1671483790}
     - target: {fileID: 7085786255032542190, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: player
@@ -1609,6 +1619,16 @@ PrefabInstance:
       propertyPath: parallaxItems.Array.data[17]
       value: 
       objectReference: {fileID: 485847966}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: zFarReference
+      value: 
+      objectReference: {fileID: 508204390}
+    - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: zNearReference
+      value: 
+      objectReference: {fileID: 1671483790}
     - target: {fileID: 7085786255032542190, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: player

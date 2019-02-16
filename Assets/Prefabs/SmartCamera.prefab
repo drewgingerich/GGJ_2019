@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7085786255032542190}
   - component: {fileID: 57192168046379225}
   m_Layer: 0
-  m_Name: GroundCam
+  m_Name: SmartCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1526d8e25e0434499b8483baa1e7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zReference: {fileID: 0}
+  zNearReference: {fileID: 0}
+  zFarReference: {fileID: 0}
   horizontalParallax: 1
   verticalParallax: 1
   parallaxItems:
