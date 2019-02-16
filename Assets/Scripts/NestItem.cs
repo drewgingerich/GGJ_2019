@@ -50,6 +50,7 @@ public class NestItem : MonoBehaviour
 
     void Start() {
         currentParallaxDriver = IsInForageCameraBounds() ? forageParallaxDriver : nestParallaxDriver;
+        currentParallaxDriver.AddParallaxItem(transform);
     }
 
     void Update() {
@@ -68,6 +69,7 @@ public class NestItem : MonoBehaviour
     }
 
     public void PickUp() {
+        StopAllCoroutines();
         isHeld = true;
         currentParallaxDriver.RemoveParallaxItem(transform);
         currentParallaxDriver = null;
@@ -77,11 +79,11 @@ public class NestItem : MonoBehaviour
         isHeld = false;
         if (IsInForageCameraBounds()) {
             currentParallaxDriver = forageParallaxDriver;
-            forageParallaxDriver.AddParallaxItem(transform);
         } else {
             currentParallaxDriver = nestParallaxDriver;
 			StartCoroutine(ParallaxDriverSwitchRoutine());
         }
+		currentParallaxDriver.AddParallaxItem(transform);
 
         if (lightFall) {
             fallRoutine = StartCoroutine(LightFallRoutine());
@@ -95,12 +97,12 @@ public class NestItem : MonoBehaviour
     }
 
     IEnumerator ParallaxDriverSwitchRoutine() {
-        if (IsInForageCameraBounds()) {
-            currentParallaxDriver.RemoveParallaxItem(transform);
-            forageParallaxDriver.AddParallaxItem(transform);
-        } else {
+        while (!IsInForageCameraBounds()) {
             yield return null;
         }
+		currentParallaxDriver.RemoveParallaxItem(transform);
+        currentParallaxDriver = forageParallaxDriver;
+		currentParallaxDriver.AddParallaxItem(transform);
     }
 
     IEnumerator FallRoutine () {
