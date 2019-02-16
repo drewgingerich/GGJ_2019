@@ -14,6 +14,14 @@ public class NestItem : MonoBehaviour
 
     [SerializeField]
     ForestFloor floor;
+    [SerializeField]
+    CameraBounds nestCameraBounds;
+    [SerializeField]
+    ParallaxDriver nestParallaxDriver;
+    [SerializeField]
+    CameraBounds forageCameraBounds;
+    [SerializeField]
+    ParallaxDriver forageParallaxDriver;
 
     [SerializeField]
     float acceleration = 0.2f;
@@ -31,12 +39,18 @@ public class NestItem : MonoBehaviour
     [System.NonSerialized]
     public bool isHeld = false;
 
+    ParallaxDriver currentParallaxDriver;
     Coroutine fallRoutine;
 
 
     void Awake(){
         sceneItems.Add(this);
         ActiveItems.Add(this);
+    }
+
+    void Start() {
+        currentParallaxDriver = IsInForageCameraBounds() ? forageParallaxDriver : nestParallaxDriver;
+        currentParallaxDriver.AddParallaxItem(transform);
     }
 
     void Update() {
@@ -54,12 +68,41 @@ public class NestItem : MonoBehaviour
         }
     }
 
+    public void PickUp() {
+        StopAllCoroutines();
+        isHeld = true;
+        currentParallaxDriver.RemoveParallaxItem(transform);
+        currentParallaxDriver = null;
+    }
+
     public void Fall() {
+        isHeld = false;
+        if (IsInForageCameraBounds()) {
+            currentParallaxDriver = forageParallaxDriver;
+        } else {
+            currentParallaxDriver = nestParallaxDriver;
+			StartCoroutine(ParallaxDriverSwitchRoutine());
+        }
+		currentParallaxDriver.AddParallaxItem(transform);
+
         if (lightFall) {
             fallRoutine = StartCoroutine(LightFallRoutine());
         } else {
 			fallRoutine = StartCoroutine(FallRoutine());
         }
+    }
+
+    bool IsInForageCameraBounds() {
+        return transform.position.y <= forageCameraBounds.GetBoundsWorldSpace().max.y;
+    }
+
+    IEnumerator ParallaxDriverSwitchRoutine() {
+        while (!IsInForageCameraBounds()) {
+            yield return null;
+        }
+		currentParallaxDriver.RemoveParallaxItem(transform);
+        currentParallaxDriver = forageParallaxDriver;
+		currentParallaxDriver.AddParallaxItem(transform);
     }
 
     IEnumerator FallRoutine () {
@@ -71,6 +114,7 @@ public class NestItem : MonoBehaviour
             transform.position += move;
             yield return null;
         }
+        Rest();
     }
 
     IEnumerator LightFallRoutine() {
@@ -94,11 +138,16 @@ public class NestItem : MonoBehaviour
             // transform.position += move;
             yield return null;
         }
+        Rest();
     }
 
     public void Rest() {
-        if (fallRoutine != null) {
-            StopCoroutine(fallRoutine);
-        }
+        Vector3 localPosition = transform.localPosition;
+        localPosition.z = 0;
+        transform.localPosition = localPosition;
+        StopAllCoroutines();
+        // if (fallRoutine != null) {
+        //     StopCoroutine(fallRoutine);
+        // }
     }
 }

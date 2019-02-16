@@ -41,6 +41,6 @@ public class Nest : MonoBehaviour
         } else {
             cutscenePlayer.PlayBadItemCutscene(item);
         }
-		item.Rest();
+        item.StopAllCoroutines();
     }
 }

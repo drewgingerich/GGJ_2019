@@ -22,6 +22,8 @@ public class BirdController : MonoBehaviour {
 	Transform nestScreenEntryPoint;
 	[SerializeField]
 	CutscenePlayer cutscenePlayer;
+	[SerializeField]
+	Transform nestItemParent;
 
 	// Animator parameter string keys
 	const string stoppedBool = "Stopped";
@@ -228,16 +230,16 @@ public class BirdController : MonoBehaviour {
 		if (grounded) {
 			chosenBit.transform.localPosition = Vector3.forward * 0.5f;
 		} 
-		chosenBit.transform.SetParent(null);
+		chosenBit.transform.SetParent(nestItemParent);
 		chosenBit.Fall();
 		chosenBit = null;
 	}
 
 	private void Pickup(NestItem cruft) {
 		chosenBit = cruft;
-		chosenBit.isHeld = true;
 		chosenBit.transform.SetParent(beak);
 		chosenBit.transform.localPosition = Vector3.back;
+		chosenBit.PickUp();
 	}
 
 	IEnumerator PickUpRoutine(NestItem cruft) {
