@@ -124,6 +124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1526d8e25e0434499b8483baa1e7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &12718231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5090406536486664472, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4385457101396476906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &84760904 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 145737352478639031, guid: b5025e8e1e1fd4b1b8c35fea0ef90a4f,
@@ -703,6 +709,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 562717778}
     m_Modifications:
+    - target: {fileID: 8874292637703344644, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_Name
+      value: NestCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: parallaxItems.Array.size
@@ -808,11 +819,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8874292637703344644, guid: 1008a231901f44794aea6bfa6e5211da,
-        type: 3}
-      propertyPath: m_Name
-      value: NestCamera
-      objectReference: {fileID: 0}
     - target: {fileID: 7085786255032542190, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: player
@@ -909,6 +915,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 636651131074403065, guid: 2717af19777394831af1294181551f1b,
     type: 3}
   m_PrefabInstance: {fileID: 132366202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &219744506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8401263151308098166, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4385457101396476906}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &269274544 stripped
 MonoBehaviour:
@@ -1074,6 +1086,12 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 4385457101396476906}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &708914563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4399513401761151740, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4385457101396476906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &765300404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1189111347441823049, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
@@ -1158,6 +1176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11572c11ce6542a996cea439b808153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1082769417 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5745004407610964822, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4385457101396476906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1134758960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 680620910208084508, guid: b5025e8e1e1fd4b1b8c35fea0ef90a4f,
@@ -1315,7 +1339,7 @@ PrefabInstance:
     - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
         type: 3}
       propertyPath: skipCutscenes
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
         type: 3}
@@ -1437,6 +1461,12 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 3773771980429481306}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2050404029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6613792604383967110, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4385457101396476906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2084633005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1979376712467444437, guid: 2717af19777394831af1294181551f1b,
@@ -1474,10 +1504,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 562717778}
     m_Modifications:
+    - target: {fileID: 8874292637703344644, guid: 1008a231901f44794aea6bfa6e5211da,
+        type: 3}
+      propertyPath: m_Name
+      value: ForageCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: parallaxItems.Array.size
-      value: 18
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
@@ -1518,27 +1553,27 @@ PrefabInstance:
         type: 3}
       propertyPath: parallaxItems.Array.data[6]
       value: 
-      objectReference: {fileID: 1677585649}
+      objectReference: {fileID: 708914563}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: parallaxItems.Array.data[7]
       value: 
-      objectReference: {fileID: 1811762524}
+      objectReference: {fileID: 1082769417}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: parallaxItems.Array.data[8]
       value: 
-      objectReference: {fileID: 532048331}
+      objectReference: {fileID: 2050404029}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: parallaxItems.Array.data[9]
       value: 
-      objectReference: {fileID: 2084633005}
+      objectReference: {fileID: 219744506}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: parallaxItems.Array.data[10]
       value: 
-      objectReference: {fileID: 857683124}
+      objectReference: {fileID: 12718231}
     - target: {fileID: 57192168046379225, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: parallaxItems.Array.data[11]
@@ -1574,11 +1609,6 @@ PrefabInstance:
       propertyPath: parallaxItems.Array.data[17]
       value: 
       objectReference: {fileID: 485847966}
-    - target: {fileID: 8874292637703344644, guid: 1008a231901f44794aea6bfa6e5211da,
-        type: 3}
-      propertyPath: m_Name
-      value: ForageCamera
-      objectReference: {fileID: 0}
     - target: {fileID: 7085786255032542190, guid: 1008a231901f44794aea6bfa6e5211da,
         type: 3}
       propertyPath: player
@@ -2219,6 +2249,16 @@ PrefabInstance:
         type: 3}
       propertyPath: groundLevel
       value: -5.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848230659910514142, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+        type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848230659910514142, guid: f2eead81b47db4a6c8efe7d5fefa5f6b,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2eead81b47db4a6c8efe7d5fefa5f6b, type: 3}
