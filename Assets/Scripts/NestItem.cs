@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Audio;
 using UnityEngine.Events;
 
@@ -26,8 +27,11 @@ public class NestItem : MonoBehaviour
     [SerializeField]
     float acceleration = 0.2f;
 
+    [FormerlySerializedAs("instrument")]
     [SerializeField]
-    Instrument instrument;
+    Instrument longInstrument;
+    [SerializeField]
+    Instrument shortInstrument;
 
     [SerializeField]
     bool lightFall;
@@ -39,6 +43,9 @@ public class NestItem : MonoBehaviour
     [System.NonSerialized]
     public bool isHeld = false;
 
+    [System.NonSerialized]
+    public Instrument currentInstrument;
+
     ParallaxDriver currentParallaxDriver;
     Coroutine fallRoutine;
 
@@ -49,6 +56,8 @@ public class NestItem : MonoBehaviour
     }
 
     void Start() {
+        currentInstrument = shortInstrument;
+        longInstrument.SetVolume(0);
         currentParallaxDriver = IsInForageCameraBounds() ? forageParallaxDriver : nestParallaxDriver;
         currentParallaxDriver.AddParallaxItem(transform);
     }
@@ -56,15 +65,15 @@ public class NestItem : MonoBehaviour
     void Update() {
         float distance = (transform.position - BirdController.activeController.transform.position).magnitude;
         if (distance < minFullSoundDistance) {
-            instrument.SetVolume(1);
+			currentInstrument.SetVolume(1);
         } else if (distance < minSoundDistance) {
             float adjustedDistance = (distance - minFullSoundDistance) / minSoundDistance;
-            instrument.SetVolume(1 - Mathf.Sqrt(adjustedDistance));
+			currentInstrument.SetVolume(1 - Mathf.Sqrt(adjustedDistance));
             // instrument.SetVolume(1 - Mathf.Pow(adjustedDistance, 0.3f));
             // instrument.SetVolume(1 - Mathf.Log10(adjustedDistance));
 
         } else {
-            instrument.SetVolume(0);
+			currentInstrument.SetVolume(0);
         }
     }
 
@@ -90,6 +99,11 @@ public class NestItem : MonoBehaviour
         } else {
 			fallRoutine = StartCoroutine(FallRoutine());
         }
+    }
+
+    public void SwitchToLongInstrument() {
+        currentInstrument.SetVolume(0);
+        currentInstrument = longInstrument;
     }
 
     bool IsInForageCameraBounds() {
