@@ -141,7 +141,7 @@ public class NestItem : MonoBehaviour
             Vector3 newPosition = truePosition;
 
             float swayAdjustmentHorizontal = Mathf.Sin(time * swaySpeed) * swayAmplitude;
-            float swayAdjustmentVertical = Mathf.Abs(Mathf.Cos(time * swaySpeed) * swayAmplitude) * -1;
+            float swayAdjustmentVertical = Mathf.Abs(Mathf.Cos(time * swaySpeed) * swayAmplitude * 1.5f) * -1;
 
             newPosition.x += swayAdjustmentHorizontal;
             newPosition.y += swayAdjustmentVertical * 0.5f;
