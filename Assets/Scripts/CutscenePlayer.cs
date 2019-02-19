@@ -121,12 +121,9 @@ public class CutscenePlayer : MonoBehaviour
 			yield break;
 		}
 
-		yield return StartCoroutine(FlyToBranch());
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
 
-		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_MUSIC));
-
-		ReleasePlayer();
+		//ReleasePlayer();
 	}
 
     IEnumerator BadItemCutsceneRoutine(NestItem item) {
@@ -134,15 +131,11 @@ public class CutscenePlayer : MonoBehaviour
 			yield break;
 		}
 
-		yield return StartCoroutine(FlyToBranch());
-
-		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE));
 		item.transform.SetParent(null);
 		item.Fall();
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 
-        ReleasePlayer();
+       // ReleasePlayer();
     }
 
 	IEnumerator EndingCutsceneRoutine() {
