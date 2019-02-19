@@ -22,8 +22,6 @@ public class BirdController : MonoBehaviour {
 	Transform nestScreenEntryPoint;
 	[SerializeField]
 	CutscenePlayer cutscenePlayer;
-	[SerializeField]
-	Transform nestItemParent;
 
 	// Animator parameter string keys
 	const string stoppedBool = "Stopped";
@@ -152,6 +150,7 @@ public class BirdController : MonoBehaviour {
 	void HandleNesting(){
 		Bounds bounds = activeCameraBounds.GetBoundsWorldSpace();
 		if (transform.position.y < bounds.min.y) {
+			cutscenePlayer.PlayScreenWipe();
 			Forage();
 			return;
 		}
@@ -197,7 +196,6 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
-		Debug.Log("interacting!");
 		if (null != chosenBit) {
 			DropItem();
 		} else {
@@ -230,20 +228,19 @@ public class BirdController : MonoBehaviour {
 		if (grounded) {
 			chosenBit.transform.localPosition = Vector3.forward * 0.5f;
 		} 
-		chosenBit.transform.SetParent(nestItemParent);
+		chosenBit.transform.SetParent(null);
 		chosenBit.Fall();
 		chosenBit = null;
 	}
 
 	private void Pickup(NestItem cruft) {
 		chosenBit = cruft;
+		chosenBit.isHeld = true;
 		chosenBit.transform.SetParent(beak);
 		chosenBit.transform.localPosition = Vector3.back;
-		chosenBit.PickUp();
 	}
 
 	IEnumerator PickUpRoutine(NestItem cruft) {
-		Debug.Log(grounded);
 		if (grounded) {
 			animating = true;
 			anim.SetTrigger(pickUpTrigger);
@@ -254,8 +251,6 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public bool IsNearHotBird(){
-		Debug.Log(hotBird == null);
-		Debug.Log(Vector3.Distance(hotBird.transform.position, transform.position).ToString());
 		if (hotBird == null) return false;
 		return Vector3.Distance(hotBird.transform.position, transform.position) < 2.4;
 	}
