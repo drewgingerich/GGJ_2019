@@ -820,6 +820,126 @@ PrefabInstance:
       propertyPath: shortInstrument
       value: 
       objectReference: {fileID: 2555137584709324448}
+    - target: {fileID: 3515306694780957998, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 3515306694780957998, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324458}
+    - target: {fileID: 3564920392188921969, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 3564920392188921969, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324450}
+    - target: {fileID: 4575093738528078023, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 4575093738528078023, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324457}
+    - target: {fileID: 144884141263923937, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 144884141263923937, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324455}
+    - target: {fileID: 1547126498908370376, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 1547126498908370376, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324456}
+    - target: {fileID: 7309008118411368469, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 7309008118411368469, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324452}
+    - target: {fileID: 8254953066233489022, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 8254953066233489022, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324447}
+    - target: {fileID: 9028632278435267907, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 9028632278435267907, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324449}
+    - target: {fileID: 5802301120339054884, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 5802301120339054884, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324453}
+    - target: {fileID: 5984386833515986168, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 5984386833515986168, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324454}
+    - target: {fileID: 6663104598191712492, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 6663104598191712492, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324451}
+    - target: {fileID: 6476212599428500497, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: reference
+      value: 
+      objectReference: {fileID: 1671483790}
+    - target: {fileID: 6476212599428500497, guid: 2717af19777394831af1294181551f1b,
+        type: 3}
+      propertyPath: instrument
+      value: 
+      objectReference: {fileID: 2555137584709324448}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2717af19777394831af1294181551f1b, type: 3}
 --- !u!4 &133299211 stripped
