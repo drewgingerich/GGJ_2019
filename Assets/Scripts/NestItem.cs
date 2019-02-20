@@ -10,9 +10,6 @@ public class NestItem : MonoBehaviour
     public static List<NestItem> sceneItems = new List<NestItem>();
     public static List<NestItem> ActiveItems = new List<NestItem>();
 
-    const float minFullSoundDistance = 2;
-    const float minSoundDistance = 10;
-
     [SerializeField]
     ForestFloor floor;
     [SerializeField]
@@ -26,12 +23,6 @@ public class NestItem : MonoBehaviour
 
     [SerializeField]
     float acceleration = 0.2f;
-
-    [FormerlySerializedAs("instrument")]
-    [SerializeField]
-    Instrument longInstrument;
-    [SerializeField]
-    Instrument shortInstrument;
 
     [SerializeField]
     bool lightFall;
@@ -56,25 +47,8 @@ public class NestItem : MonoBehaviour
     }
 
     void Start() {
-        currentInstrument = shortInstrument;
-        longInstrument.SetVolume(0);
         currentParallaxDriver = IsInForageCameraBounds() ? forageParallaxDriver : nestParallaxDriver;
         currentParallaxDriver.AddParallaxItem(transform);
-    }
-
-    void Update() {
-        float distance = (transform.position - BirdController.activeController.transform.position).magnitude;
-        if (distance < minFullSoundDistance) {
-			currentInstrument.SetVolume(1);
-        } else if (distance < minSoundDistance) {
-            float adjustedDistance = (distance - minFullSoundDistance) / minSoundDistance;
-			currentInstrument.SetVolume(1 - Mathf.Sqrt(adjustedDistance));
-            // instrument.SetVolume(1 - Mathf.Pow(adjustedDistance, 0.3f));
-            // instrument.SetVolume(1 - Mathf.Log10(adjustedDistance));
-
-        } else {
-			currentInstrument.SetVolume(0);
-        }
     }
 
     public void PickUp() {
@@ -102,8 +76,8 @@ public class NestItem : MonoBehaviour
     }
 
     public void SwitchToLongInstrument() {
-        currentInstrument.SetVolume(0);
-        currentInstrument = longInstrument;
+        // currentInstrument.SetVolume(0);
+        // currentInstrument = longInstrument;
     }
 
     bool IsInForageCameraBounds() {
