@@ -6,6 +6,8 @@ public class ProximityPlayer : MonoBehaviour
 {
     const float minFullSoundDistance = 2;
     const float minSoundDistance = 10;
+    const float minSize = 0.2f;
+    const float maxSize =  1.2f;
 
     [SerializeField]
     Transform reference;
@@ -14,10 +16,12 @@ public class ProximityPlayer : MonoBehaviour
     [SerializeField]
     new ParticleSystem particleSystem;
 
+    float sizeRangeWidth;
     ParticleSystem.MainModule particlesMain;
 
     void Start() {
         particlesMain = particleSystem.main;
+        sizeRangeWidth = maxSize - minSize;
     }
 
     void Update()
@@ -37,11 +41,13 @@ public class ProximityPlayer : MonoBehaviour
 		}
         instrument.SetVolume(newVolume);
 
-        if (newVolume == 0 && particlesMain.loop) {
-            particlesMain.loop = false;
-        } else if (newVolume > 0 && !particlesMain.loop) {
-            particlesMain.loop = false;
-            particleSystem.Play();
-        }
+        particlesMain.startSize = newVolume * sizeRangeWidth + minSize;
+
+        // if (newVolume == 0 && particlesMain.loop) {
+        //     particlesMain.loop = false;
+        // } else if (newVolume > 0 && !particlesMain.loop) {
+        //     particlesMain.loop = false;
+        //     particleSystem.Play();
+        // }
     }
 }
