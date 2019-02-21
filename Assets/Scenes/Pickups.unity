@@ -2000,7 +2000,7 @@ PrefabInstance:
     - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
         type: 3}
       propertyPath: skipCutscenes
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1128180324669849691, guid: 5b433c79a72b348a18448ae4f5a9b07d,
         type: 3}
@@ -2047,6 +2047,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 664dac7c8628f4a69a7f163517827fc9, type: 3}
+    - target: {fileID: 2471296786180271413, guid: 5b433c79a72b348a18448ae4f5a9b07d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b433c79a72b348a18448ae4f5a9b07d, type: 3}
 --- !u!114 &1374893367 stripped

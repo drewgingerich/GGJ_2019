@@ -32,13 +32,13 @@ public class HotBird : MonoBehaviour
         StartCoroutine(SingRoutine(ExitCutsceneMode));
     }
 
-    void EnterCutsceneMode() {
+    public void EnterCutsceneMode() {
         particleSystem.Stop();
         interactable.SetActive(false);
         backgroundMusic.volume = 0;
     }
 
-    void ExitCutsceneMode() {
+    public void ExitCutsceneMode() {
         particleSystem.Play();
         interactable.SetActive(true);
         backgroundMusic.volume = 1;
