@@ -7,8 +7,6 @@ using UnityEngine.Events;
 
 public class NestItem : MonoBehaviour
 {
-    public static List<NestItem> ActiveItems = new List<NestItem>();
-
     [SerializeField]
     Transform groupParent;
     [SerializeField]
@@ -40,11 +38,6 @@ public class NestItem : MonoBehaviour
 
     ParallaxDriver currentParallaxDriver;
     Coroutine fallRoutine;
-
-
-    void Awake(){
-        ActiveItems.Add(this);
-    }
 
     void Start() {
         currentParallaxDriver = IsInForageCameraBounds() ? forageParallaxDriver : nestParallaxDriver;

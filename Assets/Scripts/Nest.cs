@@ -32,7 +32,6 @@ public class Nest : MonoBehaviour
         if (neededItems.Contains(item)) {
 			oranmentPointIndex++;
             neededItems.Remove(item);
-            NestItem.ActiveItems.Remove(item);
             item.SwitchToLongInstrument();
             if (neededItems.Count == 0) {
                 cutscenePlayer.PlayEndingCutscene();
