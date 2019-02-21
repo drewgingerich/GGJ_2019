@@ -10,6 +10,8 @@ public class NestItem : MonoBehaviour
     public static List<NestItem> ActiveItems = new List<NestItem>();
 
     [SerializeField]
+    Transform groupParent;
+    [SerializeField]
     ForestFloor floor;
     [SerializeField]
     CameraBounds nestCameraBounds;
@@ -58,6 +60,11 @@ public class NestItem : MonoBehaviour
 
     public void Fall() {
         isHeld = false;
+        transform.SetParent(groupParent);
+        Vector3 localPosition = transform.localPosition;
+        localPosition.z = 0;
+        transform.localPosition = localPosition;
+
         if (IsInForageCameraBounds()) {
             currentParallaxDriver = forageParallaxDriver;
         } else {

@@ -11,7 +11,10 @@ public class BirdController : MonoBehaviour {
 	bool foraging = false;
 	bool grounded;
 	float speed = 1;
-	NestItem chosenBit;
+	NestItem carriedItem;
+
+	Interactable selectedInteractable;
+
 	[SerializeField]
 	Transform forageScreenEntryPoint;
 	[SerializeField]
@@ -72,6 +75,34 @@ public class BirdController : MonoBehaviour {
 	void Start() {
 		Fly();
 		Nest();
+	}
+
+	void Update() {
+		Interactable nearestInteractable = null;
+		float squareDistanceToNearestInteractable = Mathf.Infinity;
+		foreach (Interactable item in Interactable.activeItems) {
+			float squareDistance = (transform.position - item.transform.position).sqrMagnitude;
+			if (squareDistance < squareDistanceToNearestInteractable) {
+				nearestInteractable = item;
+				squareDistanceToNearestInteractable = squareDistance;
+			}
+		}
+
+		float distance = Mathf.Sqrt(squareDistanceToNearestInteractable);
+		if (distance <= minPickupDistance) {
+			if (nearestInteractable == selectedInteractable) {
+				return;
+			} else if (selectedInteractable != null) {
+				selectedInteractable.Deselect();
+			}
+			selectedInteractable = nearestInteractable;
+			selectedInteractable.Select();
+		} else {
+			if (selectedInteractable != null) {
+				selectedInteractable.Deselect();
+				selectedInteractable = null;
+			}
+		}
 	}
 
 	public void InputMove(Vector2 direction) {
@@ -197,70 +228,58 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
-		Debug.Log("interacting!");
-		if (null != chosenBit) {
-			DropItem();
-		} else {
-			float distance = minPickupDistance;
-			NestItem selectedBit = null;
-			foreach (NestItem item in NestItem.ActiveItems) {
-				Vector2 diff = (transform.position - item.transform.position);
-				float newDistance = diff.magnitude;
-				if (newDistance <= distance) {
-					selectedBit = item;
-					distance = newDistance;
-				}
-			}
-			if (selectedBit != null) {
-				StartCoroutine(PickUpRoutine(selectedBit));
-				return;
-			}
+		if (animating) {
+			return;
 		}
 
-		if (IsNearHotBird()) {
-			cutscenePlayer.PlaySampleSongCutscene();
+		if (carriedItem != null) {
+			DropItem();	
+			return;
+		}
+
+		if (selectedInteractable == null) {
+			return;
+		}
+
+		NestItem selectedItem = selectedInteractable.GetComponent<NestItem>();
+		if (selectedItem != null) {
+			Pickup(selectedItem);
+			return;
+		}
+
+		HotBird hotBird = selectedInteractable.GetComponent<HotBird>();
+		if (hotBird != null) {
+			hotBird.Sing();
+			return;
 		}
 	}
 
 	public void DropItem() {
-		if (null == chosenBit) {
-			return;
-		}
-		chosenBit.isHeld = false;
-		if (grounded) {
-			chosenBit.transform.localPosition = Vector3.forward * 0.5f;
-		} 
-		chosenBit.transform.SetParent(nestItemParent);
-		chosenBit.Fall();
-		chosenBit = null;
+		Interactable interactable = carriedItem.GetComponent<Interactable>();
+		interactable.SetActive(true);
+
+		carriedItem.Fall();
+		carriedItem = null;
 	}
 
-	private void Pickup(NestItem cruft) {
-		chosenBit = cruft;
-		chosenBit.transform.SetParent(beak);
-		chosenBit.transform.localPosition = Vector3.back;
-		chosenBit.PickUp();
+	public void Pickup(NestItem cruft) {
+		carriedItem = cruft;
+		selectedInteractable.Interact();
+		selectedInteractable.SetActive(false);
+		carriedItem.PickUp();
+		StartCoroutine(PickUpRoutine());
 	}
 
-	IEnumerator PickUpRoutine(NestItem cruft) {
-		Debug.Log(grounded);
+	IEnumerator PickUpRoutine() {
 		if (grounded) {
 			animating = true;
 			anim.SetTrigger(pickUpTrigger);
 			yield return new WaitForSeconds(pickUpAnimationTime);
 			animating = false;
 		}
-		Pickup(cruft);
+		carriedItem.transform.SetParent(beak);
+		carriedItem.transform.localPosition = Vector3.back;
 	}
-
-	public bool IsNearHotBird(){
-		Debug.Log(hotBird == null);
-		Debug.Log(Vector3.Distance(hotBird.transform.position, transform.position).ToString());
-		if (hotBird == null) return false;
-		return Vector3.Distance(hotBird.transform.position, transform.position) < 2.4;
-	}
-
-	
 
 #if UNITY_EDITOR
 	void OnDrawGizmosSelected() {
