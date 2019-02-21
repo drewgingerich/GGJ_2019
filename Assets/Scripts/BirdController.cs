@@ -266,6 +266,7 @@ public class BirdController : MonoBehaviour {
 		carriedItem = cruft;
 		selectedInteractable.Interact();
 		selectedInteractable.SetActive(false);
+		selectedInteractable = null;
 		carriedItem.PickUp();
 		StartCoroutine(PickUpRoutine());
 	}
