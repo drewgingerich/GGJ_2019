@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class BirdController : MonoBehaviour {
 
@@ -14,16 +15,11 @@ public class BirdController : MonoBehaviour {
 	NestItem chosenBit;
 	[SerializeField]
 	Transform forageScreenEntryPoint;
-	[SerializeField]
-	float forageEntraceTime;
-	[SerializeField]
-	float forageEntranceSpeed;
+
 	[SerializeField]
 	Transform nestScreenEntryPoint;
 	[SerializeField]
 	CutscenePlayer cutscenePlayer;
-	[SerializeField]
-	Transform nestItemParent;
 
 	// Animator parameter string keys
 	const string stoppedBool = "Stopped";
@@ -65,13 +61,16 @@ public class BirdController : MonoBehaviour {
 
 	CameraBounds activeCameraBounds;
 
+	private bool gameHasStarted = false;
+
 	void Awake() {
 		activeController = this;
 	}
 
 	void Start() {
 		Fly();
-		Nest();
+		StartCoroutine(Nest());
+		gameHasStarted = true;
 	}
 
 	public void InputMove(Vector2 direction) {
@@ -118,7 +117,7 @@ public class BirdController : MonoBehaviour {
 		ConstrainToCameraHorizontal();
 
 		if (position.y > activeCameraBounds.GetBoundsWorldSpace().max.y) {
-			Nest();
+			StartCoroutine(Nest());
 		}
 	}
 
@@ -152,13 +151,14 @@ public class BirdController : MonoBehaviour {
 	void HandleNesting(){
 		Bounds bounds = activeCameraBounds.GetBoundsWorldSpace();
 		if (transform.position.y < bounds.min.y) {
-			Forage();
-			return;
+			StartCoroutine(Forage());
+		} else {
+			ConstrainToCameraHorizontal();
 		}
-		ConstrainToCameraHorizontal();
 	}
 
-	void Forage() {
+	IEnumerator Forage() {
+		yield return StartCoroutine(cutscenePlayer.ScreenWipe((int) Image.OriginVertical.Top));
 		nestCam.gameObject.SetActive(false);
 
 		transform.position = (Vector2)forageScreenEntryPoint.position;
@@ -167,24 +167,21 @@ public class BirdController : MonoBehaviour {
 
 		forageCam.gameObject.SetActive(true);
 		activeCameraBounds = forageCamBounds;
-		// StartCoroutine(ForageEntranceRoutine());
+
+		yield return StartCoroutine(cutscenePlayer.ScreenUnwipe((int) Image.OriginVertical.Bottom));
+
 		foraging = true;
+		yield return null;
 	}
 
-	IEnumerator ForageEntranceRoutine() {
-		animating = true;
-		float timer = 0;
-		while (timer < forageEntraceTime) {
-			transform.position += Vector3.down * forageEntranceSpeed * Time.deltaTime;
-			timer += Time.deltaTime;
-			yield return null;
-		}
-		animating = false;
-	}
-
-	void Nest() {
+	IEnumerator Nest() {
+		if (gameHasStarted)
+			yield return StartCoroutine(cutscenePlayer.ScreenWipe((int) Image.OriginVertical.Bottom));
 		forageCam.gameObject.SetActive(false);
 		nestCam.gameObject.SetActive(true);
+		if (gameHasStarted)
+			yield return StartCoroutine(cutscenePlayer.ScreenUnwipe((int) Image.OriginVertical.Top));
+
 
 		Vector3 position = forageScreenEntryPoint.position;
 		position.x = transform.position.x;
@@ -197,7 +194,6 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public void Interact() {
-		Debug.Log("interacting!");
 		if (null != chosenBit) {
 			DropItem();
 		} else {
@@ -230,20 +226,19 @@ public class BirdController : MonoBehaviour {
 		if (grounded) {
 			chosenBit.transform.localPosition = Vector3.forward * 0.5f;
 		} 
-		chosenBit.transform.SetParent(nestItemParent);
+		chosenBit.transform.SetParent(null);
 		chosenBit.Fall();
 		chosenBit = null;
 	}
 
 	private void Pickup(NestItem cruft) {
 		chosenBit = cruft;
+		chosenBit.isHeld = true;
 		chosenBit.transform.SetParent(beak);
 		chosenBit.transform.localPosition = Vector3.back;
-		chosenBit.PickUp();
 	}
 
 	IEnumerator PickUpRoutine(NestItem cruft) {
-		Debug.Log(grounded);
 		if (grounded) {
 			animating = true;
 			anim.SetTrigger(pickUpTrigger);
@@ -254,8 +249,6 @@ public class BirdController : MonoBehaviour {
 	}
 
 	public bool IsNearHotBird(){
-		Debug.Log(hotBird == null);
-		Debug.Log(Vector3.Distance(hotBird.transform.position, transform.position).ToString());
 		if (hotBird == null) return false;
 		return Vector3.Distance(hotBird.transform.position, transform.position) < 2.4;
 	}

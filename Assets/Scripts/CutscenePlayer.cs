@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CutscenePlayer : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class CutscenePlayer : MonoBehaviour
 
     [SerializeField]
     Transform branchSitPosition;
+
+	[SerializeField]
+	Image transitionImage;
 
 	const float THOUGHT_BUBBLE_APPEARANCE_TIME = 0.2f;
 
@@ -121,12 +125,9 @@ public class CutscenePlayer : MonoBehaviour
 			yield break;
 		}
 
-		yield return StartCoroutine(FlyToBranch());
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
 
-		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_MUSIC));
-
-		ReleasePlayer();
+		//ReleasePlayer();
 	}
 
     IEnumerator BadItemCutsceneRoutine(NestItem item) {
@@ -134,15 +135,11 @@ public class CutscenePlayer : MonoBehaviour
 			yield break;
 		}
 
-		yield return StartCoroutine(FlyToBranch());
-
-		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE));
 		item.transform.SetParent(null);
 		item.Fall();
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 
-        ReleasePlayer();
+       // ReleasePlayer();
     }
 
 	IEnumerator EndingCutsceneRoutine() {
@@ -188,4 +185,28 @@ public class CutscenePlayer : MonoBehaviour
         bird.gameObject.SetActive(false);
 		player.gameObject.SetActive(true);
     }
+
+	public IEnumerator ScreenWipe(int origin) {
+        var progress = 0f;
+		var speed = 1.2f;
+		transitionImage.fillOrigin = origin;
+		var loops = 0;
+		while (progress < 1 ) {
+			progress += Time.deltaTime * (1f /speed);
+			transitionImage.fillAmount = progress;
+			loops++;
+			yield return null;
+		}
+	}
+
+	public IEnumerator ScreenUnwipe(int origin) {
+		var progress = 1f;
+		var speed = 1.3f;
+		transitionImage.fillOrigin = origin;
+		while (progress > 0) {
+			progress -= Time.deltaTime * (1f /speed);
+			transitionImage.fillAmount = progress;
+			yield return null;
+		}
+	}
 }
