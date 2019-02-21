@@ -126,8 +126,6 @@ public class CutscenePlayer : MonoBehaviour
 		}
 
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
-
-		//ReleasePlayer();
 	}
 
     IEnumerator BadItemCutsceneRoutine(NestItem item) {
@@ -138,8 +136,6 @@ public class CutscenePlayer : MonoBehaviour
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE));
 		item.transform.SetParent(null);
 		item.Fall();
-
-       // ReleasePlayer();
     }
 
 	IEnumerator EndingCutsceneRoutine() {
@@ -188,7 +184,7 @@ public class CutscenePlayer : MonoBehaviour
 
 	public IEnumerator ScreenWipe(int origin) {
         var progress = 0f;
-		var speed = 1.2f;
+		var speed = 0.1f;
 		transitionImage.fillOrigin = origin;
 		var loops = 0;
 		while (progress < 1 ) {
@@ -201,7 +197,7 @@ public class CutscenePlayer : MonoBehaviour
 
 	public IEnumerator ScreenUnwipe(int origin) {
 		var progress = 1f;
-		var speed = 1.3f;
+		var speed = 0.1f;
 		transitionImage.fillOrigin = origin;
 		while (progress > 0) {
 			progress -= Time.deltaTime * (1f /speed);
