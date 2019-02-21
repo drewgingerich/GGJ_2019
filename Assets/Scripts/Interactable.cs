@@ -11,7 +11,8 @@ public class Interactable : MonoBehaviour
     public UnityEvent OnSelect;
     public UnityEvent OnDeselect;
 
-    bool active;
+    [SerializeField]
+    bool active = true;
 
     public void Interact() {
         OnInteract.Invoke();
@@ -34,6 +35,7 @@ public class Interactable : MonoBehaviour
         } else {
             Deactivate();
         }
+        active = value;
     }
 
     void Activate() {
@@ -47,11 +49,9 @@ public class Interactable : MonoBehaviour
         activeItems.Remove(this);
     }
 
-    void OnEnable() {
-        Activate();
-    }
-
-    void OnDisable() {
-        Deactivate();
+    void Awake() {
+        if (active) {
+            Activate();
+        }
     }
 }
