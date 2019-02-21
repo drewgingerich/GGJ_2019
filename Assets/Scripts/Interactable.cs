@@ -5,11 +5,13 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public static List<Interactable> interactables;
+    public static List<Interactable> activeItems;
 
     public UnityEvent OnInteract;
     public UnityEvent OnSelect;
     public UnityEvent OnDeselect;
+
+    bool active;
 
     public void Interact() {
         OnInteract.Invoke();
@@ -23,14 +25,33 @@ public class Interactable : MonoBehaviour
         OnDeselect.Invoke();
     }
 
-    void OnEnable() {
-        if (interactables == null) {
-            interactables = new List<Interactable>();
+    public void SetActive(bool value) {
+        if (value == active) {
+            return;
         }
-        interactables.Add(this);
+        if (value) {
+            Activate();
+        } else {
+            Deactivate();
+        }
+    }
+
+    void Activate() {
+        if (activeItems == null) {
+            activeItems = new List<Interactable>();
+        }
+        activeItems.Add(this);
+    }
+
+    void Deactivate() {
+        activeItems.Remove(this);
+    }
+
+    void OnEnable() {
+        Activate();
     }
 
     void OnDisable() {
-        interactables.Remove(this);
+        Deactivate();
     }
 }
