@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -260,6 +265,11 @@ PrefabInstance:
       propertyPath: lightFall
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -396,6 +406,11 @@ PrefabInstance:
       propertyPath: lightFall
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -532,6 +547,11 @@ PrefabInstance:
       propertyPath: acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -678,6 +698,11 @@ PrefabInstance:
       propertyPath: acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -824,6 +849,11 @@ PrefabInstance:
       propertyPath: lightFall
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -970,6 +1000,11 @@ PrefabInstance:
       propertyPath: lightFall
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -1106,6 +1141,11 @@ PrefabInstance:
       propertyPath: lightFall
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -1242,6 +1282,11 @@ PrefabInstance:
       propertyPath: acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -1393,6 +1438,11 @@ PrefabInstance:
       propertyPath: acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -1529,6 +1579,11 @@ PrefabInstance:
       propertyPath: acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
@@ -1675,6 +1730,11 @@ PrefabInstance:
       propertyPath: acceleration
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6889246902229098368, guid: b1589dd156af28b4484939efea698a30,
+        type: 3}
+      propertyPath: groupParent
+      value: 
+      objectReference: {fileID: 636651131074403065}
     - target: {fileID: 7542584397824674536, guid: b1589dd156af28b4484939efea698a30,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
