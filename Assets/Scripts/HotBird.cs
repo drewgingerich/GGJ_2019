@@ -19,19 +19,52 @@ public class HotBird : MonoBehaviour
     [SerializeField]
     public AudioSource backgroundMusic;
 
+    [SerializeField]
+    Interactable interactable;
+
+    [SerializeField]
+    new ParticleSystem particleSystem;
+
     private float songLength = 5;
 
-	public IEnumerator Sing(){
+    public void Sing() {
+        StartCoroutine(SingRoutine());
+    }
+
+    public void EnterCutsceneMode() {
+        particleSystem.Stop();
+        interactable.SetActive(false);
         backgroundMusic.volume = 0;
+    }
+
+    public void ExitCutsceneMode() {
+        particleSystem.Play();
+        interactable.SetActive(true);
+        backgroundMusic.volume = 1;
+    }
+
+	public IEnumerator SingRoutine(){
+        EnterCutsceneMode();
         anim.SetBool("isTalking", true);
         anim.SetTrigger("Explain");
-        thoughtsAnim.SetBool("Singing", true);
-        song.volume = 1;
+        thoughtsAnim.SetBool("isThinking", true);
+        thoughtsAnim.SetTrigger("Music");
+        yield return StartCoroutine(FadeVolumeRoutine(1));
         yield return new WaitForSeconds(10f);
-        Debug.Log("and we're back");
-		song.volume = 0;
-        anim.SetTrigger("Chill");
-        thoughtsAnim.SetTrigger("Chill");
-        backgroundMusic.volume = 1;
+        yield return StartCoroutine(FadeVolumeRoutine(0));
+        anim.SetBool("isTalking", false);
+        thoughtsAnim.SetBool("isThinking", false);
+        ExitCutsceneMode();
+    }
+
+    public IEnumerator FadeVolumeRoutine(float target) {
+        const float fadeTime = 1f;
+        float timer = 0;
+        float start = song.volume;
+        while (song.volume != target) {
+            timer += Time.deltaTime;
+            song.volume = Mathf.Lerp(start, target, timer/fadeTime);
+            yield return null;
+        }
     }
 }
