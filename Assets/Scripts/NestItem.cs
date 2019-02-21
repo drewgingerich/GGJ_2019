@@ -7,7 +7,6 @@ using UnityEngine.Events;
 
 public class NestItem : MonoBehaviour
 {
-    public static List<NestItem> sceneItems = new List<NestItem>();
     public static List<NestItem> ActiveItems = new List<NestItem>();
 
     [SerializeField]
@@ -42,7 +41,6 @@ public class NestItem : MonoBehaviour
 
 
     void Awake(){
-        sceneItems.Add(this);
         ActiveItems.Add(this);
     }
 
