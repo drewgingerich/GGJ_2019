@@ -194,6 +194,10 @@ public class BirdController : MonoBehaviour {
 		yield return new WaitForSeconds(0.3f);
 		nestCam.gameObject.SetActive(false);
 
+		// Vector3 position = nestScreenEntryPoint.position;
+		// position.x = transform.position.x;
+		// nestScreenEntryPoint.position = position;
+
 		transform.position = (Vector2)forageScreenEntryPoint.position;
 		Vector3 forageCamPosition = forageCam.transform.position;
 		forageCamPosition.y = transform.position.y;
@@ -213,19 +217,23 @@ public class BirdController : MonoBehaviour {
 			yield return new WaitForSeconds(0.3f);
 		}
 		forageCam.gameObject.SetActive(false);
-		nestCam.gameObject.SetActive(true);
-		if (gameHasStarted) {
-			yield return StartCoroutine(cutscenePlayer.ScreenUnwipe((int) Image.OriginVertical.Top));
-		}
-		animating = false;
 
 		Vector3 position = forageScreenEntryPoint.position;
 		position.x = transform.position.x;
 		forageScreenEntryPoint.position = position;
 
 		activeCameraBounds = nestCamBounds;
+		nestCam.gameObject.SetActive(true);
 
 		transform.position = (Vector2)nestScreenEntryPoint.position;
+		Vector3 nestCamPosition = nestCam.transform.position;
+		nestCamPosition.x = transform.position.x;
+		nestCam.transform.position = nestCamPosition;
+
+		if (gameHasStarted) {
+			yield return StartCoroutine(cutscenePlayer.ScreenUnwipe((int) Image.OriginVertical.Top));
+		}
+		animating = false;
 		foraging = false;
 	}
 
