@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7542584397824674536}
   - component: {fileID: 8716913302635515236}
   - component: {fileID: 418786931459327750}
+  - component: {fileID: 2531187672408668015}
   - component: {fileID: 5539617833460598959}
   m_Layer: 0
   m_Name: NestItem
@@ -107,6 +108,8 @@ MonoBehaviour:
   lightFall: 0
   swaySpeed: 4
   swayAmplitude: 1.5
+  proximityPlayer: {fileID: 0}
+  areaPlayer: {fileID: 0}
 --- !u!61 &7542584397824674536
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,6 +172,20 @@ MonoBehaviour:
   reference: {fileID: 0}
   instrument: {fileID: 0}
   particleSystem: {fileID: 6822062918472578841}
+--- !u!114 &2531187672408668015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421455376790619486}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e706fd6404d546ada8524f94d508575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instrument: {fileID: 0}
+  birdController: {fileID: 0}
 --- !u!114 &5539617833460598959
 MonoBehaviour:
   m_ObjectHideFlags: 0
