@@ -2398,7 +2398,7 @@ PrefabInstance:
     - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
       propertyPath: minPickupDistance
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3354040876254377787, guid: b9e73bd15b0d4684e8303c382e088c87,
         type: 3}
