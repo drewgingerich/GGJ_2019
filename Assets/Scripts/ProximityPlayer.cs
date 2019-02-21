@@ -50,4 +50,9 @@ public class ProximityPlayer : MonoBehaviour
         //     particleSystem.Play();
         // }
     }
+
+    void OnDisable() {
+        particleSystem.Stop();
+        instrument.SetVolume(0);
+    }
 }
