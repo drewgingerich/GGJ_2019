@@ -9,10 +9,10 @@ using UnityEngine.UI;
 public class BirdController : MonoBehaviour {
 
 	public bool animating;
-	bool foraging = false;
+	public bool foraging = false;
 	bool grounded;
 	float speed = 1;
-	NestItem carriedItem;
+	public NestItem carriedItem;
 
 	Interactable selectedInteractable;
 

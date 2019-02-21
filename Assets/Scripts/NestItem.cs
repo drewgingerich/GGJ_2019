@@ -30,11 +30,18 @@ public class NestItem : MonoBehaviour
     [SerializeField]
     float swayAmplitude = 1.5f;
 
-    [System.NonSerialized]
-    public bool isHeld = false;
+    [SerializeField]
+    ProximityPlayer proximityPlayer;
+    [SerializeField]
+    AreaPlayer areaPlayer;
+
+    [SerializeField]
+    Interactable interactable;
 
     [System.NonSerialized]
-    public Instrument currentInstrument;
+    public bool isHeld = false;
+    [System.NonSerialized]
+    public bool nestCooldown = false;
 
     ParallaxDriver currentParallaxDriver;
     Coroutine fallRoutine;
@@ -46,6 +53,7 @@ public class NestItem : MonoBehaviour
 
     public void PickUp() {
         StopAllCoroutines();
+        nestCooldown = false;
         isHeld = true;
         currentParallaxDriver.RemoveParallaxItem(transform);
         currentParallaxDriver = null;
@@ -73,11 +81,6 @@ public class NestItem : MonoBehaviour
         }
     }
 
-    public void SwitchToLongInstrument() {
-        // currentInstrument.SetVolume(0);
-        // currentInstrument = longInstrument;
-    }
-
     bool IsInForageCameraBounds() {
         return transform.position.y <= forageCameraBounds.GetBoundsWorldSpace().max.y;
     }
@@ -100,7 +103,7 @@ public class NestItem : MonoBehaviour
             transform.position += move;
             yield return null;
         }
-        Rest();
+        Land();
     }
 
     IEnumerator LightFallRoutine() {
@@ -124,16 +127,16 @@ public class NestItem : MonoBehaviour
             // transform.position += move;
             yield return null;
         }
-        Rest();
     }
 
-    public void Rest() {
-        Vector3 localPosition = transform.localPosition;
-        localPosition.z = 0;
-        transform.localPosition = localPosition;
+	public void Nest() {
+		proximityPlayer.enabled = false;
+		areaPlayer.enabled = true;
+		interactable.SetActive(false);
+	}
+
+    public void Land() {
+        nestCooldown = false;
         StopAllCoroutines();
-        // if (fallRoutine != null) {
-        //     StopCoroutine(fallRoutine);
-        // }
     }
 }

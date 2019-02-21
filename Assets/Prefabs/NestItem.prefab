@@ -108,8 +108,10 @@ MonoBehaviour:
   lightFall: 0
   swaySpeed: 4
   swayAmplitude: 1.5
-  proximityPlayer: {fileID: 0}
-  areaPlayer: {fileID: 0}
+  proximityPlayer: {fileID: 418786931459327750}
+  areaPlayer: {fileID: 2531187672408668015}
+  interactable: {fileID: 5539617833460598959}
+  nestCooldown: 0
 --- !u!61 &7542584397824674536
 BoxCollider2D:
   m_ObjectHideFlags: 0

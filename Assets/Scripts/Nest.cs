@@ -21,18 +21,20 @@ public class Nest : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         NestItem item = other.GetComponent<NestItem>();
-        if (item == null) {
+        if (item == null || item.nestCooldown) {
             return;
         }
 
-        BirdController.activeController.DropItem();
-		item.transform.SetParent(transform);
+        BirdController.activeController.carriedItem = null;
+        item.Fall();
+		item.Land();
+        item.nestCooldown = true;
         item.transform.position = ornamentPoints[oranmentPointIndex].position;
 
         if (neededItems.Contains(item)) {
 			oranmentPointIndex++;
             neededItems.Remove(item);
-            item.SwitchToLongInstrument();
+            item.Nest();
             if (neededItems.Count == 0) {
                 cutscenePlayer.PlayEndingCutscene();
             } else {
