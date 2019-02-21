@@ -61,6 +61,7 @@ public class NestItem : MonoBehaviour
 
     public void Fall() {
         isHeld = false;
+        interactable.Deselect();
         transform.SetParent(groupParent);
         Vector3 localPosition = transform.localPosition;
         localPosition.z = 0;
@@ -132,6 +133,7 @@ public class NestItem : MonoBehaviour
 	public void Nest() {
 		proximityPlayer.enabled = false;
 		areaPlayer.enabled = true;
+        interactable.Interact();
 		interactable.SetActive(false);
 	}
 
