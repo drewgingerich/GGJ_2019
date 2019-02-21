@@ -28,36 +28,38 @@ public class HotBird : MonoBehaviour
     private float songLength = 5;
 
     public void Sing() {
-        StartCoroutine(SingRoutine());
+        EnterCutsceneMode();
+        StartCoroutine(SingRoutine(ExitCutsceneMode));
     }
 
-    public void EnterCutsceneMode() {
+    void EnterCutsceneMode() {
         particleSystem.Stop();
         interactable.SetActive(false);
         backgroundMusic.volume = 0;
     }
 
-    public void ExitCutsceneMode() {
+    void ExitCutsceneMode() {
         particleSystem.Play();
         interactable.SetActive(true);
         backgroundMusic.volume = 1;
     }
 
-	public IEnumerator SingRoutine(){
-        EnterCutsceneMode();
+	public IEnumerator SingRoutine(System.Action callback = null){
         anim.SetBool("isTalking", true);
         anim.SetTrigger("Explain");
         thoughtsAnim.SetBool("isThinking", true);
         thoughtsAnim.SetTrigger("Music");
         yield return StartCoroutine(FadeVolumeRoutine(1));
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5.5f);
         yield return StartCoroutine(FadeVolumeRoutine(0));
         anim.SetBool("isTalking", false);
         thoughtsAnim.SetBool("isThinking", false);
-        ExitCutsceneMode();
+        if (callback != null) {
+            callback();
+        }
     }
 
-    public IEnumerator FadeVolumeRoutine(float target) {
+    IEnumerator FadeVolumeRoutine(float target) {
         const float fadeTime = 1f;
         float timer = 0;
         float start = song.volume;
