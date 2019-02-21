@@ -42,7 +42,13 @@ public class Nest : MonoBehaviour
             }
         } else {
             cutscenePlayer.PlayBadItemCutscene(item);
+			StartCoroutine(DropItemWithDelayRoutine(item));
         }
         item.StopAllCoroutines();
+    }
+
+    IEnumerator DropItemWithDelayRoutine(NestItem badItem) {
+        yield return new WaitForSeconds(0.5f);
+        badItem.Fall();
     }
 }
