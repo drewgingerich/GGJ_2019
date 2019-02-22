@@ -87,7 +87,7 @@ public class CutscenePlayer : MonoBehaviour
 		}
 	}
 
-	IEnumerator InteractionRoutine(HotBird bird, string birdState, string thoughtState) {
+	IEnumerator InteractionRoutine(HotBird bird, string birdState, string thoughtState, AudioClip noise = null) {
 		bird.thoughtsAnim.SetBool(THINKING, true);
 		bird.thoughtsAnim.SetTrigger(thoughtState);
 		yield return new WaitForSeconds(THOUGHT_BUBBLE_APPEARANCE_TIME);
@@ -99,6 +99,11 @@ public class CutscenePlayer : MonoBehaviour
 
 		bird.anim.SetBool(TALKING, true);
 		bird.anim.SetTrigger(birdState);
+		if (noise != null) {
+			audio.clip = noise;
+			audio.Play();
+			audio.time = 0;
+		}
 		if (birdState == BIRD_SING || birdState == BIRD_DANCE) {
 			yield return new WaitForSeconds(5f);
 		} else {
@@ -120,31 +125,31 @@ public class CutscenePlayer : MonoBehaviour
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));	
 	}
 
-    IEnumerator OpeningCutsceneRoutine() {
-		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
+	IEnumerator OpeningCutsceneRoutine() {
+		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_SING, THOUGHT_SCRIBBLE));
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE, badNoise));
 		fallingLeaf.Fall();
 		yield return new WaitForSeconds(5f);
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
-    }
+	}
 
 	IEnumerator GoodItemCutsceneRoutine() {
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 	}
 
     IEnumerator BadItemCutsceneRoutine() {
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE, badNoise));
 		// item.Fall();
     }
 
 	IEnumerator EndingCutsceneRoutine() {
-		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
+		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		bird.song = hotBird.song;
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_SING, THOUGHT_MUSIC));
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		StartCoroutine(InteractionRoutine(bird, BIRD_DANCE, THOUGHT_MUSIC));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_DANCE, THOUGHT_MUSIC));
 
