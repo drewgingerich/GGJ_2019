@@ -24,6 +24,7 @@ public class HotBird : MonoBehaviour
 
     public void EnterCutsceneMode() {
         particleSystem.Stop();
+        particleSystem.Clear();
         interactable.SetActive(false);
         backgroundMusic.volume = 0;
     }
