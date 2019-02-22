@@ -49,6 +49,7 @@ public class CutscenePlayer : MonoBehaviour
 	const string THOUGHT_LOVE = "Heart";
 	const string THOUGHT_SCRIBBLE = "Scribbles";
 	const string THOUGHT_MUSIC = "Music";
+	const string THOUGHT_LIGHTBULB = "Lightbulb";
 
   void Start() {
 		StartCoroutine(CutsceneRoutine(OpeningCutsceneRoutine, true, 1f));
@@ -131,6 +132,7 @@ public class CutscenePlayer : MonoBehaviour
 		yield return new WaitForSeconds(4f);
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
+		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LIGHTBULB));
 	}
 
 	IEnumerator GoodItemCutsceneRoutine() {
