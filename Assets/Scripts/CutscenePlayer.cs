@@ -57,7 +57,7 @@ public class CutscenePlayer : MonoBehaviour
   }
 
 	public void PlaySampleSongCutscene() {
-		StartCoroutine(CutsceneRoutine(() => hotBird.SingRoutine()));
+		StartCoroutine(CutsceneRoutine(SampleSongCutsceneRoutine));
 	}
 
 	public void PlayGoodItemCutscene() {

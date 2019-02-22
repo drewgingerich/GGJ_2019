@@ -2993,6 +2993,16 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1997593670766265739, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
+        type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1374893367}
+    - target: {fileID: 1997593670766265739, guid: 7c79e149e5aa44cd28bfd65d3195aca4,
+        type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySampleSongCutscene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c79e149e5aa44cd28bfd65d3195aca4, type: 3}
 --- !u!1001 &4385457101396476906
