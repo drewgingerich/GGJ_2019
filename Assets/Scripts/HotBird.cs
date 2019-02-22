@@ -37,7 +37,7 @@ public class HotBird : MonoBehaviour
 
 	public IEnumerator SingRoutine(float time = 5.5f){
         yield return StartCoroutine(FadeVolumeRoutine(1));
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(time);
         yield return StartCoroutine(FadeVolumeRoutine(0));
     }
 
