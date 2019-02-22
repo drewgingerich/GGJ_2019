@@ -67,7 +67,7 @@ public class CutscenePlayer : MonoBehaviour
 	}
 
     public void PlayEndingCutscene() {
-		StartCoroutine(CutsceneRoutine(EndingCutsceneRoutine));
+		StartCoroutine(CutsceneRoutine(EndingCutsceneRoutine, true, 1f));
     }
 
 	IEnumerator CutsceneRoutine(System.Func<IEnumerator> cutscene, bool rootPlayer = false, float delay = 0f) {
@@ -133,10 +133,10 @@ public class CutscenePlayer : MonoBehaviour
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 	}
 
-    IEnumerator BadItemCutsceneRoutine() {
+	IEnumerator BadItemCutsceneRoutine() {
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE, badNoise));
 		// item.Fall();
-    }
+	}
 
 	IEnumerator EndingCutsceneRoutine() {
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
