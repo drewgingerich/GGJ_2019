@@ -74,6 +74,10 @@ public class CutscenePlayer : MonoBehaviour
 		if (skipCutscenes) {
 			yield break;
 		}
+		if (rootPlayer) {
+			Debug.Log("Hi");
+			player.animating = true;
+		}
 		hotBird.EnterCutsceneMode();
 		if (delay > 0) {
 			yield return new WaitForSeconds(delay);
