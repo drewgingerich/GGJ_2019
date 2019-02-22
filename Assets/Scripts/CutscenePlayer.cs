@@ -49,6 +49,7 @@ public class CutscenePlayer : MonoBehaviour
 	const string THOUGHT_LOVE = "Heart";
 	const string THOUGHT_SCRIBBLE = "Scribbles";
 	const string THOUGHT_MUSIC = "Music";
+	const string THOUGHT_BAD_MUSIC = "BadMusic";
 	const string THOUGHT_LIGHTBULB = "Lightbulb";
 
   void Start() {
@@ -128,7 +129,7 @@ public class CutscenePlayer : MonoBehaviour
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_SING, THOUGHT_SCRIBBLE));
 		fallingLeaf.Fall();
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE, badNoise));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_BAD_MUSIC, badNoise));
 		yield return new WaitForSeconds(4f);
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
@@ -140,7 +141,7 @@ public class CutscenePlayer : MonoBehaviour
 	}
 
 	IEnumerator BadItemCutsceneRoutine() {
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE, badNoise));
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_BAD_MUSIC, badNoise));
 		// item.Fall();
 	}
 
