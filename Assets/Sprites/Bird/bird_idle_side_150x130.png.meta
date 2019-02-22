@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 16308d69d7cff4b1a8184c62fa799975
+guid: c50e740c8d6294fbc98ea95759f46f91
 TextureImporter:
   fileIDToRecycleName:
     21300000: bird_idle_side_150x130_0
     21300002: bird_idle_side_150x130_1
     21300004: bird_idle_side_150x130_2
     21300006: bird_idle_side_150x130_3
+    21300008: bird_idle_side_150x130_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -102,7 +103,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed25cd6313f1744f09ad75a53eabbf62
+      spriteID: 58c45f1404be14623a51d08ee9183bff
       vertices: []
       indices: 
       edges: []
@@ -122,7 +123,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f0d9076d156f438aa1fddc12b745080
+      spriteID: cc8f087e312764af597692a24125348f
       vertices: []
       indices: 
       edges: []
@@ -142,7 +143,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2b6db919c8f4947a3bbff0f48eaba0
+      spriteID: 21cbcd1e176c6462c9c1ee3f6b994d74
       vertices: []
       indices: 
       edges: []
@@ -162,7 +163,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8500ffca0d17946179379aa60ea756fc
+      spriteID: b5e111f266221471688c7fef2dad0623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird_idle_side_150x130_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 150
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ac8958200a841d595a11737cc317ee
       vertices: []
       indices: 
       edges: []
@@ -170,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 840307d64b1c54453acfe771f96d6ff7
+    spriteID: f423a0f1e8c50438a933616b0e4fd2e1
     vertices: []
     indices: 
     edges: []
