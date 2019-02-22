@@ -28,6 +28,11 @@ public class CutscenePlayer : MonoBehaviour
     [SerializeField]
     Transform branchSitPosition;
 
+		[SerializeField]
+		new AudioSource audio;
+		[SerializeField]
+		AudioClip goodNoise, badNoise;
+
 	[SerializeField]
 	Image transitionImage;
 
