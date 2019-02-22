@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class HotBird : MonoBehaviour
 {
-
-    public List<NestItem> desiredItems = new List<NestItem>();
-
     [SerializeField]
 	public AudioSource song;
 
@@ -25,13 +22,6 @@ public class HotBird : MonoBehaviour
     [SerializeField]
     new ParticleSystem particleSystem;
 
-    private float songLength = 5;
-
-    public void Sing() {
-        EnterCutsceneMode();
-        StartCoroutine(SingRoutine(ExitCutsceneMode));
-    }
-
     public void EnterCutsceneMode() {
         particleSystem.Stop();
         interactable.SetActive(false);
@@ -44,19 +34,10 @@ public class HotBird : MonoBehaviour
         backgroundMusic.volume = 1;
     }
 
-	public IEnumerator SingRoutine(System.Action callback = null){
-        anim.SetBool("isTalking", true);
-        anim.SetTrigger("Explain");
-        thoughtsAnim.SetBool("isThinking", true);
-        thoughtsAnim.SetTrigger("Music");
+	public IEnumerator SingRoutine(float time = 5.5f){
         yield return StartCoroutine(FadeVolumeRoutine(1));
         yield return new WaitForSeconds(5.5f);
         yield return StartCoroutine(FadeVolumeRoutine(0));
-        anim.SetBool("isTalking", false);
-        thoughtsAnim.SetBool("isThinking", false);
-        if (callback != null) {
-            callback();
-        }
     }
 
     IEnumerator FadeVolumeRoutine(float target) {

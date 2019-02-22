@@ -259,7 +259,7 @@ public class BirdController : MonoBehaviour {
 
 		HotBird hotBird = selectedInteractable.GetComponent<HotBird>();
 		if (hotBird != null) {
-			hotBird.Sing();
+			cutscenePlayer.PlaySampleSongCutscene();
 			return;
 		}
 	}

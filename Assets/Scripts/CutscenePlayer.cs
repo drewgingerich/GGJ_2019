@@ -51,11 +51,11 @@ public class CutscenePlayer : MonoBehaviour
 	const string THOUGHT_MUSIC = "Music";
 
   void Start() {
-		StartCoroutine(CutsceneRoutine(OpeningCutsceneRoutine, true));
+		StartCoroutine(CutsceneRoutine(OpeningCutsceneRoutine, true, 1f));
   }
 
 	public void PlaySampleSongCutscene() {
-		StartCoroutine(CutsceneRoutine(SampleSongCutsceneRoutine));
+		StartCoroutine(CutsceneRoutine(() => hotBird.SingRoutine()));
 	}
 
 	public void PlayGoodItemCutscene() {
@@ -70,11 +70,14 @@ public class CutscenePlayer : MonoBehaviour
 		StartCoroutine(CutsceneRoutine(EndingCutsceneRoutine));
     }
 
-	IEnumerator CutsceneRoutine(System.Func<IEnumerator> cutscene, bool rootPlayer = false) {
+	IEnumerator CutsceneRoutine(System.Func<IEnumerator> cutscene, bool rootPlayer = false, float delay = 0f) {
 		if (skipCutscenes) {
 			yield break;
 		}
 		hotBird.EnterCutsceneMode();
+		if (delay > 0) {
+			yield return new WaitForSeconds(delay);
+		}
 		if (rootPlayer) {
 			bird.EnterCutsceneMode();
 			yield return StartCoroutine(FlyToBranch());
@@ -92,11 +95,6 @@ public class CutscenePlayer : MonoBehaviour
 		bird.thoughtsAnim.SetTrigger(thoughtState);
 		yield return new WaitForSeconds(THOUGHT_BUBBLE_APPEARANCE_TIME);
 
-		if (birdState == BIRD_SING || birdState == BIRD_DANCE) {
-			bird.backgroundMusic.volume = 0;
-			bird.song.volume = 1;
-		}
-
 		bird.anim.SetBool(TALKING, true);
 		bird.anim.SetTrigger(birdState);
 		if (noise != null) {
@@ -105,18 +103,13 @@ public class CutscenePlayer : MonoBehaviour
 			audio.time = 0;
 		}
 		if (birdState == BIRD_SING || birdState == BIRD_DANCE) {
-			yield return new WaitForSeconds(5f);
+			yield return StartCoroutine(bird.SingRoutine(3f));
 		} else {
-			yield return new WaitForSeconds(1.5f);
+			yield return new WaitForSeconds(1f);
 		}
 
 		bird.thoughtsAnim.SetBool(THINKING, false);
 		bird.anim.SetBool(TALKING, false);
-
-		if (birdState == BIRD_SING || birdState == BIRD_DANCE) {
-			bird.backgroundMusic.volume = 0.2f;
-			bird.song.volume = 0;
-		}
 
 		yield return new WaitForSeconds(0.5f);
 	}
@@ -129,9 +122,9 @@ public class CutscenePlayer : MonoBehaviour
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 		yield return StartCoroutine(InteractionRoutine(bird, BIRD_SING, THOUGHT_SCRIBBLE));
-		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE, badNoise));
 		fallingLeaf.Fall();
-		yield return new WaitForSeconds(5f);
+		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_ANGRY, THOUGHT_SCRIBBLE, badNoise));
+		yield return new WaitForSeconds(4f);
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_TALK_HAPPY, THOUGHT_LOVE, goodNoise));
 		yield return StartCoroutine(InteractionRoutine(hotBird, BIRD_SING, THOUGHT_MUSIC));
 	}
