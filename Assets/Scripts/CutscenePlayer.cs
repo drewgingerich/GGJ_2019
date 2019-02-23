@@ -77,7 +77,6 @@ public class CutscenePlayer : MonoBehaviour
 			yield break;
 		}
 		if (rootPlayer) {
-			Debug.Log("Hi");
 			player.animating = true;
 		}
 		hotBird.EnterCutsceneMode();

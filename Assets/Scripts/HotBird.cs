@@ -32,7 +32,7 @@ public class HotBird : MonoBehaviour
     public void ExitCutsceneMode() {
         particleSystem.Play();
         interactable.SetActive(true);
-        backgroundMusic.volume = 1;
+        backgroundMusic.volume = 0.2f;
     }
 
 	public IEnumerator SingRoutine(float time = 5.5f){
