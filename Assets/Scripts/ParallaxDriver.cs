@@ -25,6 +25,10 @@ public class ParallaxDriver : MonoBehaviour
         parallaxItems.Remove(item);
     }
 
+    void Start() {
+        previousPosition = transform.position;
+    }
+
     void Update()
     {
         float referenceZDiff = zFarReference.position.z - zNearReference.position.z;

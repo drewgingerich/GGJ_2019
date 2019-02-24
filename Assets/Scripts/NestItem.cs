@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Audio;
 using UnityEngine.Events;
 
 public class NestItem : MonoBehaviour
 {
-    public static List<NestItem> sceneItems = new List<NestItem>();
-    public static List<NestItem> ActiveItems = new List<NestItem>();
-
-    const float minFullSoundDistance = 2;
-    const float minSoundDistance = 10;
-
+    [SerializeField]
+    Transform groupParent;
     [SerializeField]
     ForestFloor floor;
     [SerializeField]
@@ -27,49 +24,36 @@ public class NestItem : MonoBehaviour
     float acceleration = 0.2f;
 
     [SerializeField]
-    Instrument instrument;
-
-    [SerializeField]
     bool lightFall;
     [SerializeField]
     float swaySpeed = 4f;
     [SerializeField]
     float swayAmplitude = 1.5f;
 
+    [SerializeField]
+    ProximityPlayer proximityPlayer;
+    [SerializeField]
+    AreaPlayer areaPlayer;
+
+    [SerializeField]
+    Interactable interactable;
+
     [System.NonSerialized]
     public bool isHeld = false;
+    [System.NonSerialized]
+    public bool nestCooldown = false;
 
     ParallaxDriver currentParallaxDriver;
     Coroutine fallRoutine;
-
-
-    void Awake(){
-        sceneItems.Add(this);
-        ActiveItems.Add(this);
-    }
 
     void Start() {
         currentParallaxDriver = IsInForageCameraBounds() ? forageParallaxDriver : nestParallaxDriver;
         currentParallaxDriver.AddParallaxItem(transform);
     }
 
-    void Update() {
-        float distance = (transform.position - BirdController.activeController.transform.position).magnitude;
-        if (distance < minFullSoundDistance) {
-            instrument.SetVolume(1);
-        } else if (distance < minSoundDistance) {
-            float adjustedDistance = (distance - minFullSoundDistance) / minSoundDistance;
-            instrument.SetVolume(1 - Mathf.Sqrt(adjustedDistance));
-            // instrument.SetVolume(1 - Mathf.Pow(adjustedDistance, 0.3f));
-            // instrument.SetVolume(1 - Mathf.Log10(adjustedDistance));
-
-        } else {
-            instrument.SetVolume(0);
-        }
-    }
-
     public void PickUp() {
         StopAllCoroutines();
+        nestCooldown = false;
         isHeld = true;
         currentParallaxDriver.RemoveParallaxItem(transform);
         currentParallaxDriver = null;
@@ -77,6 +61,12 @@ public class NestItem : MonoBehaviour
 
     public void Fall() {
         isHeld = false;
+        interactable.Deselect();
+        transform.SetParent(groupParent);
+        Vector3 localPosition = transform.localPosition;
+        localPosition.z = 0;
+        transform.localPosition = localPosition;
+
         if (IsInForageCameraBounds()) {
             currentParallaxDriver = forageParallaxDriver;
         } else {
@@ -114,7 +104,7 @@ public class NestItem : MonoBehaviour
             transform.position += move;
             yield return null;
         }
-        Rest();
+        Land();
     }
 
     IEnumerator LightFallRoutine() {
@@ -127,7 +117,7 @@ public class NestItem : MonoBehaviour
             Vector3 newPosition = truePosition;
 
             float swayAdjustmentHorizontal = Mathf.Sin(time * swaySpeed) * swayAmplitude;
-            float swayAdjustmentVertical = Mathf.Abs(Mathf.Cos(time * swaySpeed) * swayAmplitude) * -1;
+            float swayAdjustmentVertical = Mathf.Abs(Mathf.Cos(time * swaySpeed) * swayAmplitude * 1.5f) * -1;
 
             newPosition.x += swayAdjustmentHorizontal;
             newPosition.y += swayAdjustmentVertical * 0.5f;
@@ -138,16 +128,17 @@ public class NestItem : MonoBehaviour
             // transform.position += move;
             yield return null;
         }
-        Rest();
     }
 
-    public void Rest() {
-        Vector3 localPosition = transform.localPosition;
-        localPosition.z = 0;
-        transform.localPosition = localPosition;
+	public void Nest() {
+		proximityPlayer.enabled = false;
+		areaPlayer.enabled = true;
+        interactable.Interact();
+		interactable.SetActive(false);
+	}
+
+    public void Land() {
+        nestCooldown = false;
         StopAllCoroutines();
-        // if (fallRoutine != null) {
-        //     StopCoroutine(fallRoutine);
-        // }
     }
 }

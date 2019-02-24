@@ -9,10 +9,13 @@ using UnityEngine.UI;
 public class BirdController : MonoBehaviour {
 
 	public bool animating;
-	bool foraging = false;
+	public bool foraging = false;
 	bool grounded;
 	float speed = 1;
-	NestItem chosenBit;
+	public NestItem carriedItem;
+
+	Interactable selectedInteractable;
+
 	[SerializeField]
 	Transform forageScreenEntryPoint;
 
@@ -69,8 +72,36 @@ public class BirdController : MonoBehaviour {
 
 	void Start() {
 		Fly();
-		StartCoroutine(Nest());
+		Nest();
 		gameHasStarted = true;
+	}
+
+	void Update() {
+		Interactable nearestInteractable = null;
+		float squareDistanceToNearestInteractable = Mathf.Infinity;
+		foreach (Interactable item in Interactable.activeItems) {
+			float squareDistance = (transform.position - item.transform.position).sqrMagnitude;
+			if (squareDistance < squareDistanceToNearestInteractable) {
+				nearestInteractable = item;
+				squareDistanceToNearestInteractable = squareDistance;
+			}
+		}
+
+		float distance = Mathf.Sqrt(squareDistanceToNearestInteractable);
+		if (distance <= minPickupDistance) {
+			if (nearestInteractable == selectedInteractable) {
+				return;
+			} else if (selectedInteractable != null) {
+				selectedInteractable.Deselect();
+			}
+			selectedInteractable = nearestInteractable;
+			selectedInteractable.Select();
+		} else {
+			if (selectedInteractable != null) {
+				selectedInteractable.Deselect();
+				selectedInteractable = null;
+			}
+		}
 	}
 
 	public void InputMove(Vector2 direction) {
@@ -117,7 +148,7 @@ public class BirdController : MonoBehaviour {
 		ConstrainToCameraHorizontal();
 
 		if (position.y > activeCameraBounds.GetBoundsWorldSpace().max.y) {
-			StartCoroutine(Nest());
+			StartCoroutine(NestRoutine());
 		}
 	}
 
@@ -158,8 +189,14 @@ public class BirdController : MonoBehaviour {
 	}
 
 	IEnumerator Forage() {
+		animating = true;
 		yield return StartCoroutine(cutscenePlayer.ScreenWipe((int) Image.OriginVertical.Top));
+		yield return new WaitForSeconds(0.3f);
 		nestCam.gameObject.SetActive(false);
+
+		// Vector3 position = nestScreenEntryPoint.position;
+		// position.x = transform.position.x;
+		// nestScreenEntryPoint.position = position;
 
 		transform.position = (Vector2)forageScreenEntryPoint.position;
 		Vector3 forageCamPosition = forageCam.transform.position;
@@ -169,91 +206,95 @@ public class BirdController : MonoBehaviour {
 		activeCameraBounds = forageCamBounds;
 
 		yield return StartCoroutine(cutscenePlayer.ScreenUnwipe((int) Image.OriginVertical.Bottom));
-
+		animating = false;
 		foraging = true;
-		yield return null;
 	}
 
-	IEnumerator Nest() {
-		if (gameHasStarted)
+	IEnumerator NestRoutine() {
+		animating = true;
+		if (gameHasStarted) {
 			yield return StartCoroutine(cutscenePlayer.ScreenWipe((int) Image.OriginVertical.Bottom));
-		forageCam.gameObject.SetActive(false);
-		nestCam.gameObject.SetActive(true);
-		if (gameHasStarted)
-			yield return StartCoroutine(cutscenePlayer.ScreenUnwipe((int) Image.OriginVertical.Top));
+			yield return new WaitForSeconds(0.3f);
+		}
 
+		Nest();
+		if (gameHasStarted) {
+			yield return StartCoroutine(cutscenePlayer.ScreenUnwipe((int) Image.OriginVertical.Top));
+		}
+		animating = false;
+		foraging = false;
+	}
+
+	void Nest() {
+		forageCam.gameObject.SetActive(false);
 
 		Vector3 position = forageScreenEntryPoint.position;
 		position.x = transform.position.x;
 		forageScreenEntryPoint.position = position;
 
 		activeCameraBounds = nestCamBounds;
+		nestCam.gameObject.SetActive(true);
 
 		transform.position = (Vector2)nestScreenEntryPoint.position;
-		foraging = false;
+		Vector3 nestCamPosition = nestCam.transform.position;
+		nestCamPosition.x = transform.position.x;
+		nestCam.transform.position = nestCamPosition;
 	}
 
 	public void Interact() {
-		if (null != chosenBit) {
-			DropItem();
-		} else {
-			float distance = minPickupDistance;
-			NestItem selectedBit = null;
-			foreach (NestItem item in NestItem.ActiveItems) {
-				Vector2 diff = (transform.position - item.transform.position);
-				float newDistance = diff.magnitude;
-				if (newDistance <= distance) {
-					selectedBit = item;
-					distance = newDistance;
-				}
-			}
-			if (selectedBit != null) {
-				StartCoroutine(PickUpRoutine(selectedBit));
-				return;
-			}
+		if (animating) {
+			return;
 		}
 
-		if (IsNearHotBird()) {
+		if (carriedItem != null) {
+			DropItem();	
+			return;
+		}
+
+		if (selectedInteractable == null) {
+			return;
+		}
+
+		NestItem selectedItem = selectedInteractable.GetComponent<NestItem>();
+		if (selectedItem != null) {
+			Pickup(selectedItem);
+			return;
+		}
+
+		HotBird hotBird = selectedInteractable.GetComponent<HotBird>();
+		if (hotBird != null) {
 			cutscenePlayer.PlaySampleSongCutscene();
+			return;
 		}
 	}
 
 	public void DropItem() {
-		if (null == chosenBit) {
-			return;
-		}
-		chosenBit.isHeld = false;
-		if (grounded) {
-			chosenBit.transform.localPosition = Vector3.forward * 0.5f;
-		} 
-		chosenBit.transform.SetParent(null);
-		chosenBit.Fall();
-		chosenBit = null;
+		Interactable interactable = carriedItem.GetComponent<Interactable>();
+		interactable.SetActive(true);
+
+		carriedItem.Fall();
+		carriedItem = null;
 	}
 
-	private void Pickup(NestItem cruft) {
-		chosenBit = cruft;
-		chosenBit.isHeld = true;
-		chosenBit.transform.SetParent(beak);
-		chosenBit.transform.localPosition = Vector3.back;
+	public void Pickup(NestItem cruft) {
+		carriedItem = cruft;
+		selectedInteractable.Interact();
+		selectedInteractable.SetActive(false);
+		selectedInteractable = null;
+		carriedItem.PickUp();
+		StartCoroutine(PickUpRoutine());
 	}
 
-	IEnumerator PickUpRoutine(NestItem cruft) {
+	IEnumerator PickUpRoutine() {
 		if (grounded) {
 			animating = true;
 			anim.SetTrigger(pickUpTrigger);
 			yield return new WaitForSeconds(pickUpAnimationTime);
 			animating = false;
 		}
-		Pickup(cruft);
+		carriedItem.transform.SetParent(beak);
+		carriedItem.transform.localPosition = Vector3.back;
 	}
-
-	public bool IsNearHotBird(){
-		if (hotBird == null) return false;
-		return Vector3.Distance(hotBird.transform.position, transform.position) < 2.4;
-	}
-
-	
 
 #if UNITY_EDITOR
 	void OnDrawGizmosSelected() {

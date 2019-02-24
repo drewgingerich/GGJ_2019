@@ -1,11 +1,15 @@
 fileFormatVersion: 2
-guid: 469c037f0510ae643be58fa203aa8304
+guid: abe806fd508854c0aad28a51af25c1db
 TextureImporter:
   fileIDToRecycleName:
-    21300000: bird_thoughtbubble_love (1)_0
-    21300002: bird_thoughtbubble_love (1)_1
-    21300004: bird_thoughtbubble_love (1)_2
-    21300006: bird_thoughtbubble_love (1)_3
+    21300000: controller_keyboard_0
+    21300002: controller_keyboard_1
+    21300004: controller_keyboard_2
+    21300006: controller_keyboard_3
+    21300008: controller_keyboard_4
+    21300010: controller_keyboard_5
+    21300012: controller_keyboard_6
+    21300014: controller_keyboard_7
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -51,7 +55,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -84,39 +88,17 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bird_thoughtbubble_love (1)_0
+      name: controller_keyboard_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 150
-        height: 130
+        width: 191
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,19 +106,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7f2b3b135b504440aa149ac33505715
+      spriteID: e8052dc99f7d8478dac7c50f24c75aca
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bird_thoughtbubble_love (1)_1
+      name: controller_keyboard_1
       rect:
         serializedVersion: 2
-        x: 150
+        x: 191
         y: 0
-        width: 150
-        height: 130
+        width: 191
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,19 +126,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7cb252fa74cfbc4ba451f2499436272
+      spriteID: 5203114e8cf8245879b488698920154d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bird_thoughtbubble_love (1)_2
+      name: controller_keyboard_2
       rect:
         serializedVersion: 2
-        x: 300
+        x: 382
         y: 0
-        width: 150
-        height: 130
+        width: 191
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,19 +146,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c56928a8b3bf71479224c168e8d7834
+      spriteID: 21c8f0913a00b42a0acd97b7e21dca9c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bird_thoughtbubble_love (1)_3
+      name: controller_keyboard_3
       rect:
         serializedVersion: 2
-        x: 450
+        x: 573
         y: 0
-        width: 150
-        height: 130
+        width: 191
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,7 +166,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7279de8ca92dc4247a54498c903ab71a
+      spriteID: 09726af1462fe421c87932d734c17df0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_keyboard_4
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 0
+        width: 191
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f74f604cb58478aa5e2147e3d0d54b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_keyboard_5
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 0
+        width: 191
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca2a0a9a274a497ea764cff20817f36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_keyboard_6
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 0
+        width: 191
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2011cec6d34ef4110bf8dd9de9baaf9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_keyboard_7
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 0
+        width: 191
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab77b8892480a44a8aabb737517f54c0
       vertices: []
       indices: 
       edges: []
@@ -192,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c954ec5154f81f5499a22317c10dee3d
+    spriteID: 68eef2a864c3146fc8373857bef3a029
     vertices: []
     indices: 
     edges: []

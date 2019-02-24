@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7916834470755944881}
   - component: {fileID: 5114059167246404432}
   m_Layer: 0
-  m_Name: Layer (10)
+  m_Name: GroundBushes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 7427648767436210948}
   - component: {fileID: 4377775237123572792}
   m_Layer: 0
-  m_Name: Layer (8)
+  m_Name: TreesGround2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2206548284531148717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.91}
+  m_LocalPosition: {x: -0.92, y: 0, z: 7.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2810020541647038739}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 8298480986448371825}
   - component: {fileID: 1100709052421172259}
   m_Layer: 0
-  m_Name: Layer (3)
+  m_Name: SkyTexture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 3475241500204895835}
   - component: {fileID: 1040871128106468254}
   m_Layer: 0
-  m_Name: Layer (2)
+  m_Name: SkyThreads1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 3910350613194884823}
   - component: {fileID: 397138485389586440}
   m_Layer: 0
-  m_Name: Layer (9)
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,8 +554,9 @@ MonoBehaviour:
   - {fileID: 2803168138704326399}
   - {fileID: 8367150987059738558}
   - {fileID: 2634956970176911700}
-  - {fileID: 4412145888558050216}
   - {fileID: 7427648767436210948}
+  - {fileID: 5595840205451098435}
+  - {fileID: 4412145888558050216}
   - {fileID: 3910350613194884823}
   - {fileID: 7916834470755944881}
   - {fileID: 6173457633336926068}
@@ -589,6 +590,7 @@ MonoBehaviour:
   - {fileID: 5401945349326765572}
   - {fileID: 4377775237123572792}
   - {fileID: 1044369482795815144}
+  - {fileID: 7577263638788002141}
 --- !u!1 &4705954300484303120
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +602,7 @@ GameObject:
   - component: {fileID: 6173457633336926068}
   - component: {fileID: 6936801008083668194}
   m_Layer: 0
-  m_Name: Layer (11)
+  m_Name: BigTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -750,7 +752,7 @@ GameObject:
   - component: {fileID: 1657094169015752319}
   - component: {fileID: 5494810681936909574}
   m_Layer: 0
-  m_Name: Layer (4)
+  m_Name: Horizon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,7 +831,7 @@ GameObject:
   - component: {fileID: 6950421022707571986}
   - component: {fileID: 3595852495379141166}
   m_Layer: 0
-  m_Name: Layer (5)
+  m_Name: TreesGround1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -940,7 +942,7 @@ GameObject:
   - component: {fileID: 8367150987059738558}
   - component: {fileID: 3173451831775053449}
   m_Layer: 0
-  m_Name: Layer (6)
+  m_Name: Trees1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1019,7 +1021,7 @@ GameObject:
   - component: {fileID: 4412145888558050216}
   - component: {fileID: 7577263638788002141}
   m_Layer: 0
-  m_Name: Layer (7)
+  m_Name: TreeFog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,7 +1100,7 @@ GameObject:
   - component: {fileID: 2634956970176911700}
   - component: {fileID: 5401945349326765572}
   m_Layer: 0
-  m_Name: Layer (14)
+  m_Name: Trees2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,7 +1179,7 @@ GameObject:
   - component: {fileID: 8439613198670862082}
   - component: {fileID: 6285715518579561543}
   m_Layer: 0
-  m_Name: Layer (13)
+  m_Name: ForegroundFog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1256,7 +1258,7 @@ GameObject:
   - component: {fileID: 8076968554967736019}
   - component: {fileID: 4568476848677400309}
   m_Layer: 0
-  m_Name: Layer (1)
+  m_Name: Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1380,7 +1382,7 @@ GameObject:
   - component: {fileID: 5595840205451098435}
   - component: {fileID: 1044369482795815144}
   m_Layer: 0
-  m_Name: Layer (9)
+  m_Name: TopLeaves2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1492,7 +1494,7 @@ GameObject:
   - component: {fileID: 6634524409278030539}
   - component: {fileID: 6386834995054829350}
   m_Layer: 0
-  m_Name: Layer (12)
+  m_Name: ForegroundBushes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1571,7 +1573,7 @@ GameObject:
   - component: {fileID: 8212895473815857812}
   - component: {fileID: 2225645881610118549}
   m_Layer: 0
-  m_Name: Layer (5)
+  m_Name: SkyThreads2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1650,7 +1652,7 @@ GameObject:
   - component: {fileID: 2803168138704326399}
   - component: {fileID: 7796946869044180667}
   m_Layer: 0
-  m_Name: Layer (15)
+  m_Name: TopLeaves1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

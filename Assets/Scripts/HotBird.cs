@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class HotBird : MonoBehaviour
 {
-
-    public List<NestItem> desiredItems = new List<NestItem>();
-
     [SerializeField]
 	public AudioSource song;
 
@@ -19,19 +16,39 @@ public class HotBird : MonoBehaviour
     [SerializeField]
     public AudioSource backgroundMusic;
 
-    private float songLength = 5;
+    [SerializeField]
+    Interactable interactable;
 
-	public IEnumerator Sing(){
+    [SerializeField]
+    new ParticleSystem particleSystem;
+
+    public void EnterCutsceneMode() {
+        particleSystem.Stop();
+        particleSystem.Clear();
+        interactable.SetActive(false);
         backgroundMusic.volume = 0;
-        anim.SetBool("isTalking", true);
-        anim.SetTrigger("Explain");
-        thoughtsAnim.SetBool("Singing", true);
-        song.volume = 1;
-        yield return new WaitForSeconds(10f);
-        Debug.Log("and we're back");
-		song.volume = 0;
-        anim.SetTrigger("Chill");
-        thoughtsAnim.SetTrigger("Chill");
-        backgroundMusic.volume = 1;
+    }
+
+    public void ExitCutsceneMode() {
+        particleSystem.Play();
+        interactable.SetActive(true);
+        backgroundMusic.volume = 0.2f;
+    }
+
+	public IEnumerator SingRoutine(float time = 5.5f){
+        yield return StartCoroutine(FadeVolumeRoutine(1));
+        yield return new WaitForSeconds(time);
+        yield return StartCoroutine(FadeVolumeRoutine(0));
+    }
+
+    IEnumerator FadeVolumeRoutine(float target) {
+        const float fadeTime = 1f;
+        float timer = 0;
+        float start = song.volume;
+        while (song.volume != target) {
+            timer += Time.deltaTime;
+            song.volume = Mathf.Lerp(start, target, timer/fadeTime);
+            yield return null;
+        }
     }
 }
